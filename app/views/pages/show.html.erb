@@ -1,0 +1,53 @@
+<div class="page">
+  <div class="container">
+    <div class="col-log-8 col-md-8 col-sm-12 col-xs-12 page-left">
+      <h3>New Reviews</h3>
+      <hr>
+    </div>
+
+    <div class="col-log-4 col-md-4 col-sm-12 col-xs-12 page-right">
+      <div class="top-5 active"><h4 class="tab-title">Top 5</h4></div>
+      <div class="recent"><h4 class="tab-title">Recent</h4></div>
+      <hr>
+      <div class="top-5-list">
+        <ul>
+          <li>
+            Game mini
+          </li>
+          <hr>
+          <li>
+            Game chien thuat
+          </li>
+        </ul>
+      </div>
+
+      <div class="recent-list">
+        <ul>
+          <li>
+            Game hanh dong
+          </li>
+          <hr>
+          <li>
+            Game vui
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('.top-5').on('click', function() {
+    $(this).addClass("active");
+    $('.recent').removeClass("active");
+    $('.top-5-list').show();
+    $('.recent-list').hide();
+  });
+
+  $('.recent').on('click', function() {
+    $(this).addClass(" active");
+    $('.top-5').removeClass("active");
+    $('.top-5-list').hide();
+    $('.recent-list').show();
+  });
+</script>
