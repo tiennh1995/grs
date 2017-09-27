@@ -4,11 +4,36 @@
     <title>Grs</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application", media: "all",
+      "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application",
+      "data-turbolinks-track": "reload" %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="grs">
+    <header>
+      <%= render "layouts/header" %>
+    </header>
+
+    <div class="body">
+      <div class="flash">
+        <% flash.each do |message_type, message| %>
+          <% if message_type == "notice" || message_type == "success" %>
+            <% message_type = "info" %>
+          <% elsif message_type == "alert" %>
+            <% message_type = "danger" %>
+          <% end %>
+          <div class="alert alert-<%= message_type %>"><%= message %></div>
+        <% end %>
+      </div>
+
+      <%= yield %>
+    </div>
+
+    <footer>
+      <%= render "layouts/footer" %>
+    </footer>
   </body>
 </html>

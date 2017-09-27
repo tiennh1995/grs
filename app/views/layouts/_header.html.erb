@@ -1,0 +1,61 @@
+<div class="header">
+  <div class="header-above">
+    <div class="container">
+      <div class="header-above-right">
+        <%= link_to root_path do %>
+          <h3>Game Review System</h3>
+        <% end %>
+      </div>
+
+      <div class="header-above-left">
+        <h4>Login</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="header-below">
+    <div class="container">
+      <div class="header-below-left">
+        <ul class="menu" id="menu-header">
+          <li class="li-icon" onclick="myFunction()">
+            <a href="javascript:void(0);" class="icon">&#9776;</a>
+          </li>
+
+          <li class="item active">
+            Pages
+          </li>
+
+          <li class="item">
+            Games
+          </li>
+
+          <li class="item">
+            Reviews
+          </li>
+          <div class="clearfix"></div>
+        </ul>
+      </div>
+
+      <div class="header-below-right">
+        <%= form_tag "#", class: "form-search" do %>
+          <%= text_field_tag :search, params[:search],
+            placeholder: "Enter name of game, categories...",
+            class: "header-search" %>
+          <i class="fa fa-search" aria-hidden="true"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+</div>
+
+<script>
+  function myFunction() {
+    var x = document.getElementById("menu-header");
+    if (x.className === "menu") {
+      x.className += " responsive";
+    } else {
+      x.className = "menu";
+    }
+  }
+</script>
