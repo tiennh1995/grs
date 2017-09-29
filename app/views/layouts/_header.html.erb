@@ -6,9 +6,8 @@
           <h3>Game Review System</h3>
         <% end %>
       </div>
-
       <div class="header-above-left">
-        <h4>Login</h4>
+        <%= link_to "Login", user_session_path,class: "btn btn-primary btn-sm btn-block"%>
       </div>
     </div>
   </div>
@@ -20,22 +19,18 @@
           <li class="li-icon" onclick="myFunction()">
             <a href="javascript:void(0);" class="icon">&#9776;</a>
           </li>
-
           <li class="item active">
             Pages
           </li>
-
           <li class="item">
             Games
           </li>
-
           <li class="item">
             Reviews
           </li>
           <div class="clearfix"></div>
         </ul>
       </div>
-
       <div class="header-below-right">
         <%= form_tag "#", class: "form-search" do %>
           <%= text_field_tag :search, params[:search],
