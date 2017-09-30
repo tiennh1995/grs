@@ -136,14 +136,20 @@
     }
 
     .page {
+      padding-bottom: 20px;
       padding-top: 20px;
 
       .container {
         background-color: white;
+        padding: 10px;
       }
 
       .page-left {
         border-right: 1px solid rgba(0, 0, 0, 0.1);
+
+        .new-reviews {
+          font-weight: bolder;
+        }
       }
 
       .page-right {

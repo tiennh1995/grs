@@ -1,0 +1,22 @@
+<div class="game-mini">
+  <div class="game-left">
+    <div class="game-avatar">
+      <%= image_tag game.avatar, class: "img-responsive" %>
+    </div>
+  </div>
+
+  <div class="game-right">
+    <div class="game-name">
+      <span class="name"><%= index %>. <%= game.name %></span>
+    </div>
+
+    <div class="game-genre">
+      <% game.genres.each do |genre| %>
+        <%= genre.name if genre = game.genres.last %>
+        <%= genre.name + ", " if genre != game.genres.last %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="clearfix"></div>
+</div>

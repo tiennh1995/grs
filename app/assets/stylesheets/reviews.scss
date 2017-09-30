@@ -1,0 +1,52 @@
+.review-mini {
+  .review-header {
+    margin-bottom: 10px;
+
+    .review-title {
+      .title {
+        font-weight: bolder;
+      }
+    }
+
+    .review-date {
+      font-size: 12px;
+    }
+  }
+
+  .review-body {
+    margin-bottom: 10px;
+
+    .game-avatar {
+      float: left;
+      margin-bottom: 5px;
+      margin-right: 10px;
+    }
+
+    .exten-avatar {
+      width: 100%;
+    }
+  }
+
+  .review-footer {
+    .review-read-more {
+      float: left;
+
+      .btn-read-more {
+        background-color: #999999;
+        color: white;
+      }
+    }
+
+    .review-comment {
+      float: right;
+
+      a {
+        color: black;
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

@@ -4,6 +4,7 @@ class CreateGames < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :require
       t.string :info
+      t.string :avatar
 
       t.timestamps
     end

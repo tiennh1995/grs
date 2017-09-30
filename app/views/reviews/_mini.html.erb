@@ -1,0 +1,39 @@
+<div class="review-mini">
+  <div class="review-header">
+    <div class="review-title">
+      <h4 class="title"><%= review.title %></h4>
+    </div>
+
+    <div class="review-date">
+      By <%= review.user.nick_name %>, on <%= l review.created_at,
+        default: :format %>
+    </div>
+  </div>
+
+  <div class="review-body">
+    <div class="game-avatar">
+      <%= image_tag review.game.avatar, class: "img-responsive" %>
+    </div>
+
+    <div class="review-content">
+      <%= review.content %>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+
+  <div class="review-footer">
+    <div class="review-read-more">
+      <%= link_to "Read more", "#",
+        class: "btn btn-default btn-xs btn-read-more" %>
+    </div>
+
+    <div class="review-comment">
+      <%= link_to "#" do %>
+        <i class="fa fa-comments" aria-hidden="true"></i>
+        <%= review.comments.size %> comments
+      <% end %>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+</div>
+
