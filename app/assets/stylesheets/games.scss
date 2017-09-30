@@ -1,0 +1,19 @@
+.game-mini {
+  .game-left {
+    float: left;
+    margin-right: 10px;
+
+    .game-avatar {
+      width: 100px;
+    }
+  }
+
+  .game-right {
+    .game-name {
+      .name {
+        font-size: 16px;
+        font-weight: bolder;
+      }
+    }
+  }
+}

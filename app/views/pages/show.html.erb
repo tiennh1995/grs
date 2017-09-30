@@ -1,8 +1,13 @@
 <div class="page">
   <div class="container">
     <div class="col-log-8 col-md-8 col-sm-12 col-xs-12 page-left">
-      <h3>New Reviews</h3>
+      <h3 class="new-reviews">New Reviews</h3>
       <hr>
+      <% @reviews.each do |review| %>
+        <%= render "reviews/mini", review: review %>
+        <hr>
+      <% end %>
+      <%= paginate @reviews %>
     </div>
 
     <div class="col-log-4 col-md-4 col-sm-12 col-xs-12 page-right">
@@ -11,25 +16,23 @@
       <hr>
       <div class="top-5-list">
         <ul>
-          <li>
-            Game mini
-          </li>
-          <hr>
-          <li>
-            Game chien thuat
-          </li>
+          <% @games.each_with_index do |game, index| %>
+            <li>
+              <%= render "games/mini", index: index + 1, game: game %>
+            </li>
+            <hr>
+          <% end %>
         </ul>
       </div>
 
       <div class="recent-list">
         <ul>
-          <li>
-            Game hanh dong
-          </li>
-          <hr>
-          <li>
-            Game vui
-          </li>
+          <% @games.take(3).each_with_index do |game, index| %>
+            <li>
+              <%= render "games/mini", index: index + 1, game: game %>
+            </li>
+            <hr>
+          <% end %>
         </ul>
       </div>
     </div>

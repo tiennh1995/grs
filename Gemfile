@@ -17,9 +17,15 @@ gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 gem "bootstrap-sass", "3.2.0.0"
 gem "font-awesome-rails"
+gem "devise"
+gem "faker"
+gem "carrierwave", "~> 1.0"
+gem "mini_magick", "3.8.0"
+gem "kaminari"
 
 group :development, :test do
   gem "byebug", platform: :mri
+  gem "pry"
 end
 
 group :development do
