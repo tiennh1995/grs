@@ -6,4 +6,8 @@ document.addEventListener('turbolinks:load', function() {
       game.className += " exten-avatar";
     }
   }
+
+  setTimeout(function(){
+    $('.flash').slideUp(1000);
+  }, 1500);
 });
