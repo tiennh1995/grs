@@ -24,7 +24,7 @@
       .header-above-left {
         display: inline-block;
         float: right;
-        padding-top: 15px;
+        padding-top: 10px;
       }
     }
 
@@ -67,6 +67,8 @@
 
             .li-icon {
               display: none;
+              font-size: 20px;
+              line-height: 23px;
             }
           }
         }
@@ -83,6 +85,7 @@
             .header-search {
               border-radius: 3px;
               border: none;
+              font-size: 16px;
               height: 30px;
               padding: 5px;
               padding-right: 30px;
@@ -94,7 +97,7 @@
               font-size: 16px;
               position: absolute;
               right: 10px;
-              top: 5px;
+              top: 7px;
             }
           }
         }
@@ -132,7 +135,7 @@
       width: auto;
       word-wrap: break-word;
       text-align: right;
-      z-index: 1;
+      z-index: 11;
     }
 
     .page {
@@ -188,10 +191,20 @@
 }
 
 @media screen and (max-width: 600px) {
+  h3 {
+    font-size: 18px;
+  }
+
   .header-below {
     .container {
       margin: 0px;
       padding: 0px;
+    }
+  }
+
+  .header-above-right {
+    .title {
+      font-size: 18px;
     }
   }
 
@@ -236,6 +249,7 @@
       display: block !important;
       float: none !important;
       margin-right: 0 !important;
+      padding-left: 10px !important;
       text-align: left;
     }
   }
@@ -243,6 +257,10 @@
   .page {
     .page-left {
       border-right: none !important;
+
+      .new-reviews {
+        font-size: 20px;
+      }
     }
   }
 }
