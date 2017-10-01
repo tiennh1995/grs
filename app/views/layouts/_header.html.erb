@@ -8,7 +8,12 @@
       </div>
 
       <div class="header-above-left">
-        <h4>Login</h4>
+        <% if user_signed_in? %>
+          <h4><%= link_to "Log out", destroy_user_session_path,
+            method: :delete %></h4>
+        <% else %>
+          <h4><%= link_to "Log in", new_user_session_path %></h4>
+        <% end %>
       </div>
     </div>
   </div>
