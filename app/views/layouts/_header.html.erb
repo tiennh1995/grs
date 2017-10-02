@@ -9,13 +9,31 @@
 
       <div class="header-above-right">
         <% if user_signed_in? %>
-          <h4 class="item-right"><%= link_to "Log out",
-            destroy_user_session_path, method: :delete %></h4>
+          <h4 class="dropdown item-right header-dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+              title="<%= current_user.nick_name %>">
+              <%= image_tag current_user.avatar_url,
+                class: "img-responsive avatar-header" %>
+              <span class="header-user-name">
+                <%= truncate current_user.nick_name, length: 20 %>
+              </span>
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to "Profile", "#" %>
+              </li>
+              <li>
+                <%= link_to "Log out", destroy_user_session_path,
+                  method: :delete %>
+              </li>
+            </ul>
+          </h4>
         <% else %>
           <h4 class="item-right">
             <%= link_to "Sign up", new_user_registration_path %>
-
           </h4>
+          <h4>or</h4>
           <h4 class="item-right">
             <%= link_to "Log in", new_user_session_path %>
           </h4>
@@ -33,7 +51,7 @@
           </li>
 
           <li class="item active">
-            Pages
+            <%= link_to "Pages", root_path %>
           </li>
 
           <li class="item">

@@ -4,5 +4,5 @@ class Game < ApplicationRecord
   has_many :screenshots, dependent: :destroy
   has_many :genres, through: :game_genres, source: :genre
 
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :cover, CoverUploader
 end

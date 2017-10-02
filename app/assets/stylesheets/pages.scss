@@ -24,10 +24,26 @@
       .header-above-right {
         float: right;
 
+        .header-dropdown {
+          list-style: none;
+
+          a,
+          a:hover {
+            text-decoration: inherit;
+          }
+
+          .avatar-header {
+            background-color: white;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            height: 40px;
+            width: 40px;
+          }
+        }
+
         h4 {
           float: right;
-          line-height: 60px;
-          margin-right: 10px;
+          line-height: 50px;
           padding-left: 5px;
           padding-right: 5px;
 
@@ -40,7 +56,7 @@
           }
         }
 
-        h4:hover {
+        .item-right:hover {
           background-color: #ccc;
         }
       }
@@ -73,6 +89,14 @@
               list-style: none;
               margin-right: 5px;
               padding: 0 5px;
+
+              a {
+                color: white;
+              }
+
+              a:hover {
+                text-decoration: inherit;
+              }
             }
 
             .item:hover {
