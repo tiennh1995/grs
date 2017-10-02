@@ -1,9 +1,9 @@
 document.addEventListener('turbolinks:load', function() {
-  var gameAvatars = document.getElementsByClassName('game-avatar');
-  for (var i = 0; i < gameAvatars.length; i++) {
-    var game = gameAvatars[i];
+  var gameCovers = document.getElementsByClassName('game-cover');
+  for (var i = 0; i < gameCovers.length; i++) {
+    var game = gameCovers[i];
     if (game.clientWidth >= 500) {
-      game.className += " exten-avatar";
+      game.className += " exten-cover";
     }
   }
 

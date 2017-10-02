@@ -6,4 +6,6 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
+
+  enum sex: [:male, :female]
 end

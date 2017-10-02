@@ -1,4 +1,4 @@
-class AvatarUploader < CarrierWave::Uploader::Base
+class CoverUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   storage :file
 
@@ -11,6 +11,6 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    "#{model.sex}.png"
+    "default.png"
   end
 end

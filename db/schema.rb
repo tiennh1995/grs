@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20170930071910) do
     t.string   "name"
     t.string   "require"
     t.string   "info"
-    t.string   "avatar"
+    t.string   "cover"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20170930071910) do
   create_table "users", force: :cascade do |t|
     t.string   "nick_name"
     t.string   "avatar"
+    t.integer  "sex",                    default: 0
     t.boolean  "admin",                  default: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
