@@ -1,18 +1,25 @@
 <div class="header">
   <div class="header-above">
     <div class="container">
-      <div class="header-above-right">
+      <div class="header-above-left">
         <%= link_to root_path do %>
           <h3 class="title">Game Review System</h3>
         <% end %>
       </div>
 
-      <div class="header-above-left">
-          <% if user_signed_in? %>
-            <h4><%= link_to "Log out", destroy_user_session_path, method: :delete %></h4>
-          <% else %>
-            <h4><%= link_to "Log in", new_user_session_path %></h4>
-          <% end %>
+      <div class="header-above-right">
+        <% if user_signed_in? %>
+          <h4 class="item-right"><%= link_to "Log out",
+            destroy_user_session_path, method: :delete %></h4>
+        <% else %>
+          <h4 class="item-right">
+            <%= link_to "Sign up", new_user_registration_path %>
+
+          </h4>
+          <h4 class="item-right">
+            <%= link_to "Log in", new_user_session_path %>
+          </h4>
+        <% end %>
       </div>
     </div>
   </div>
@@ -36,6 +43,20 @@
           <li class="item">
             Reviews
           </li>
+
+          <% if user_signed_in? %>
+            <li class="item-left"><%= link_to "Log out",
+              destroy_user_session_path, method: :delete %>
+            </li>
+          <% else %>
+            <li class="item-left">
+              <%= link_to "Sign up", new_user_registration_path %>
+            </li>
+
+            <li class="item-left">
+              <%= link_to "Log in", new_user_session_path %>
+            </li>
+          <% end %>
           <div class="clearfix"></div>
         </ul>
       </div>

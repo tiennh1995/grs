@@ -8,7 +8,7 @@
     .header-above {
       height: 60px;
 
-      .header-above-right {
+      .header-above-left {
         display: inline-block;
         margin-right: 20px;
 
@@ -21,10 +21,28 @@
         }
       }
 
-      .header-above-left {
-        display: inline-block;
+      .header-above-right {
         float: right;
-        padding-top: 10px;
+
+        h4 {
+          float: right;
+          line-height: 60px;
+          margin-right: 10px;
+          padding-left: 5px;
+          padding-right: 5px;
+
+          a {
+            color: black;
+          }
+
+          a:hover {
+            text-decoration: none;
+          }
+        }
+
+        h4:hover {
+          background-color: #ccc;
+        }
       }
     }
 
@@ -61,6 +79,24 @@
               background-color: #66cc33;
             }
 
+
+            .item-left {
+              color: white;
+              cursor: pointer;
+              display: none;
+              float: left;
+              font-size: 14px;
+              font-weight: bold;
+              line-height: 50px;
+              list-style: none;
+              margin-right: 5px;
+              padding: 0 5px;
+            }
+
+            .item-left:hover {
+              text-decoration: none;
+            }
+
             .active {
               background-color: #66cc33;
             }
@@ -85,7 +121,6 @@
             .header-search {
               border-radius: 3px;
               border: none;
-              font-size: 16px;
               height: 30px;
               padding: 5px;
               padding-right: 30px;
@@ -94,7 +129,6 @@
 
             .fa-search {
               cursor: pointer;
-              font-size: 16px;
               position: absolute;
               right: 10px;
               top: 7px;
@@ -202,7 +236,7 @@
     }
   }
 
-  .header-above-right {
+  .header-above-left {
     .title {
       font-size: 18px;
     }
@@ -241,6 +275,18 @@
     }
   }
 
+  .header-below-right {
+    .form-search {
+      .header-search {
+        font-size: 16px;
+      }
+
+      .fa-search {
+        font-size: 16px;
+      }
+    }
+  }
+
   .responsive {
     position: relative;
 
@@ -252,6 +298,19 @@
       padding-left: 10px !important;
       text-align: left;
     }
+
+    .item-left {
+      border-radius: 0 !important;
+      display: block !important;
+      float: none !important;
+      margin-right: 0 !important;
+      padding-left: 10px !important;
+      text-align: left;
+
+      a:hover {
+        text-decoration: none !important;
+      }
+    }
   }
 
   .page {
@@ -261,6 +320,12 @@
       .new-reviews {
         font-size: 20px;
       }
+    }
+  }
+
+  .header-above-right {
+    .item-right {
+      display: none;
     }
   }
 }
