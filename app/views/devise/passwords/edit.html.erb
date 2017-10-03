@@ -1,0 +1,42 @@
+<div class="password">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3
+        col-xs-12 col-sm-12 jumbotron">
+        <h2 class="text-center">Change your password</h2>
+        <%= form_for resource, as: resource_name,
+          url: password_path(resource_name), html: {method: :put} do |f| %>
+          <%= devise_error_messages! %>
+          <%= f.hidden_field :reset_password_token %>
+
+          <div class="field">
+            <%= f.label :password, "New password" %><br />
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+            <% end %>
+            <%= f.password_field :password, autofocus: true,
+              placeholder: "Enter your new password",
+              autocomplete: "off", class: "form-control" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation, "Confirm new password" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off",
+              placeholder: "Enter your new password confirmation",
+              class: "form-control" %>
+          </div>
+
+          <br/>
+          <div class="actions">
+            <%= f.button "Change my password",
+              class: "btn btn-block btn-primary",
+              data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>
+              Changing..."} %>
+          </div>
+        <% end %>
+        <hr>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
