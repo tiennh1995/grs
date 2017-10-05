@@ -4,12 +4,26 @@
 
     .review-title {
       .title {
+        display: inline-block;
         font-weight: bolder;
+        word-break: break-word;
+      }
+
+      .star {
+        color: rgb(247, 219, 18);;
+        display: inline-block;
       }
     }
 
     .review-date {
       font-size: 12px;
+    }
+
+    .review-game {
+      h5 {
+        display: inline-block;
+        word-break: break-word;
+      }
     }
   }
 

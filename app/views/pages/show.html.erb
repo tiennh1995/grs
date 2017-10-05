@@ -4,53 +4,14 @@
       <h3 class="new-reviews">New Reviews</h3>
       <hr>
       <% @reviews.each do |review| %>
-        <%= render "reviews/mini", review: review %>
+        <%= render "reviews/medium", review: review %>
         <hr>
       <% end %>
       <%= paginate @reviews %>
     </div>
 
     <div class="col-log-4 col-md-4 col-sm-12 col-xs-12 page-right">
-      <div class="top-5 active"><h4 class="tab-title">Top 5</h4></div>
-      <div class="recent"><h4 class="tab-title">Recent</h4></div>
-      <hr>
-      <div class="top-5-list">
-        <ul>
-          <% @games.each_with_index do |game, index| %>
-            <li>
-              <%= render "games/mini", index: index + 1, game: game %>
-            </li>
-            <hr>
-          <% end %>
-        </ul>
-      </div>
-
-      <div class="recent-list">
-        <ul>
-          <% @games.take(3).each_with_index do |game, index| %>
-            <li>
-              <%= render "games/mini", index: index + 1, game: game %>
-            </li>
-            <hr>
-          <% end %>
-        </ul>
-      </div>
+      <%= render "page_right", games: @games %>
     </div>
   </div>
 </div>
-
-<script type="text/javascript">
-  $('.top-5').on('click', function() {
-    $(this).addClass("active");
-    $('.recent').removeClass("active");
-    $('.top-5-list').show();
-    $('.recent-list').hide();
-  });
-
-  $('.recent').on('click', function() {
-    $(this).addClass(" active");
-    $('.top-5').removeClass("active");
-    $('.top-5-list').hide();
-    $('.recent-list').show();
-  });
-</script>

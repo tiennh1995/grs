@@ -1,7 +1,7 @@
 <div class="review-mini">
   <div class="review-header">
     <div class="review-title">
-      <h5 class="title"><%= review.title %></h5>
+      <h4 class="title"><%= review.title %></h4>
       <div class="star">
         <% (1..review.point).each do |index| %>
           <i class="fa fa-star"></i>
@@ -13,9 +13,17 @@
       By <%= link_to review.user.nick_name, "#" %>, on <%= l review.created_at,
         default: :format %>
     </div>
+
+    <div class="review-game">
+      The game: <h5><%= link_to review.game.name, review.game %></h5>
+    </div>
   </div>
 
   <div class="review-body">
+    <div class="game-cover">
+      <%= image_tag review.game.cover, class: "img-responsive" %>
+    </div>
+
     <div class="review-content">
       <%= review.content %>
     </div>
