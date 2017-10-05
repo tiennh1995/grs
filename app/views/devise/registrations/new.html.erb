@@ -33,7 +33,19 @@
               class: "form-control" %>
           </div>
 
-          <br/>
+          <div class="field">
+            <%= f.label :sex, "Sex: "  %>
+            <label>
+              <%= f.radio_button :sex, "male", checked: true %>
+              <span>Male</span>
+            </label>
+
+            <label>
+              <%= f.radio_button :sex, "female" %>
+              <span>Female</span>
+            </label>
+          </div>
+
           <div class="actions">
             <%= f.button "Sign up", class: "btn btn-block btn-primary",
               data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>

@@ -12,6 +12,10 @@
         display: inline-block;
         margin-right: 20px;
 
+        .title {
+          padding-top: 10px;
+        }
+
         a {
           color: black;
         }
@@ -38,6 +42,22 @@
             display: inline-block;
             height: 40px;
             width: 40px;
+          }
+        }
+
+        h5 {
+          float: right;
+          font-size: 14px;
+          line-height: 50px;
+          padding-left: 5px;
+          padding-right: 5px;
+
+          a {
+            color: black;
+          }
+
+          a:hover {
+            text-decoration: none;
           }
         }
 
@@ -184,6 +204,7 @@
 
   .body {
     background-color: #ededed;
+    font-size: 14px;
     min-height: 50vh;
 
     .flash {
@@ -249,8 +270,20 @@
 }
 
 @media screen and (max-width: 600px) {
-  h3 {
-    font-size: 18px;
+  .body {
+    font-size: 12px !important;
+
+    h3 {
+      font-size: 18px;
+    }
+
+    h4 {
+      font-size: 16px;
+    }
+
+    h5 {
+      font-size: 14px;
+    }
   }
 
   .header-below {
@@ -349,6 +382,10 @@
 
   .header-above-right {
     .item-right {
+      display: none;
+    }
+
+    .item-or {
       display: none;
     }
   }

@@ -1,0 +1,140 @@
+<div class="game">
+  <div class="container">
+    <div class="col-log-8 col-md-8 col-sm-12 col-xs-12 game-left">
+      <div class="game-name">
+        <h3><%= @game.name %></h3>
+      </div>
+
+      <div class="game-cover">
+        <%= image_tag @game.cover, class: "img-responsive" %>
+      </div>
+
+      <div class="game-genre">
+        <p class="genre-title">Genres: </p>
+        <% @game.genres.each do |genre| %>
+          <%= view_genre @game.genres, genre %>
+        <% end %>
+      </div>
+
+      <div class="game-rate">
+        <p class="rate-title">Rate: </p>
+        <div class="col-md-3 col-lg-3 col-sm-4 col-xs-12 game-rate-left">
+          <h1><%= @game.avarage_rate %></h1>
+          <div class="game-sum-review">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            Sum: <span><%= @game.reviews.size %></span>
+          </div>
+        </div>
+
+        <div class="col-md-9 col-lg-9 col-sm-8 col-xs-12 game-rate-right">
+          <ul>
+            <li>
+              <i class="fa fa-star" aria-hidden="true">5</i>
+              <div class="bar bar-5">
+                <span><%= @game.rate_five.size %></span>
+              </div>
+              <div class="clearfix"></div>
+            </li>
+            <li>
+              <i class="fa fa-star" aria-hidden="true">4</i>
+              <div class="bar bar-4">
+                <span><%= @game.rate_four.size %></span>
+              </div>
+              <div class="clearfix"></div>
+            </li>
+            <li>
+              <i class="fa fa-star" aria-hidden="true">3</i>
+              <div class="bar bar-3">
+                <span><%= @game.rate_three.size %></span>
+              </div>
+              <div class="clearfix"></div>
+            </li>
+            <li>
+              <i class="fa fa-star" aria-hidden="true">2</i>
+              <div class="bar bar-2">
+                <span><%= @game.rate_two.size %></span>
+              </div>
+              <div class="clearfix"></div>
+            </li>
+            <li>
+              <i class="fa fa-star" aria-hidden="true">1</i>
+              <div class="bar bar-1">
+                <span><%= @game.rate_one.size %></span>
+              </div>
+              <div class="clearfix"></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="game-info-tab">
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab"
+            href="#information">Information</a>
+          </li>
+          <li><a data-toggle="tab" href="#require">Require</a></li>
+          <li><a data-toggle="tab" href="#screenshot">Screen shots</a></li>
+          <li><a data-toggle="tab" href="#review">Reviews</a></li>
+        </ul>
+
+        <div class="tab-content">
+          <div id="information" class="tab-pane fade in active">
+            <p><%= @game.info %></p>
+          </div>
+          <div id="require" class="tab-pane fade">
+            <p><%= @game.required %></p>
+          </div>
+          <div id="screenshot" class="tab-pane fade">
+            <div class="w3-content w3-display-container">
+              <%= image_tag "1.jpg", class: "img-responsive mySlides" %>
+              <%= image_tag "2.jpg", class: "img-responsive mySlides" %>
+              <%= image_tag "3.jpg", class: "img-responsive mySlides" %>
+              <%= image_tag "4.jpg", class: "img-responsive mySlides" %>
+              <%= image_tag "5.jpg", class: "img-responsive mySlides" %>
+
+              <button class="w3-button w3-black w3-display-left"
+                onclick="plusDivs(-1)">&#10094;</button>
+              <button class="w3-button w3-black w3-display-right"
+                onclick="plusDivs(1)">&#10095;</button>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+          <div id="review" class="tab-pane fade">
+            <div class="write-review">
+              <button class="btn btn-default btn-review">Write review</button>
+              <div class="clearfix"></div>
+              <hr>
+            </div>
+            <% @game.reviews.each do |review| %>
+              <%= render "reviews/mini", review: review %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <div class="col-log-4 col-md-4 col-sm-12 col-xs-12 game-right">
+      <%= render "pages/page_right", games: @games %>
+    </div>
+  </div>
+</div>
+
+<script>
+  var slideIndex = 1;
+  showDivs(slideIndex);
+
+  function plusDivs(n) {
+    showDivs(slideIndex += n);
+  }
+
+  function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    if (n > x.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = x.length}
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
+    }
+    x[slideIndex-1].style.display = "block";
+  }
+</script>

@@ -1,0 +1,24 @@
+<div class="top-5 active"><h4 class="tab-title">Top 5</h4></div>
+<div class="recent"><h4 class="tab-title">Recent</h4></div>
+<hr>
+<div class="top-5-list">
+  <ul>
+    <% games.each_with_index do |game, index| %>
+      <li>
+        <%= render "games/mini", index: index + 1, game: game %>
+      </li>
+      <hr>
+    <% end %>
+  </ul>
+</div>
+
+<div class="recent-list">
+  <ul>
+    <% games.take(3).each_with_index do |game, index| %>
+      <li>
+        <%= render "games/mini", index: index + 1, game: game %>
+      </li>
+      <hr>
+    <% end %>
+  </ul>
+</div>

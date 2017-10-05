@@ -9,7 +9,7 @@
 
       <div class="header-above-right">
         <% if user_signed_in? %>
-          <h4 class="dropdown item-right header-dropdown">
+          <h5 class="dropdown item-right header-dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"
               title="<%= current_user.nick_name %>">
               <%= image_tag current_user.avatar_url,
@@ -28,12 +28,12 @@
                   method: :delete %>
               </li>
             </ul>
-          </h4>
+          </h5>
         <% else %>
           <h4 class="item-right">
             <%= link_to "Sign up", new_user_registration_path %>
           </h4>
-          <h4>or</h4>
+          <h4 class="item-or">or</h4>
           <h4 class="item-right">
             <%= link_to "Log in", new_user_session_path %>
           </h4>

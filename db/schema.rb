@@ -29,11 +29,12 @@ ActiveRecord::Schema.define(version: 20170930071910) do
 
   create_table "games", force: :cascade do |t|
     t.string   "name"
-    t.string   "require"
+    t.string   "required"
     t.string   "info"
     t.string   "cover"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.float    "point",      default: 0.0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "genres", force: :cascade do |t|
