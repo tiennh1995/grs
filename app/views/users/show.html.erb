@@ -1,0 +1,22 @@
+
+<h4>Email: <i class="fa fa-envelope fa-fw w3-margin-right w3-text-theme"></i>
+<%= @currentUser.email %></h4>
+<br>
+
+<h4>
+Name: <i class="fa fa-user fa-fw w3-margin-right w3-text-theme"></i>
+<%= @currentUser.nick_name %></h4>
+<br>
+
+<h4>
+Birthday: <i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i>
+<%= @currentUser.created_at %></h4>
+<br>
+
+<h4>
+Sex: <i class="fa fa-mars-stroke"></i>
+<%= @currentUser.sex %></h4>
+<br>
+
+<%= link_to "Change password", "#" %>
+
