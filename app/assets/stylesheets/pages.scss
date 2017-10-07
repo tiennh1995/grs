@@ -3,9 +3,13 @@
 @import "font-awesome";
 
 .grs {
+  background-color: #ededed;
+
   .header {
+    margin-bottom: 20px;
 
     .header-above {
+      background-color: white;
       height: 60px;
 
       .header-above-left {
@@ -186,6 +190,7 @@
   .footer {
     background: #0b0b0b;
     color: #a4a4a4;
+    margin-top: 20px;
 
     .sub-title {
       color: white;
@@ -203,7 +208,6 @@
   }
 
   .body {
-    background-color: #ededed;
     font-size: 14px;
     min-height: 50vh;
 
@@ -218,9 +222,6 @@
     }
 
     .page {
-      padding-bottom: 20px;
-      padding-top: 20px;
-
       .container {
         background-color: white;
         padding: 10px;

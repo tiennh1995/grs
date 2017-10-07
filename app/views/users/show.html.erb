@@ -1,22 +1,54 @@
+<div class="user">
+  <div class="container">
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 user-left">
+      <div class="user-avatar">
+        <%= image_tag @user.avatar_url, class: "img-responsive avatar" %>
+        <div class="clearfix"></div>
+      </div>
 
-<h4>Email: <i class="fa fa-envelope fa-fw w3-margin-right w3-text-theme"></i>
-<%= @currentUser.email %></h4>
-<br>
+      <div class="user-info">
+        <div class="info email">
+          <label><i class="fa fa-envelope" aria-hidden="true"></i></label>
+          <%= @user.email %>
+        </div>
 
-<h4>
-Name: <i class="fa fa-user fa-fw w3-margin-right w3-text-theme"></i>
-<%= @currentUser.nick_name %></h4>
-<br>
+        <div class="info nick-name">
+          <label><i class="fa fa-user" aria-hidden="true"></i></label>
+          <%= @user.nick_name %>
+        </div>
 
-<h4>
-Birthday: <i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i>
-<%= @currentUser.created_at %></h4>
-<br>
+        <div class="info birthday">
+          <label><i class="fa fa-birthday-cake" aria-hidden="true"></i></label>
+          <%= l @user.birthday, format: :default %>
+        </div>
 
-<h4>
-Sex: <i class="fa fa-mars-stroke"></i>
-<%= @currentUser.sex %></h4>
-<br>
+        <div class="info sex">
+          <label><i class="fa fa-mars-stroke"></i></label>
+          <%= @user.sex.capitalize %>
+        </div>
 
-<%= link_to "Change password", "#" %>
+        <div class="info review-number">
+          <label>
+            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+          </label>
+          <label><%= @user.reviews.size %></label>
+        </div>
+        <hr>
+        <%= link_to "Change information", "#" %>
+        <%= link_to "Change password", "#" %>
+        <div class="clearfix"></div>
+      </div>
+    </div>
 
+    <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 user-right">
+      <hr class="resposive">
+      <h4><%= @user.nick_name %>'s reviews</h4>
+      <hr class="normal">
+      <% @reviews.each do |review| %>
+        <%= render "reviews/medium", review: review %>
+        <hr>
+      <% end %>
+      <%= paginate @reviews %>
+    </div>
+  </div>
+</div>

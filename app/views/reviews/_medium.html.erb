@@ -10,8 +10,8 @@
     </div>
 
     <div class="review-date">
-      By <%= link_to review.user.nick_name, "#" %>, on <%= l review.created_at,
-        default: :format %>
+      By <%= link_to review.user.nick_name, review.user %>, on
+        <%= l review.created_at, format: :default %>
     </div>
 
     <div class="review-game">
