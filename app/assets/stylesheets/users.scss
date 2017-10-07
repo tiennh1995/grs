@@ -1,0 +1,66 @@
+.user {
+  .container {
+    background-color: white;
+    padding: 5px;
+
+    .user-left {
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 15px;
+
+      .user-avatar {
+        float: left;
+        height: 150px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+        width: 150px;
+
+        .avatar {
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          margin-bottom: 0;
+        }
+      }
+
+      .user-info {
+        float: left;
+
+        .info {
+          margin-bottom: 7px;
+
+          .fa {
+            font-size: 18px;
+            width: 30px;
+          }
+        }
+
+        a {
+          display: block;
+          margin-bottom: 5px;
+        }
+
+        .review-number {
+          font-size: 18px;
+        }
+      }
+    }
+
+    .user-right {
+      .resposive {
+        display: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .user {
+    .user-right {
+      .normal {
+        display: none;
+      }
+
+      .resposive {
+        display: block !important;
+      }
+    }
+  }
+}

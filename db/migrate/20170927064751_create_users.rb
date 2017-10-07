@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :avatar
       t.integer :sex, default: 0
       t.boolean :admin, default: false
-      t.datetime :birthday
+      t.datetime :birthday, default: DateTime.now
 
       t.timestamps
     end
