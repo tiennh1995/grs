@@ -1,7 +1,7 @@
 <div class="page">
   <div class="container">
     <div class="col-log-8 col-md-8 col-sm-12 col-xs-12 page-left">
-      <h3 class="new-reviews">New Reviews</h3>
+      <h3 class="new-reviews">Commented, liked Reviews</h3>
       <hr>
       <% @reviews.each do |review| %>
         <%= render "reviews/medium", review: review %>
@@ -11,7 +11,7 @@
     </div>
 
     <div class="col-log-4 col-md-4 col-sm-12 col-xs-12 page-right">
-      <%= render "page_right", top_games: @top_games,
+      <%= render "pages/page_right", top_games: @top_games,
         recent_games: @recent_games %>
     </div>
   </div>

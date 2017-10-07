@@ -17,6 +17,16 @@ class Game < ApplicationRecord
     (total_rate / reviews.size).to_f
   end
 
+  class << self
+    def top_games
+      all.order(point: :desc).limit 5
+    end
+
+    def recent_games
+      all.order(point: :desc).limit 3
+    end
+  end
+
   private
   def total_rate
     sum_rate = 0;

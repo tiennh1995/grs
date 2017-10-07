@@ -3,7 +3,7 @@
 <hr>
 <div class="top-5-list">
   <ul>
-    <% games.each_with_index do |game, index| %>
+    <% top_games.each_with_index do |game, index| %>
       <li>
         <%= render "games/mini", index: index + 1, game: game %>
       </li>
@@ -14,7 +14,7 @@
 
 <div class="recent-list">
   <ul>
-    <% games.take(3).each_with_index do |game, index| %>
+    <% recent_games.take(3).each_with_index do |game, index| %>
       <li>
         <%= render "games/mini", index: index + 1, game: game %>
       </li>
