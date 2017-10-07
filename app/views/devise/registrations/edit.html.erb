@@ -1,26 +1,42 @@
-<h2>Change Password</h2>
+<div class="password">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3
+        col-xs-12 col-sm-12 jumbotron">
+        <h2 class="text-center">Change Password</h2>
+        <%= form_for resource, as: resource_name,
+          url: registration_path(resource_name), html: {method: :put} do |f| %>
+          <%= devise_error_messages! %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+          <div class="field">
+            <%= f.label :current_password, "Old Password" %><br />
+            <%= f.password_field :current_password, autofocus: true,
+              autocomplete: "off", placeholder: "Enter your old password",
+              class: "form-control"  %>
+          </div>
 
-  <div class="field">
-    <%= f.label :current_password, "Old Password" %><br />
-    <%= f.password_field :current_password, autofocus: true, autocomplete: "off" %>
+          <div class="field">
+            <%= f.label :password, "New Password" %><br />
+            <%= f.password_field :password, autocomplete: "off",
+              placeholder: "Enter your new password", class: "form-control" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off",
+              placeholder: "Enter your password confirmation",
+              class: "form-control" %>
+          </div>
+
+          <div class="actions">
+            <%= f.button "Change Password", class: "btn btn-block btn-primary",
+              data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>
+              Changing..."} %>
+          </div>
+          <hr>
+        <% end %>
+        <%= link_to "Back", :back, class: "btn btn-default" %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password, "New Password" %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change Password" %>
-  </div>
-<% end %>
-
-<%= link_to "Back", :back %>
+</div>
