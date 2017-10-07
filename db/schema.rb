@@ -10,25 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170930071910) do
+ActiveRecord::Schema.define(version: 20171007094734) do
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "review_id"
-    t.string   "content"
+    t.integer  "user_id",    null: false
+    t.integer  "review_id",  null: false
+    t.string   "content",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "emotitions", force: :cascade do |t|
+    t.integer  "user_id",        null: false
+    t.integer  "review_id",      null: false
+    t.integer  "emotition_type", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "game_genres", force: :cascade do |t|
-    t.integer  "game_id"
-    t.integer  "genre_id"
+    t.integer  "game_id",    null: false
+    t.integer  "genre_id",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "games", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",                     null: false
     t.string   "required"
     t.string   "info"
     t.string   "cover"
@@ -38,26 +46,24 @@ ActiveRecord::Schema.define(version: 20170930071910) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "game_id"
+    t.integer  "user_id",    null: false
+    t.integer  "game_id",    null: false
     t.integer  "point"
-    t.string   "title"
-    t.string   "content"
-    t.integer  "like"
-    t.integer  "dislike"
+    t.string   "title",      null: false
+    t.string   "content",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "screenshots", force: :cascade do |t|
-    t.integer  "game_id"
-    t.string   "image"
+    t.integer  "game_id",    null: false
+    t.string   "image",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,7 +73,7 @@ ActiveRecord::Schema.define(version: 20170930071910) do
     t.string   "avatar"
     t.integer  "sex",                    default: 0
     t.boolean  "admin",                  default: false
-    t.datetime "birthday",               default: '2017-10-07 08:55:48'
+    t.datetime "birthday",               default: '2017-10-07 10:37:25'
     t.datetime "created_at",                                             null: false
     t.datetime "updated_at",                                             null: false
     t.string   "email",                  default: "",                    null: false
