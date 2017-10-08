@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
+  def load_popular_games
+    @top_games = Game.top_games.includes :genres
+    @recent_games = Game.recent_games.includes :genres
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |user_params|

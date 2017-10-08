@@ -1,8 +1,7 @@
 class GamesController < ApplicationController
-  before_action :load_game, only: :show
+  before_action :load_game, :load_popular_games, only: :show
 
   def show
-    @games = Game.all.includes :genres
   end
 
   private
