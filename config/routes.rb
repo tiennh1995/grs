@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :games
   resources :users
   resources :reviews
+  resources :genres
 end

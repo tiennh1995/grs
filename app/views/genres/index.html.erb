@@ -1,0 +1,27 @@
+<div class="genre">
+  <div class="container">
+    <h3>All Genres</h3>
+    <div class="genres-list">
+      <%= form_tag genres_path, method: :get, remote: true do %>
+        <% @genres.each do |genre| %>
+          <label>
+            <%= check_box_tag "genre_ids[]", genre.id, false,
+              {class: "genre-check-box"} %>
+            <span class="genre-name"><%= genre.name %></span>
+          </label>
+        <% end %>
+      <%= submit_tag "Search", class: "btn btn-default" %>
+      <% end %>
+    </div>
+    <hr>
+    <div class="game-list">
+      <h3>Games</h3>
+      <div class="game-list-size">
+        Have <span class="games-size"><%= @games.size %></span> games
+      </div>
+      <div class="game-list-content">
+        <%= render "games" %>
+      </div>
+    </div>
+  </div>
+</div>

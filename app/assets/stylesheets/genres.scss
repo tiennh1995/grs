@@ -1,0 +1,31 @@
+.genre {
+  padding: 10px;
+
+  .container {
+    background-color: white;
+
+    .genres-list {
+      .genre-check-box {
+        -webkit-transform: scale(1.2);
+      }
+
+      .genre-name {
+        margin-right: 10px;
+        font-size: 18px;
+        padding: 0 5px;
+      }
+    }
+
+    .game-list {
+      .game-list-size {
+        margin-bottom: 20px;
+      }
+
+      .game-list-content {
+        .game-item {
+          height: 100px;
+        }
+      }
+    }
+  }
+}

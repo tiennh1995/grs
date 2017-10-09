@@ -55,7 +55,7 @@
           </li>
 
           <li class="item">
-            <%= link_to "Games", "#" %>
+            <%= link_to "Genres", genres_path %>
           </li>
 
           <li class="item">
@@ -103,5 +103,17 @@
     } else {
       x.className = "menu";
     }
+  }
+
+  function openListGenre() {
+    $('.item-expand').css('margin-bottom', '5px');
+    $('.div-item').show();
+    $('.item-expand').css('display', 'inline-flex');
+  }
+
+  function closeListGenre() {
+    $('.item-expand').css('margin-bottom', '0');
+    $('.div-item').hide();
+    $('.item-expand').hide();
   }
 </script>
