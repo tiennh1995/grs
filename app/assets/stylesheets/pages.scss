@@ -100,9 +100,9 @@
 
           .menu {
             -webkit-padding-start: 0px;
+            margin-bottom: 0;
 
             .item {
-              border-radius: 3px;
               color: white;
               cursor: pointer;
               display: block;
@@ -112,21 +112,20 @@
               line-height: 50px;
               list-style: none;
               margin-right: 5px;
-              padding: 0 5px;
 
               a {
-                color: white;
+                border-radius: 3px;
+                display: block;
+                line-height: 50px;
+                padding: 0 5px;
               }
 
               a:hover {
+                color: white;
+                background-color: #66cc33;
                 text-decoration: inherit;
               }
             }
-
-            .item:hover {
-              background-color: #66cc33;
-            }
-
 
             .item-left {
               color: white;
@@ -155,11 +154,12 @@
               line-height: 23px;
             }
           }
+
         }
 
         .header-below-right {
           position: absolute;
-          right: 10px;
+          right: 15px;
           top: 11px;
           width: 50%;
 
@@ -357,8 +357,11 @@
       display: block !important;
       float: none !important;
       margin-right: 0 !important;
-      padding-left: 10px !important;
       text-align: left;
+
+      a {
+        padding-left: 15px !important;
+      }
     }
 
     .item-left {
@@ -366,7 +369,7 @@
       display: block !important;
       float: none !important;
       margin-right: 0 !important;
-      padding-left: 10px !important;
+      padding-left: 15px !important;
       text-align: left;
 
       a:hover {
