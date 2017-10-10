@@ -50,15 +50,15 @@
             <a href="javascript:void(0);" class="icon">&#9776;</a>
           </li>
 
-          <li class="item active">
+          <li class="item pages active">
             <%= link_to "Pages", root_path %>
           </li>
 
-          <li class="item">
+          <li class="item genres">
             <%= link_to "Genres", genres_path %>
           </li>
 
-          <li class="item">
+          <li class="item reviews">
             <%= link_to "Reviews", reviews_path %>
           </li>
 
@@ -96,6 +96,15 @@
 </div>
 
 <script>
+  var pathName = window.location.pathname.substring(1);
+  $('.item').removeClass('active');
+  if ($('.item').hasClass(pathName)) {
+    $('.' + pathName).addClass('active');
+  }
+  else {
+    $('.pages').addClass('active');
+  }
+
   function myFunction() {
     var x = document.getElementById("menu-header");
     if (x.className === "menu") {
