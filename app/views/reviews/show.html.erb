@@ -1,1 +1,81 @@
-<%= raw @review.content %>
+<div class="review">
+  <div class="container">
+    <div class="col-log-8 col-md-8 col-sm-12 col-xs-12 review-left">
+      <div class="review-header">
+        <div class="review-title">
+          <h4 class="title"><%= @review.title %></h4>
+          <div class="star">
+            <% (1..@review.point).each do |index| %>
+              <i class="fa fa-star"></i>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="review-date">
+          By <%= link_to @review.user.nick_name, @review.user %>, on
+            <%= l @review.created_at, format: :default %>
+        </div>
+
+        <div class="review-game">
+          The game: <h5><%= link_to @review.game.name, @review.game %></h5>
+        </div>
+      </div>
+
+      <div class="review-body">
+        <div class="game-cover">
+          <%= image_tag @review.game.cover, class: "img-responsive" %>
+        </div>
+
+        <div class="clearfix"></div>
+        <hr>
+        <div class="review-content">
+          <%= raw @review.content %>
+        </div>
+      </div>
+
+      <div class="review-footer">
+        <div class="review-action">
+          <span class="review-like">
+            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+            <%= @review.likes.size %>
+          </span>
+
+          <span class="review-dislike">
+            <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+            <%= @review.dislikes.size %>
+          </span>
+
+          <span class="review-comment">
+            <i class="fa fa-comments" aria-hidden="true"></i>
+            <%= @review.comments.size %>
+          </span>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="review-comments">
+        <h4>Comments</h4>
+        <hr>
+        <div class="review-comments-list">
+          <% @comments.each do |comment| %>
+            <%= render "comments/comment", comment: comment %>
+            <hr>
+          <% end %>
+          <%= paginate @comments %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-log-4 col-md-4 col-sm-12 col-xs-12 review-right">
+      <%= render "pages/page_right", top_games: @top_games,
+        recent_games: @recent_games %>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('.reply-comment-icon').on('click', function() {
+    var id = $(this).data('id');
+    $('.reply-' + id).toggle();
+  })
+</script>

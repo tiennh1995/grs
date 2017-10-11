@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!
-  before_action :load_popular_games, only: :index
+  before_action :authenticate_user!, except: :show
   before_action :load_game, only: [:new, :create]
   before_action :load_review, only: :show
+  before_action :load_popular_games, only: [:index, :show]
 
   def index
     @reviews = current_user.invole_reviews.includes(:comments, :game)
@@ -31,6 +31,7 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    @comments = @review.comments.page(params[:page]).per 5
   end
 
   private

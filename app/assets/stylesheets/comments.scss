@@ -1,0 +1,42 @@
+.comment {
+  display: inline-flex;
+
+  hr {
+    margin: 10px 0;
+  }
+
+  .comment-left {
+    float: left;
+    display: inline-table;
+
+    .comment-avatar {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      height: 40px;
+    }
+  }
+
+  .comment-right {
+    padding: 0 10px;
+    width: 95%;
+
+    .nick-name {
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+
+    .comment-footer {
+      float: left;
+
+      .reply,
+      .reply-comment-icon {
+        cursor: pointer;
+        padding: 2px;
+      }
+
+    }
+
+    .reply-comments {
+      display: none;
+    }
+  }
+}

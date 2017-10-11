@@ -1,0 +1,35 @@
+.reply-comment {
+  display: inline-flex;
+
+  hr {
+    margin: 10px 0;
+  }
+
+  .reply-comment-left {
+    float: left;
+    display: inline-table;
+
+    .reply-comment-avatar {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      height: 30px;
+    }
+  }
+
+  .reply-comment-right {
+    padding: 0 10px;
+    width: 95%;
+
+    .nick-name {
+      font-weight: bold;
+      margin-bottom: 0;
+    }
+
+    .reply-comment-footer {
+      float: left;
+
+      .reply {
+        padding: 2px;
+      }
+    }
+  }
+}
