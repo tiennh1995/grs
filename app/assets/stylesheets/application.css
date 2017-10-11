@@ -10,7 +10,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require medium-editor/medium-editor.min
+ *= require medium-editor/medium-editor-insert-plugin.min
+ *= require medium-editor/medium-editor-insert-plugin-frontend.min
+ *= require font-awesome
  *= require_tree .
  *= require_self
- *= require font-awesome
  */

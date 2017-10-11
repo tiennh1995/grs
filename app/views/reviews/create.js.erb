@@ -1,0 +1,4 @@
+<% if @review.errors.any? %>
+  $('.review-form-errors')
+    .html('<%= j render "shared/error_messages", object: @review %>');
+<% end %>

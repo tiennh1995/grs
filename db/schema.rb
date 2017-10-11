@@ -52,13 +52,13 @@ ActiveRecord::Schema.define(version: 20171007094734) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "game_id",    null: false
-    t.integer  "point"
-    t.string   "title",      null: false
-    t.string   "content",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id",                null: false
+    t.integer  "game_id",                null: false
+    t.integer  "point",      default: 1
+    t.string   "title",                  null: false
+    t.string   "content",                null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "screenshots", force: :cascade do |t|
@@ -69,11 +69,11 @@ ActiveRecord::Schema.define(version: 20171007094734) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "nick_name"
+    t.string   "nick_name",                                              null: false
     t.string   "avatar"
     t.integer  "sex",                    default: 0
     t.boolean  "admin",                  default: false
-    t.datetime "birthday",               default: '2017-10-10 05:59:08'
+    t.datetime "birthday",               default: '2017-10-11 05:38:30'
     t.datetime "created_at",                                             null: false
     t.datetime "updated_at",                                             null: false
     t.string   "email",                  default: "",                    null: false

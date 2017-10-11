@@ -6,6 +6,9 @@ class Game < ApplicationRecord
 
   mount_uploader :cover, CoverUploader
 
+  validates :name, presence: true
+  validates :point, presence: true
+
   ["rate_five", "rate_four", "rate_three", "rate_two", "rate_one"]
     .each do |rate|
       define_method rate do
