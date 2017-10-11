@@ -1,4 +1,5 @@
-.review-mini {
+.review-mini,
+.review {
   .review-header {
     margin-bottom: 10px;
 
@@ -51,11 +52,13 @@
       }
     }
 
-    .review-comment {
+    .review-action {
       float: right;
 
-      a {
-        color: black;
+      .review-like,
+      .review-dislike,
+      .review-comment {
+        padding: 2px;
       }
 
       a:hover {
@@ -122,6 +125,49 @@
             display: inline-block;
             font-weight: bolder;
           }
+        }
+      }
+    }
+  }
+}
+
+.review {
+  .container {
+    background-color: white;
+
+    .review-left {
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 0 10px;
+    }
+
+    .review-right {
+      padding: 5px;
+
+      .top-5,
+      .recent {
+        cursor: pointer;
+        display: inline-block;
+        padding: 5px;
+      }
+
+      .top-5:hover,
+      .recent:hover {
+        background-color: #ccc;
+      }
+
+      .recent-list {
+        display: none;
+      }
+
+      .active {
+        background-color: #ccc;
+      }
+
+      ul {
+        -webkit-padding-start: 0px;
+
+        li {
+          list-style: none;
         }
       }
     }

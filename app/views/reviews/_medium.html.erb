@@ -32,15 +32,27 @@
 
   <div class="review-footer">
     <div class="review-read-more">
-      <%= link_to "Read more", "#",
+      <%= link_to "Read more", review,
         class: "btn btn-default btn-xs btn-read-more" %>
     </div>
 
-    <div class="review-comment">
-      <%= link_to "#" do %>
-        <i class="fa fa-comments" aria-hidden="true"></i>
-        <%= review.comments.size %> comments
-      <% end %>
+    <div class="review-action">
+      <span class="review-like">
+        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+        <%= review.likes.size %>
+      </span>
+
+      <span class="review-dislike">
+        <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+        <%= review.dislikes.size %>
+      </span>
+
+      <span class="review-comment">
+        <%= link_to "#" do %>
+          <i class="fa fa-comments" aria-hidden="true"></i>
+          <%= review.comments.size %>
+        <% end %>
+      </span>
     </div>
     <div class="clearfix"></div>
   </div>

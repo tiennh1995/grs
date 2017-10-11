@@ -4,6 +4,8 @@ class Review < ApplicationRecord
 
   has_many :comments, dependent: :destroy
   has_many :emotitions, dependent: :destroy
+  has_many :likes, -> {where emotition_type: :like}, class_name: Emotition.name
+  has_many :dislikes, -> {where emotition_type: :dislike}, class_name: Emotition.name
 
   validates :user, presence: true
   validates :game, presence: true
