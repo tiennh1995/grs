@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
   enum sex: [:male, :female]
 
+  validates :nick_name, presence: true
+
   def invole_reviews
     review_ids = reviews.pluck :id
     review_ids += Comment.where(user_id: self.id).pluck :review_id

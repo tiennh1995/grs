@@ -64,3 +64,66 @@
     }
   }
 }
+
+.new-review {
+  .container {
+    background-color: white;
+    padding: 15px;
+
+    .field {
+      margin-bottom: 20px;
+
+      .rate-label {
+        margin-right: 10px;
+      }
+
+      .fa-star {
+        color: #f7db12;
+        cursor: pointer;
+        font-size: 18px;
+      }
+
+      .fa-star:hover {
+        color: #f7db12;
+      }
+    }
+
+    .editable {
+      height: auto;
+      min-height: 400px;
+    }
+
+    .medium-editor-hidden {
+      display: none;
+    }
+
+    .actions {
+      margin-top: 10px;
+      float: right;
+    }
+
+    .game-review {
+      .game-review-left {
+        margin-bottom: 20px;
+        .game-review-cover {
+          max-height: 300px;
+        }
+      }
+
+      .game-review-right {
+        .game-name {
+          a {
+            color: black;
+          }
+        }
+
+        .game-genre {
+          .genre-title {
+            display: inline-block;
+            font-weight: bolder;
+          }
+        }
+      }
+    }
+  }
+}

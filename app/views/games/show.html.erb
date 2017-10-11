@@ -79,10 +79,10 @@
 
         <div class="tab-content">
           <div id="information" class="tab-pane fade in active">
-            <p><%= @game.info %></p>
+            <p><%= raw @game.info %></p>
           </div>
           <div id="require" class="tab-pane fade">
-            <p><%= @game.required %></p>
+            <p><%= raw @game.required %></p>
           </div>
           <div id="screenshot" class="tab-pane fade">
             <div class="w3-content w3-display-container">
@@ -101,7 +101,9 @@
           </div>
           <div id="review" class="tab-pane fade">
             <div class="write-review">
-              <button class="btn btn-default btn-review">Write review</button>
+              <%= link_to "Write review", new_game_review_path(@game),
+                data: {no_turbolink: true},
+                class: "btn btn-default btn-review" %>
               <div class="clearfix"></div>
               <hr>
             </div>

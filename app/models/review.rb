@@ -5,6 +5,12 @@ class Review < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :emotitions, dependent: :destroy
 
+  validates :user, presence: true
+  validates :game, presence: true
+  validates :title, presence: true
+  validates :content, presence: true
+  validates :point, presence: true
+
   class << self
     def top_reviews
       review_ids = Emotition.where(emotition_type: :like).group(:review_id).
