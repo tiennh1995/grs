@@ -39,7 +39,7 @@
             emotition: @emotition %>
 
           <span class="review-comment">
-            <%= link_to "#" do %>
+            <%= link_to "#", class: "review-comment-action" do %>
               <i class="fa fa-comments" aria-hidden="true"></i>
               <%= @review.comments.size %>
             <% end %>

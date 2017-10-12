@@ -8,8 +8,6 @@ module ApplicationHelper
   end
 
   def check_opacity review, type
-    if current_user && current_user.send(type, review)
-      "emotition-opacity"
-    end
+    "emotition-opacity" if current_user && current_user.send(type, review)
   end
 end

@@ -13,6 +13,10 @@ class Review < ApplicationRecord
   validates :content, presence: true
   validates :point, presence: true
 
+  def emotition_by_user user
+    emotitions.find_by user: user
+  end
+
   class << self
     def top_reviews
       review_ids = Emotition.where(emotition_type: :like).group(:review_id).
