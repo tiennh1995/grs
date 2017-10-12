@@ -6,4 +6,10 @@ module ApplicationHelper
     end
     link += ","
   end
+
+  def check_opacity review, type
+    if current_user && current_user.send(type, review)
+      "emotition-opacity"
+    end
+  end
 end

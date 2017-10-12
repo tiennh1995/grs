@@ -1,0 +1,8 @@
+<span class="<%= check_opacity review, :liked? %>">
+  <% if current_user && current_user.liked?(review) %>
+    <%= render "emotitions/unlike_form", review: review,
+      emotition: emotition %>
+  <% else %>
+    <%= render "emotitions/like_form", review: review %>
+  <% end %>
+</span>

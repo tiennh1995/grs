@@ -21,4 +21,12 @@ class User < ApplicationRecord
     review_ids = review_ids.uniq
     Review.where id: review_ids
   end
+
+  def liked? review
+    emotitions.find_by review: review, emotition_type: :like
+  end
+
+  def disliked? review
+    emotitions.find_by review: review, emotition_type: :dislike
+  end
 end

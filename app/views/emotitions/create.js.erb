@@ -1,0 +1,4 @@
+$('.review-like').html('<%= j render "emotitions/like",
+  review: @review, emotition: @emotition %>');
+$('.review-dislike').html('<%= j render "emotitions/dislike",
+  review: @review, emotition: @emotition %>');
