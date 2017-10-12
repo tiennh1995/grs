@@ -8,11 +8,10 @@
       padding: 15px;
 
       .user-avatar {
-        float: left;
-        height: 150px;
+        display: inline-block;
         margin-bottom: 10px;
         margin-right: 10px;
-        width: 150px;
+        max-width: 200px;
 
         .avatar {
           border: 1px solid rgba(0, 0, 0, 0.1);
@@ -21,8 +20,6 @@
       }
 
       .user-info {
-        float: left;
-
         .info {
           margin-bottom: 7px;
 
@@ -46,6 +43,43 @@
     .user-right {
       .resposive {
         display: none;
+      }
+    }
+  }
+}
+
+.user-edit {
+  .container {
+    background-color: white;
+    padding: 10px;
+
+    .user-edit-left {
+      .avatar-form {
+        display: inline-block;
+        position: relative;
+
+        .avatar-edit {
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          margin: 0;
+        }
+
+        .avatar-field {
+          bottom: 0;
+          display: none;
+          left: 0;
+          position: absolute;
+          width: 200px;
+        }
+      }
+    }
+
+    .user-edit-right {
+      .field {
+        margin-bottom: 10px;
+
+        label {
+          margin-right: 10px;
+        }
       }
     }
   }

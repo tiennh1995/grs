@@ -1,33 +1,70 @@
-<h2>Change information</h2>
+<div class="user-edit">
+  <div class="container">
+    <h2>Change information</h2>
 
-<%= form_for @user do |f| %>
-  <%= render 'shared/error_messages', object: @user %>
-  <div class="field">
-    <%= f.label :nick_name %><br />
-    <%= f.text_field :nick_name, autofocus: true %>
+    <%= form_for @user do |f| %>
+      <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 user-edit-left">
+        <div class="avatar-form">
+          <%= image_tag @user.avatar_url, class: "img-responsive avatar-edit" %>
+          <%= f.file_field :avatar, class: "avatar-field" %>
+        </div>
+      </div>
+
+      <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 user-edit-right">
+        <%= render "shared/error_messages", object: @user %>
+        <div class="field">
+          <%= f.label :nick_name %><br />
+          <%= f.text_field :nick_name, autofocus: true,
+            class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :birthday %><br />
+          <%= f.date_field :birthday, class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :sex, "Sex: "  %>
+          <label>
+            <%= f.radio_button :sex, "male", checked: true %>
+            <span>Male</span>
+          </label>
+
+          <label>
+            <%= f.radio_button :sex, "female" %>
+            <span>Female</span>
+          </label>
+        </div>
+
+        <div class="actions">
+          <%= link_to "Cancel", @user, class: "btn btn-danger" %>
+          <%= f.button "Save change", class: "btn btn-primary",
+            data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>
+            Changing..."} %>
+        </div>
+      <% end %>
+    </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :birthday %><br />
-    <%= f.date_field :birthday %>
-  </div>
+<script type="text/javascript">
+  $('.avatar-form').on('mouseover', function() {
+    $('.avatar-field').show();
+  }).on('mouseout', function() {
+    $('.avatar-field').hide();
+  });
 
-  <div class="field">
-    <%= f.label :sex, "Sex: "  %>
-    <label>
-      <%= f.radio_button :sex, "male", checked: true %>
-      <span>Male</span>
-    </label>
+  $('.avatar-field').change(function(){
+    readURL(this);
+  });
 
-    <label>
-      <%= f.radio_button :sex, "female" %>
-      <span>Female</span>
-    </label>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Save change" %>
-  </div>
-<% end %>
-
-<%= link_to "Back", :back %>
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('.avatar-edit').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>

@@ -1,9 +1,17 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :update]
   before_action :load_user, only: [:show, :edit, :update]
 
   def show
     @reviews = @user.reviews.includes(:comments, :game).page(params[:page])
       .per 5
+  end
+
+  def edit
+    if @user != current_user
+      flash[:danger] = "Perrmission denied!"
+      redirect_to root_path
+    end
   end
 
   def update

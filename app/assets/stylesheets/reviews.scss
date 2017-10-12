@@ -33,7 +33,7 @@
 
     .game-cover {
       float: left;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
       margin-right: 10px;
     }
 
@@ -62,12 +62,14 @@
       }
 
       .emotition-like,
-      .emotition-dislike {
+      .emotition-dislike,
+      .review-comment-action {
         text-decoration: none;
       }
 
       .emotition-like:hover,
-      .emotition-dislike:hover {
+      .emotition-dislike:hover,
+      .review-comment-action:hover {
         text-decoration: none;
       }
     }
