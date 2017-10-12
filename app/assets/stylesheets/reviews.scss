@@ -61,7 +61,13 @@
         padding: 2px;
       }
 
-      a:hover {
+      .emotition-like,
+      .emotition-dislike {
+        text-decoration: none;
+      }
+
+      .emotition-like:hover,
+      .emotition-dislike:hover {
         text-decoration: none;
       }
     }

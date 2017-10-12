@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
   resources :users
-  resources :reviews
+  resources :reviews do
+    resources :emotitions, only: [:create, :destroy]
+  end
   resources :genres
 end

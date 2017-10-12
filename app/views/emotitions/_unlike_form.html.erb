@@ -1,0 +1,5 @@
+<%= link_to review_emotition_path(review, emotition),
+  remote: true, method: :delete, class: "emotition-like" do %>
+  <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+  <span class="review-like-size"><%= review.likes.size %></span>
+<% end %>

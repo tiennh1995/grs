@@ -32,6 +32,8 @@ class ReviewsController < ApplicationController
 
   def show
     @comments = @review.comments.page(params[:page]).per 5
+    @emotition = current_user ? current_user.emotitions
+      .find_by(review: @review) : nil
   end
 
   private

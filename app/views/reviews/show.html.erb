@@ -35,19 +35,14 @@
 
       <div class="review-footer">
         <div class="review-action">
-          <span class="review-like">
-            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-            <%= @review.likes.size %>
-          </span>
-
-          <span class="review-dislike">
-            <i class="fa fa-thumbs-down" aria-hidden="true"></i>
-            <%= @review.dislikes.size %>
-          </span>
+          <%= render "emotitions/emotition_form", review: @review,
+            emotition: @emotition %>
 
           <span class="review-comment">
-            <i class="fa fa-comments" aria-hidden="true"></i>
-            <%= @review.comments.size %>
+            <%= link_to "#" do %>
+              <i class="fa fa-comments" aria-hidden="true"></i>
+              <%= @review.comments.size %>
+            <% end %>
           </span>
         </div>
         <div class="clearfix"></div>

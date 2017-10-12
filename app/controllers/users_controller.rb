@@ -8,23 +8,23 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes user_params
-      flash[:success] = "Change Information success!"
+      flash[:success] = "Change information success"
       redirect_to @user
     else
-      render "edit"
+      render :edit
     end
   end
 
   private
+  def user_params
+    params.require(:user).permit :avatar, :nick_name, :birthday, :sex
+  end
+
   def load_user
     @user = User.find_by id: params[:id]
     unless @user
       flash[:danger] = "User not exist!"
       redirect_to root_path
     end
-  end
-
-  def user_params
-    params.require(:user).permit(:avatar, :nick_name, :birthday, :sex)
   end
 end
