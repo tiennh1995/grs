@@ -1,0 +1,3 @@
+var id = '<%= @comment.id %>'
+$('.comment-content.' + id).html(
+  '<%= j render "comments/form", review: @review, comment: @comment %>');

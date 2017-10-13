@@ -1,3 +1,13 @@
 $('.review-comments-list').prepend(
   '<%= j render "comments/comment", comment: @comment %>')
 $('.comment-content').val('');
+
+$('.comment').on('mouseover', function() {
+  $(this).find(".comment-actions").each(function() {
+    $(this).show();
+  });
+}).on('mouseout', function() {
+  $(this).find(".comment-actions").each(function() {
+    $(this).hide();
+  });
+});

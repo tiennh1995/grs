@@ -1,14 +1,22 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!, :load_review
-  before_action :load_comment, only: :destroy
+  before_action :load_comment, only: [:edit, :update, :destroy]
 
   def new
+    @comment = current_user.comments.build
   end
 
   def create
     @comment = current_user.comments.new comment_params
     @comment.review = @review
     @comment.save
+  end
+
+  def edit
+  end
+
+  def update
+    @comment.update_attributes comment_params
   end
 
   def destroy

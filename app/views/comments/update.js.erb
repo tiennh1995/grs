@@ -1,0 +1,6 @@
+var id = '<%= @comment.id %>'
+$('.comment-content.' + id).children().remove();
+$('.comment' + id).html(
+  '<%= j render "comments/comment", comment: @comment %>');
+var content = '<%= @comment.content %>'
+$('.comment-content.' + id).text(content);
