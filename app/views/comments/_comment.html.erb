@@ -1,4 +1,4 @@
-<div class="comment" data-id="<%= comment.id %>">
+<div class="comment <%= comment.id %>" data-id="<%= comment.id %>">
   <% user = comment.user %>
   <div class="comment-left">
     <%= image_tag user.avatar_url, class: "img-responsive
@@ -12,7 +12,9 @@
     </div>
 
     <div class="comment-body">
-      <p><%= comment.content %></p>
+      <div class="comment-content <%= comment.id %>">
+        <%= comment.content %>
+      </div>
     </div>
 
     <div class="comment-footer">
@@ -34,7 +36,10 @@
           reply_comment: reply_comment %>
       <% end %>
     </div>
+
+    <div class="comment-actions">
+      <%= render "comments/comment_action", comment: comment %>
+    </div>
   </div>
   <div class="clearfix"></div>
 </div>
-<hr>

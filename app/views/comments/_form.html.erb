@@ -1,6 +1,5 @@
 <div class="comment-form">
-  <%= form_for [review, Comment.new], url: review_comments_path(review),
-    remote: true, method: :post do |f| %>
+  <%= form_for [review, comment], remote: true do |f| %>
     <%= f.text_field :content, placeholder: "Enter your comment",
       class: "form-control comment-content" %>
   <% end %>

@@ -1,5 +1,6 @@
 <% if user_signed_in? %>
-  $('.comment-write').html('<%= j render "comments/form", review: @review %>');
+  $('.comment-write').html(
+    '<%= j render "comments/form", review: @review, comment: @comment %>');
 <% else %>
   $('#form-login-modal').html('<%= j render "devise/sessions/form_modal" %>');
   $('#form-login-modal').modal('show');

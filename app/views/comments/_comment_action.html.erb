@@ -1,0 +1,15 @@
+<% if current_user == comment.user %>
+  <div class="comment-edit">
+    <%= link_to edit_review_comment_path(comment.review, comment),
+      remote: true do %>
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    <% end %>
+  </div>
+
+  <div class="comment-delete">
+    <%= link_to [comment.review, comment], remote: true, method: :delete,
+      data: {confirm: "Are you sure?"} do %>
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    <% end %>
+  </div>
+<% end %>

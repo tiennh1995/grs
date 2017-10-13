@@ -1,5 +1,7 @@
 .comment {
   display: inline-flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px;
   width: 100%;
 
   hr {
@@ -18,6 +20,7 @@
 
   .comment-right {
     padding: 0 10px;
+    position: relative;
     width: 95%;
 
     .nick-name {
@@ -39,5 +42,28 @@
     .reply-comments {
       display: none;
     }
+
+    .comment-actions {
+      display: none;
+      position: absolute;
+      right: 10px;
+      top: 0;
+
+      .comment-edit,
+      .comment-delete {
+        display: inline-block;
+        padding: 5px;
+      }
+    }
+  }
+}
+
+.comment:hover {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.review-comments {
+  .btn-comment {
+    margin-bottom: 10px;
   }
 }
