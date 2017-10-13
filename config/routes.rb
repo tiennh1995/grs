@@ -2,12 +2,13 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: :registrations}
   root "pages#show"
 
-  resources :games do
+  resources :games, only: :show do
     resources :reviews, only: [:new, :create]
   end
-  resources :users
+  resources :users, except: [:index, :new, :create]
   resources :reviews do
     resources :emotitions, only: [:create, :destroy]
+    resources :comments
   end
-  resources :genres
+  resources :genres, only: :index
 end

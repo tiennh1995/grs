@@ -53,11 +53,12 @@ ActiveRecord::Schema.define(version: 20171011073235) do
   end
 
   create_table "reply_comments", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "comment_id"
-    t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "user_id",       null: false
+    t.integer  "comment_id",    null: false
+    t.integer  "reply_user_id"
+    t.text     "content",       null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -82,7 +83,7 @@ ActiveRecord::Schema.define(version: 20171011073235) do
     t.string   "avatar"
     t.integer  "sex",                    default: 0
     t.boolean  "admin",                  default: false
-    t.datetime "birthday",               default: '2017-10-12 15:13:02'
+    t.datetime "birthday",               default: '2017-10-13 01:18:19'
     t.datetime "created_at",                                             null: false
     t.datetime "updated_at",                                             null: false
     t.string   "email",                  default: "",                    null: false

@@ -1,4 +1,4 @@
-<div class="comment">
+<div class="comment" data-id="<%= comment.id %>">
   <% user = comment.user %>
   <div class="comment-left">
     <%= image_tag user.avatar_url, class: "img-responsive
@@ -37,3 +37,4 @@
   </div>
   <div class="clearfix"></div>
 </div>
+<hr>

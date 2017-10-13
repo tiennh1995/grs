@@ -1,0 +1,39 @@
+<div class="modal-dialog form-login-modal">
+  <div class="modal-content form-login">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">
+        &times;
+      </button>
+      <h4 class="modal-title text-center">Log in</h4>
+    </div>
+    <div class="modal-body">
+      <%= form_for User.new, url: user_session_path do |f| %>
+        <div class="field">
+          <%= f.label :email, "Email" %><br />
+          <%= f.email_field :email, autofocus: true,
+            placeholder: "Enter your email", class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password, "Password" %><br />
+          <%= f.password_field :password, autocomplete: "off",
+            placeholder: "Enter your password", class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+
+        <div class="actions">
+          <%= f.button "Log in", class: "btn btn-block btn-primary",
+            data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>
+            Log in..."} %>
+        </div>
+      <% end %>
+      <hr>
+      <%= link_to "Sign up", new_user_registration_path %><br />
+      <%= link_to "Forgot your password?", new_user_password_path %><br />
+    </div>
+  </div>
+</div>
