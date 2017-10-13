@@ -50,11 +50,13 @@
 
       <div class="review-comments">
         <h4>Comments</h4>
+        <%= link_to "Write comment", new_review_comment_path(@review),
+          remote: true, class: "btn btn-default btn-comment" %>
+        <div class="comment-write"></div>
         <hr>
         <div class="review-comments-list">
           <% @comments.each do |comment| %>
             <%= render "comments/comment", comment: comment %>
-            <hr>
           <% end %>
           <%= paginate @comments %>
         </div>

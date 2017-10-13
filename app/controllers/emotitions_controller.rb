@@ -20,9 +20,11 @@ class EmotitionsController < ApplicationController
 
   private
   def authenticate_user!
-    unless current_user
-      flash[:danger] = "You need to sign in or sign up before continuing."
-      redirect_to new_user_session_path
+    unless user_signed_in?
+      respond_to do |format|
+        format.html
+        format.js {render :create}
+      end
     end
   end
 
