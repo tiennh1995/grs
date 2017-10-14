@@ -1,0 +1,15 @@
+<div class="genre">
+  <div class="container">
+    <h3>Genre: <%= @genre.name %></h3>
+    <hr>
+    <div class="game-list">
+      <h3>Games</h3>
+      <div class="game-list-size">
+        Have <span class="games-size"><%= @games.size %></span> games
+      </div>
+      <div class="game-list-content">
+        <%= render "games" %>
+      </div>
+    </div>
+  </div>
+</div>
