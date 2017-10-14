@@ -1,0 +1,52 @@
+<% if current_user && current_user.rated?(game) %>
+  <div class="rate-edit">
+    <label class="rate-label">Your rate: </label>
+    <span class="rate-star">
+      <% (1..rate.point).each do |i| %>
+        <span>
+          <i class="fa fa-star active-star" aria-hidden="true"></i>
+      </span>
+      <% end %>
+
+      <% ((rate.point + 1)..5).each do |i| %>
+        <span>
+          <i class="fa fa-star" aria-hidden="true"></i>
+      </span>
+      <% end %>
+    </span>
+    <input type="hidden" name="rate" class="rate-point"
+      value="<%= rate.point %>">
+    <button class="btn btn-default btn-rate">Edit your rate?</button>
+  </div>
+<% else %>
+  <div class="rate-create">
+    <button class="btn btn-default btn-rate">Rate this game?
+      <i class="fa fa-star active-star" aria-hidden="true"></i>
+    </button>
+  </div>
+<% end %>
+<div class="rate-form">
+  <%= render "rates/form", game: game, rate: rate %>
+</div>
+
+<script type="text/javascript">
+  $('.btn-rate').on('click', function() {
+    $('.rate-edit').hide();
+    $('.rate-form').show();
+    changeRate();
+  });
+
+  window.onload = function() {
+    changeRate();
+  };
+
+  changeRate = function() {
+    var index = $('.rate-point').val();
+    for (var  i = 1; i <= 5; i++) {
+      $('.fa-star.' + i).removeClass('active-star');
+    }
+    for (var i = 1; i <= index; i++) {
+      $('.fa-star.' + i).addClass('active-star');
+    }
+  }
+</script>

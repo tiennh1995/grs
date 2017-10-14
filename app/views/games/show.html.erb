@@ -22,7 +22,7 @@
           <h1><%= @game.avarage_rate %></h1>
           <div class="game-sum-review">
             <i class="fa fa-user" aria-hidden="true"></i>
-            Sum: <span><%= @game.reviews.size %></span>
+            Sum: <span><%= @game.reviews.size + @game.rates.size %></span>
           </div>
         </div>
 
@@ -31,39 +31,42 @@
             <li>
               <i class="fa fa-star" aria-hidden="true">5</i>
               <div class="bar bar-5">
-                <span><%= @game.rate_five.size %></span>
+                <span><%= @game.rate_five %></span>
               </div>
               <div class="clearfix"></div>
             </li>
             <li>
               <i class="fa fa-star" aria-hidden="true">4</i>
               <div class="bar bar-4">
-                <span><%= @game.rate_four.size %></span>
+                <span><%= @game.rate_four %></span>
               </div>
               <div class="clearfix"></div>
             </li>
             <li>
               <i class="fa fa-star" aria-hidden="true">3</i>
               <div class="bar bar-3">
-                <span><%= @game.rate_three.size %></span>
+                <span><%= @game.rate_three %></span>
               </div>
               <div class="clearfix"></div>
             </li>
             <li>
               <i class="fa fa-star" aria-hidden="true">2</i>
               <div class="bar bar-2">
-                <span><%= @game.rate_two.size %></span>
+                <span><%= @game.rate_two %></span>
               </div>
               <div class="clearfix"></div>
             </li>
             <li>
               <i class="fa fa-star" aria-hidden="true">1</i>
               <div class="bar bar-1">
-                <span><%= @game.rate_one.size %></span>
+                <span><%= @game.rate_one %></span>
               </div>
               <div class="clearfix"></div>
             </li>
           </ul>
+        </div>
+        <div class="rate">
+          <%= render "rates/rate_form", game: @game, rate: @rate %>
         </div>
       </div>
 

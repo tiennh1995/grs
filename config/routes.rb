@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :games, only: :show do
     resources :reviews, only: [:new, :create]
+    resources :rates
   end
   resources :users, except: [:index, :new, :create]
   resources :reviews do

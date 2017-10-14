@@ -11,3 +11,8 @@ $('.comment').on('mouseover', function() {
     $(this).hide();
   });
 });
+
+$('.reply-comment-icon').on('click', function() {
+  var id = $(this).data('id');
+  $('.reply-' + id).toggle();
+})

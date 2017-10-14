@@ -2,6 +2,8 @@ class GamesController < ApplicationController
   before_action :load_game, :load_popular_games, only: :show
 
   def show
+    @rate = current_user.rates.find_by game: @game if current_user
+    @rate ||= Rate.new
   end
 
   private

@@ -1,0 +1,42 @@
+<div class="field">
+  <%= form_for [game, rate], remote: true do |f| %>
+    <label class="rate-label">Write your rate: </label>
+    <span class="rate-star">
+      <% (1..5).each do |i| %>
+        <span>
+          <i class="fa fa-star <%= i %> star-rate" data-id="<%= i %>"
+            aria-hidden="true"></i>
+        </span>
+      <% end %>
+    </span>
+    <%= f.hidden_field :point, value: (f.object.point || 5),
+      class: "rate-point" %>
+    <% if rate.present? %>
+      <%= f.submit "Save", class: "btn btn-primary" %>
+    <% else %>
+      <%= f.submit "Ok", class: "btn btn-primary" %>
+    <% end %>
+    <button class="btn btn-danger btn-rate-cancel" type="button">
+      Cancel
+    </button>
+  <% end %>
+  <hr>
+</div>
+
+<script type="text/javascript">
+  $('.star-rate').on('mouseover', function() {
+    var index = $(this).data('id');
+    for (var  i = 1; i <= 5; i++) {
+      $('.fa-star.' + i).removeClass('active-star');
+    }
+    for (var i = 1; i <= index; i++) {
+      $('.fa-star.' + i).addClass('active-star');
+    }
+    $('.rate-point').val(index);
+  });
+
+  $('.btn-rate-cancel').on('click', function() {
+    $('.rate-edit').show();
+    $('.rate-form').hide();
+  });
+</script>

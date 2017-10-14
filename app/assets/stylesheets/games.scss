@@ -92,6 +92,27 @@
           }
         }
       }
+
+      .rate {
+        margin-bottom: 20px;
+
+        .rate-form {
+          display: none;
+        }
+
+        .rate-star {
+          margin-right: 10px;
+
+          .fa-star {
+            cursor: pointer;
+            font-size: 16px;
+          }
+
+          .active-star {
+            color: #f7db12;
+          }
+        }
+      }
     }
 
     .game-info-tab {
