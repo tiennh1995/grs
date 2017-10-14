@@ -24,6 +24,9 @@
   }
 
   .game-left {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0 10px;
+
     .game-cover {
       margin-bottom: 20px;
     }

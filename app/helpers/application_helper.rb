@@ -1,7 +1,7 @@
 module ApplicationHelper
   def view_genre genres, genre
-    return link_to(genre.name, "#") if genre == genres.last
-    link = link_to "#" do
+    return link_to(genre.name, genre) if genre == genres.last
+    link = link_to genre do
       genre.name
     end
     link += ","

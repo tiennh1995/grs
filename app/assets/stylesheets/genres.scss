@@ -3,6 +3,7 @@
 
   .container {
     background-color: white;
+    padding: 10px;
 
     .genres-list {
       .genre-check-box {
@@ -22,6 +23,9 @@
       }
 
       .game-list-content {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 10px;
+
         .game-item {
           height: 100px;
         }
