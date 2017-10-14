@@ -11,7 +11,8 @@ class Review < ApplicationRecord
   validates :game, presence: true
   validates :title, presence: true
   validates :content, presence: true
-  validates :point, presence: true
+  validates :point, presence: true,
+    numericality: {greater_than: 0, less_than_or_equal_to: 5}
 
   def emotition_by_user user
     emotitions.find_by user: user

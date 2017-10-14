@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :emotitions, dependent: :destroy
+  has_many :rates, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
 
@@ -28,5 +29,9 @@ class User < ApplicationRecord
 
   def disliked? review
     emotitions.find_by review: review, emotition_type: :dislike
+  end
+
+  def rated? game
+    rates.find_by game: game
   end
 end
