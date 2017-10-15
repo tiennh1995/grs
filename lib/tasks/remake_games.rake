@@ -15,6 +15,16 @@ namespace :db do
           <p><label>Card:</label> NVIDIA GTX 650 / AMD Radeon HD 7750.</p>
           <p><label>Hardware:</label> 30GB</p>"
       genre.game_genres.create! game: game
+      (1..3).each do |i|
+        Screenshot.create game: game,
+          image: Rails.root.join("app/assets/images/#{index + 1}/#{i}.jpg").open
+      end
     end
+
+    GameGenre.create game_id: 1, genre_id: 2
+    GameGenre.create game_id: 1, genre_id: 3
+    GameGenre.create game_id: 2, genre_id: 1
+    GameGenre.create game_id: 2, genre_id: 4
+    GameGenre.create game_id: 3, genre_id: 1
   end
 end

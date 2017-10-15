@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20171014074332) do
 
   create_table "genres", force: :cascade do |t|
     t.string   "name",       null: false
+    t.string   "code",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -91,7 +92,7 @@ ActiveRecord::Schema.define(version: 20171014074332) do
     t.string   "avatar"
     t.integer  "sex",                    default: 0
     t.boolean  "admin",                  default: false
-    t.datetime "birthday",               default: '2017-10-14 15:08:17'
+    t.datetime "birthday",               default: '2017-10-15 02:07:23'
     t.datetime "created_at",                                             null: false
     t.datetime "updated_at",                                             null: false
     t.string   "email",                  default: "",                    null: false

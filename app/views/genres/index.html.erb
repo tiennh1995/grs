@@ -4,10 +4,10 @@
     <div class="genres-list">
       <%= form_tag genres_path, method: :get, remote: true do %>
         <% @genres.each do |genre| %>
-          <label>
+          <label title="<%= genre.name %>">
             <%= check_box_tag "genre_ids[]", genre.id, false,
               {class: "genre-check-box"} %>
-            <span class="genre-name"><%= genre.name %></span>
+            <span class="genre-name"><%= genre.code %></span>
           </label>
         <% end %>
       <%= submit_tag "Search", class: "btn btn-default" %>
