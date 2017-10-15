@@ -32,7 +32,8 @@ class Game < ApplicationRecord
     end
 
     def load_game_with_genres genre_ids
-      game_ids = GameGenre.where(genre_id: genre_ids).pluck :game_id
+      game_ids = GameGenre.where(genre_id: genre_ids).group(:game_id)
+        .having("COUNT(game_id) >= ?", genre_ids.size).pluck :game_id
       Game.where id: game_ids
     end
   end
