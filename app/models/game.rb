@@ -19,7 +19,7 @@ class Game < ApplicationRecord
   end
 
   def avarage_rate
-    (total_rate / reviews.size).to_f
+    (total_rate.to_f / (reviews.size + rates.size).to_f).round 2
   end
 
   class << self
