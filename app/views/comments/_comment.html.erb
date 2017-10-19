@@ -18,28 +18,32 @@
     </div>
 
     <div class="comment-footer">
-      <span class="reply">
-        <i class="fa fa-reply" title="Reply this comment"
-          aria-hidden="true"></i>
+      <span class="reply" title="Reply this comment">
+        <%= link_to new_comment_reply_comment_path(comment),
+          remote: true do %>
+          <i class="fa fa-reply comment-reply-btn" data-id=<%= comment.id %>
+            title="Reply this comment"
+            aria-hidden="true"></i>
+        <% end %>
       </span>
 
       <span class="reply-comment-icon" data-id="<%= comment.id %>">
-        <i class="fa fa-comments" aria-hidden="true"></i>
-        <%= comment.reply_comments.size %>
+        <%= link_to comment_reply_comments_path(comment), remote: true do %>
+          <i class="fa fa-comments" aria-hidden="true"></i>
+          <%= comment.reply_comments.size %>
+        <% end %>
       </span>
-    </div>
-    <div class="clearfix"></div>
-    <div class="reply-comments reply-<%= comment.id %>">
-      <hr>
-      <% comment.reply_comments.each do |reply_comment| %>
-        <%= render "reply_comments/reply_comment",
-          reply_comment: reply_comment %>
-      <% end %>
+      <div class="clearfix"></div>
+
+      <div class="comment-actions">
+        <%= render "comments/comment_action", comment: comment %>
+      </div>
     </div>
 
-    <div class="comment-actions">
-      <%= render "comments/comment_action", comment: comment %>
+    <div class="reply-comments reply-comments-<%= comment.id %>">
+    </div>
+
+    <div class="reply-comment-form reply-comment-form-<%= comment.id %>">
     </div>
   </div>
-  <div class="clearfix"></div>
 </div>

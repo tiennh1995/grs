@@ -1,5 +1,9 @@
 .reply-comment {
+  border: 0;
+  border-top: 1px solid #eee;
   display: inline-flex;
+  padding-top: 10px;
+  width: 100%;
 
   hr {
     margin: 10px 0;
@@ -27,9 +31,25 @@
     .reply-comment-footer {
       float: left;
 
-      .reply {
+      .reply-comment-icon {
+        cursor: pointer;
+        float: left;
         padding: 2px;
+
+        a,
+        a:hover {
+          color: #333333;
+          text-decoration: none;
+        }
       }
     }
+  }
+}
+
+.reply-comment-form {
+  display: none;
+
+  .reply-comment-form-create {
+    padding-top: 10px;
   }
 }

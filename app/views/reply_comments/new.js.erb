@@ -1,0 +1,15 @@
+<% if user_signed_in? %>
+  var id = '<%= @comment.id %>';
+  $('.reply-comment-form-' + id).show();
+  $('.reply-comment-form-' + id).html('<%= j render "reply_comments/form",
+    comment: @comment, reply_comment: @reply_comment %>');
+  var input = $('#reply_comment_reply_user_id');
+  input.focus();
+  <% if @reply_comment.reply_user %>
+    var reply_user_id = '<%= @reply_comment.reply_user.id %>'
+    input.val(reply_user_id);
+  <% end %>
+<% else %>
+  $('#form-login-modal').html('<%= j render "devise/sessions/form_modal" %>');
+  $('#form-login-modal').modal('show');
+<% end %>

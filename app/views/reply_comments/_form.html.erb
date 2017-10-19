@@ -1,0 +1,7 @@
+<div class="reply-comment-form-create">
+  <%= form_for [comment, reply_comment], remote: true do |f| %>
+    <%= f.text_field :content, placeholder: "Enter your comment",
+      autofocus: true, class: "form-control reply-comment-content" %>
+    <%= f.hidden_field :reply_user_id %>
+  <% end %>
+</div>

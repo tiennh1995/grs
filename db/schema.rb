@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20171014074332) do
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id",    null: false
     t.integer  "review_id",  null: false
-    t.integer  "parent_id"
     t.string   "content",    null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -92,7 +91,7 @@ ActiveRecord::Schema.define(version: 20171014074332) do
     t.string   "avatar"
     t.integer  "sex",                    default: 0
     t.boolean  "admin",                  default: false
-    t.datetime "birthday",               default: '2017-10-17 06:47:54'
+    t.datetime "birthday",               default: '2017-10-18 09:46:51'
     t.datetime "created_at",                                             null: false
     t.datetime "updated_at",                                             null: false
     t.string   "email",                  default: "",                    null: false

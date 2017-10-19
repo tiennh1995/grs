@@ -29,18 +29,18 @@
     }
 
     .comment-footer {
-      float: left;
-
       .reply,
       .reply-comment-icon {
         cursor: pointer;
+        float: left;
         padding: 2px;
+
+        a,
+        a:hover {
+          color: #333333;
+          text-decoration: none;
+        }
       }
-
-    }
-
-    .reply-comments {
-      display: none;
     }
 
     .comment-actions {
@@ -56,10 +56,6 @@
       }
     }
   }
-}
-
-.comment:hover {
-  background-color: rgba(0, 0, 0, 0.03);
 }
 
 .review-comments {

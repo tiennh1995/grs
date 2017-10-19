@@ -5,5 +5,4 @@ class ReplyComment < ApplicationRecord
 
   validates :user, presence: true
   validates :comment, presence: true
-  validates :reply_user, presence: true
 end
