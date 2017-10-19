@@ -13,7 +13,9 @@
     </div>
 
     <div class="reply-comment-body">
-      <p><%= view_reply_comment reply_comment %></p>
+      <div class="reply-comment-content <%= reply_comment.id %>">
+        <p><%= view_reply_comment reply_comment %></p>
+      </div>
     </div>
 
     <div class="reply-comment-footer">

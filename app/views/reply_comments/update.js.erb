@@ -1,0 +1,6 @@
+var id = '<%= @reply_comment.id %>'
+$('.reply-comment-content.' + id).children().remove();
+$('.reply-comment' + id).html('<%= j render "reply_comments/reply_comment",
+  reply_comment: @reply_comment %>');
+var content = '<%= @reply_comment.content %>'
+$('.reply-comment-content.' + id).text(content);

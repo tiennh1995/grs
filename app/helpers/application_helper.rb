@@ -13,7 +13,7 @@ module ApplicationHelper
 
   def view_reply_comment reply_comment
     reply_user = reply_comment.reply_user
-    if reply_user && reply_user != current_user
+    if reply_user && reply_user != reply_comment.user
       link_to(("<b>" + reply_user.nick_name + "</b>").html_safe, reply_user) +
         " " + reply_comment.content
     else

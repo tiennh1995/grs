@@ -1,0 +1,3 @@
+var id = '<%= @reply_comment.id %>'
+$('.reply-comment-content.' + id).html('<%= j render "reply_comments/form",
+  comment: @comment, reply_comment: @reply_comment %>');

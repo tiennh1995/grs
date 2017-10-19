@@ -1,7 +1,7 @@
 class ReplyCommentsController < ApplicationController
   before_action :authenticate_user!, :load_comment
   before_action :load_reply_user, only: [:new, :create]
-  before_action :load_reply_comment, only: :destroy
+  before_action :load_reply_comment, only: [:edit, :update, :destroy]
 
   def index
     @reply_comments = @comment.reply_comments.includes :user
@@ -15,8 +15,17 @@ class ReplyCommentsController < ApplicationController
   def create
     @reply_comment = current_user.reply_comments.new reply_comment_params
     @reply_comment.comment = @comment
-    @reply_comment.reply_user = @comment.user if params[:reply_user_id]
+    if params[:reply_comment] && params[:reply_comment][:reply_user_id]
+      @reply_comment.reply_user_id = params[:reply_comment][:reply_user_id]
+    end
     @reply_comment.save
+  end
+
+  def edit
+  end
+
+  def update
+    @reply_comment.update_attributes reply_comment_params
   end
 
   def destroy
@@ -25,7 +34,7 @@ class ReplyCommentsController < ApplicationController
 
   private
   def reply_comment_params
-    params.require(:reply_comment).permit :content, :reply_user_id
+    params.require(:reply_comment).permit :content
   end
 
   def authenticate_user!
