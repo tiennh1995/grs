@@ -6,37 +6,39 @@
   </div>
 
   <div class="comment-right">
-    <div class="comment-header">
-      <p class="nick-name"><%= link_to user.nick_name, user %></p>
-      <small><%= l comment.created_at, format: :default %></small>
-    </div>
-
-    <div class="comment-body">
-      <div class="comment-content <%= comment.id %>">
-        <%= comment.content %>
+    <div class="main-comment">
+      <div class="comment-header">
+        <p class="nick-name"><%= link_to user.nick_name, user %></p>
+        <small><%= l comment.created_at, format: :default %></small>
       </div>
-    </div>
 
-    <div class="comment-footer">
-      <span class="reply" title="Reply this comment">
-        <%= link_to new_comment_reply_comment_path(comment),
-          remote: true do %>
-          <i class="fa fa-reply comment-reply-btn" data-id=<%= comment.id %>
-            title="Reply this comment"
-            aria-hidden="true"></i>
-        <% end %>
-      </span>
+      <div class="comment-body">
+        <div class="comment-content <%= comment.id %>">
+          <%= comment.content %>
+        </div>
+      </div>
 
-      <span class="reply-comment-icon" data-id="<%= comment.id %>">
-        <%= link_to comment_reply_comments_path(comment), remote: true do %>
-          <i class="fa fa-comments" aria-hidden="true"></i>
-          <%= comment.reply_comments.size %>
-        <% end %>
-      </span>
-      <div class="clearfix"></div>
+      <div class="comment-footer">
+        <span class="reply" title="Reply this comment">
+          <%= link_to new_comment_reply_comment_path(comment),
+            remote: true do %>
+            <i class="fa fa-reply comment-reply-btn" data-id=<%= comment.id %>
+              title="Reply this comment"
+              aria-hidden="true"></i>
+          <% end %>
+        </span>
 
-      <div class="comment-actions">
-        <%= render "comments/comment_action", comment: comment %>
+        <span class="reply-comment-icon" data-id="<%= comment.id %>">
+          <%= link_to comment_reply_comments_path(comment), remote: true do %>
+            <i class="fa fa-comments" aria-hidden="true"></i>
+            <%= comment.reply_comments.size %>
+          <% end %>
+        </span>
+        <div class="clearfix"></div>
+
+        <div class="comment-actions">
+          <%= render "comments/comment_action", comment: comment %>
+        </div>
       </div>
     </div>
 

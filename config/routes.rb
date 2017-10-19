@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :comments do
-    resources :reply_comments, only: [:index, :new, :create]
+    resources :reply_comments, except: :show
   end
   resources :genres, only: [:index, :show]
 end
