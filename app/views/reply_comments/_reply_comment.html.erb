@@ -1,5 +1,6 @@
-<div class="reply-comment">
+<div class="reply-comment <%= reply_comment.id %>">
   <% user = reply_comment.user %>
+  <% comment = reply_comment.comment %>
   <div class="reply-comment-left">
     <%= image_tag user.avatar_url, class: "img-responsive
       reply-comment-avatar" %>
@@ -16,13 +17,19 @@
     </div>
 
     <div class="reply-comment-footer">
-      <%= link_to new_comment_reply_comment_path(reply_comment.comment,
+      <%= link_to new_comment_reply_comment_path(comment,
         reply_user_id: reply_comment.user.id), remote: true do %>
         <i class="fa fa-reply comment-reply-btn"
-          data-id=<%= reply_comment.comment.id %>
+          data-id=<%= comment.id %>
           title="Reply this comment"
           aria-hidden="true"></i>
       <% end %>
+      <div class="clearfix"></div>
+
+      <div class="reply-comment-actions">
+        <%= render "reply_comments/reply_comment_action", comment: comment,
+          reply_comment: reply_comment %>
+      </div>
     </div>
   </div>
   <div class="clearfix"></div>

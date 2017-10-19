@@ -1,6 +1,7 @@
 class ReplyCommentsController < ApplicationController
   before_action :authenticate_user!, :load_comment
   before_action :load_reply_user, only: [:new, :create]
+  before_action :load_reply_comment, only: :destroy
 
   def index
     @reply_comments = @comment.reply_comments.includes :user
@@ -16,6 +17,10 @@ class ReplyCommentsController < ApplicationController
     @reply_comment.comment = @comment
     @reply_comment.reply_user = @comment.user if params[:reply_user_id]
     @reply_comment.save
+  end
+
+  def destroy
+    @reply_comment.destroy
   end
 
   private
@@ -47,6 +52,14 @@ class ReplyCommentsController < ApplicationController
         flash[:danger] = "User not exist!"
         redirect_to root_path
       end
+    end
+  end
+
+  def load_reply_comment
+    @reply_comment = ReplyComment.find_by id: params[:id]
+    unless @reply_comment
+      flash[:danger] = "ReplyComment not exist!"
+      redirect_to root_path
     end
   end
 end
