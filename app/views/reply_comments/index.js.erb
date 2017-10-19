@@ -1,0 +1,6 @@
+var id = '<%= @comment.id %>';
+$('.reply-comments-' + id).empty();
+<% @reply_comments.each do |reply_comment| %>
+  $('.reply-comments-' + id)
+    .append('<%= j render "reply_comment", reply_comment: reply_comment %>');
+<% end %>

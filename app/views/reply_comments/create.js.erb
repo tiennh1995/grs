@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+  var id = '<%= @comment.id %>';
+  $('.reply-comments-' + id)
+    .append('<%= j render "reply_comments/reply_comment",
+    reply_comment: @reply_comment %>')
+  $('.reply-comment-content').val('');
+<% else %>
+  $('#form-login-modal').html('<%= j render "devise/sessions/form_modal" %>');
+  $('#form-login-modal').modal('show');
+<% end %>

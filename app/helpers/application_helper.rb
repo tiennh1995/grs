@@ -10,4 +10,14 @@ module ApplicationHelper
   def check_opacity review, type
     "emotition-opacity" if current_user && current_user.send(type, review)
   end
+
+  def view_reply_comment reply_comment
+    reply_user = reply_comment.reply_user
+    if reply_user && reply_user != current_user
+      link_to(("<b>" + reply_user.nick_name + "</b>").html_safe, reply_user) +
+        " " + reply_comment.content
+    else
+      reply_comment.content
+    end
+  end
 end

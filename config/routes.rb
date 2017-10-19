@@ -11,5 +11,8 @@ Rails.application.routes.draw do
     resources :emotitions, only: [:create, :destroy]
     resources :comments
   end
+  resources :comments do
+    resources :reply_comments, only: [:index, :new, :create]
+  end
   resources :genres, only: [:index, :show]
 end
