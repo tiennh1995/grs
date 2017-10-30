@@ -62,6 +62,10 @@
             <%= link_to "Reviews", reviews_path %>
           </li>
 
+          <li class="item games">
+            <%= link_to "Games", games_path %>
+          </li>
+
           <% if user_signed_in? %>
             <li class="item-left">
               <%= link_to "Profile", current_user %>

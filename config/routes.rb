@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: :registrations}
   root "pages#show"
 
-  resources :games, only: :show do
+  resources :games, only: [:index, :show] do
     resources :reviews, only: [:new, :create]
     resources :rates
   end

@@ -8,7 +8,7 @@
         Have <span class="games-size"><%= @games.size %></span> games
       </div>
       <div class="game-list-content">
-        <%= render "games" %>
+        <%= render "games/games", games: @games %>
       </div>
     </div>
   </div>

@@ -36,6 +36,10 @@ class Game < ApplicationRecord
         .having("COUNT(game_id) >= ?", genre_ids.size).pluck :game_id
       Game.where id: game_ids
     end
+
+    def load_game_with_name game_name
+      where "name LIKE ?", "%#{game_name}%"
+    end
   end
 
   private

@@ -1,6 +1,6 @@
 <div class="game">
   <div class="container">
-    <div class="col-log-8 col-md-8 col-sm-12 col-xs-12 game-left">
+    <div class="col-log-8 col-md-8 col-sm-12 col-xs-12 game-show-left">
       <div class="game-name">
         <h3><%= @game.name %></h3>
       </div>
@@ -117,7 +117,7 @@
       </div>
       <hr>
     </div>
-    <div class="col-log-4 col-md-4 col-sm-12 col-xs-12 game-right">
+    <div class="col-log-4 col-md-4 col-sm-12 col-xs-12 game-show-right">
       <%= render "pages/page_right", top_games: @top_games,
         recent_games: @recent_games %>
     </div>

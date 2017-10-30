@@ -1,5 +1,15 @@
 class GamesController < ApplicationController
-  before_action :load_game, :load_popular_games, only: :show
+  before_action :load_game, only: :show
+  before_action :load_popular_games, only: [:index, :show]
+
+  def index
+    @games = if params[:game_name]
+      Game.load_game_with_name params[:game_name]
+    else
+      Game.all
+    end
+    @games = @games.includes(:genres).page(params[:page]).per 9
+  end
 
   def show
     @rate = current_user.rates.find_by game: @game if current_user
