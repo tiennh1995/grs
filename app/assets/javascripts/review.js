@@ -18,4 +18,24 @@ document.addEventListener('turbolinks:load', function() {
       $(this).hide();
     });
   });
+
+  $(document).on('mouseover', '.review-mini', function() {
+    $(this).find('.review-actions').each(function() {
+      $(this).show();
+    });
+  }).on('mouseout', '.review-mini', function() {
+    $(this).find('.review-actions').each(function() {
+      $(this).hide();
+    });
+  });
+
+  $(document).on('mouseover', '.review', function() {
+    $(this).find('.review-actions').each(function() {
+      $(this).show();
+    });
+  }).on('mouseout', '.review', function() {
+    $(this).find('.review-actions').each(function() {
+      $(this).hide();
+    });
+  });
 });

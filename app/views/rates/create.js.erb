@@ -1,6 +1,4 @@
-<% if user_signed_in? %>
-
-<% else %>
+<% unless user_signed_in? %>
   $('#form-login-modal').html('<%= j render "devise/sessions/form_modal" %>');
   $('#form-login-modal').modal('show');
 <% end %>

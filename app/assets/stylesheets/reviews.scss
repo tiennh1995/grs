@@ -2,6 +2,20 @@
 .review {
   .review-header {
     margin-bottom: 10px;
+    position: relative;
+
+    .review-actions {
+      display: none;
+      position: absolute;
+      right: 5px;
+      top: 5px;
+
+      .review-edit,
+      .review-delete {
+        display: inline-block;
+        padding: 5px;
+      }
+    }
 
     .review-title {
       .title {
@@ -76,7 +90,8 @@
   }
 }
 
-.new-review {
+.new-review,
+.edit-review {
   .container {
     background-color: white;
     padding: 15px;
@@ -89,13 +104,13 @@
       }
 
       .fa-star {
-        color: #f7db12;
+        color: #333333;
         cursor: pointer;
         font-size: 18px;
       }
 
-      .fa-star:hover {
-        color: #f7db12;
+      .active-star {
+        color: #f7db12 !important;
       }
     }
 

@@ -13,6 +13,10 @@
       By <%= link_to review.user.nick_name, review.user %>, on
         <%= l review.created_at, format: :default %>
     </div>
+
+    <div class="review-actions">
+      <%= render "reviews/review_action", review: review %>
+    </div>
   </div>
 
   <div class="review-body">

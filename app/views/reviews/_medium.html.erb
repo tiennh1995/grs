@@ -17,6 +17,10 @@
     <div class="review-game">
       The game: <h5><%= link_to review.game.name, review.game %></h5>
     </div>
+
+    <div class="review-actions">
+      <%= render "reviews/review_action", review: review %>
+    </div>
   </div>
 
   <div class="review-body">

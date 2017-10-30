@@ -4,13 +4,13 @@
     <span class="rate-star">
       <% (1..rate.point).each do |i| %>
         <span>
-          <i class="fa fa-star active-star" aria-hidden="true"></i>
+          <i class="fa fa-star <%= i %> active-star" aria-hidden="true"></i>
       </span>
       <% end %>
 
       <% ((rate.point + 1)..5).each do |i| %>
         <span>
-          <i class="fa fa-star" aria-hidden="true"></i>
+          <i class="fa fa-star <%= i %>" aria-hidden="true"></i>
       </span>
       <% end %>
     </span>

@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, except: :show
   before_action :load_game, only: [:new, :create]
-  before_action :load_review, only: :show
+  before_action :load_review, except: [:index, :new, :create]
   before_action :load_popular_games, only: [:index, :show]
 
   def index
@@ -35,6 +35,21 @@ class ReviewsController < ApplicationController
       .page(params[:page]).per 5
     @emotition = current_user ? current_user.emotitions
       .find_by(review: @review) : nil
+  end
+
+  def edit
+  end
+
+  def update
+    @review.update_attributes(review_params) ? flash[:success] = "Update
+      review success" : flash[:danger] = "Update review fail!"
+    redirect_to @review
+  end
+
+  def destroy
+    @review.destroy ? flash[:success] = "Delete review success" :
+      flash[:danger] = "Delete review fail!"
+    redirect_to root_path
   end
 
   private
