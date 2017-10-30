@@ -1,0 +1,13 @@
+<% if current_user && current_user == review.user %>
+  <div class="review-edit">
+    <%= link_to edit_review_path(review) do %>
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+    <% end %>
+  </div>
+
+  <div class="review-delete">
+    <%= link_to review, method: :delete, data: {confirm: "Are you sure?"} do %>
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    <% end %>
+  </div>
+<% end %>

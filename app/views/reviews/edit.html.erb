@@ -1,0 +1,103 @@
+<div class="edit-review">
+  <div class="container">
+    <div>
+      <% game = @review.game %>
+      <%= form_for @review, method: :patch do |f| %>
+        <div class="game-review">
+          <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12 game-review-left">
+            <%= image_tag game.cover, class: "img-responsive
+              game-review-cover" %>
+          </div>
+
+          <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12 game-review-right">
+            <div class="game-name">
+              <h3><%= link_to game.name, game %></h3>
+            </div>
+
+            <div class="game-genre">
+              <p class="genre-title">Genres: </p>
+              <% game.genres.each do |genre| %>
+                <%= view_genre game.genres, genre %>
+              <% end %>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+
+        <div class="review-form-errors">
+          <% if @review.errors.any? %>
+            <%= render "shared/error_messages", object: @review %>
+          <% end %>
+        </div>
+        <div class="field">
+          <label>Title: </label>
+          <%= f.text_field :title, placeholder: "Enter your title of review",
+            class: "form-control title" %>
+        </div>
+
+        <div class="field">
+          <label class="rate-label">Rate:</label>
+          <% (1..@review.point).each do |i| %>
+            <span>
+              <i class="fa fa-star <%= i %> active-star" aria-hidden="true"
+                data-id="<%= i %>"></i>
+            </span>
+          <% end %>
+
+          <% ((@review.point + 1)..5).each do |i| %>
+            <span>
+              <i class="fa fa-star <%= i %>" aria-hidden="true"
+                data-id="<%= i %>"></i>
+            </span>
+          <% end %>
+          <%= f.hidden_field :point, value: @review.point,
+            class: "rate-point" %>
+        </div>
+
+        <div class="field">
+          <label>Content:</label>
+          <%= f.text_area :content, class: "editable form-control" %>
+        </div>
+
+        <div class="actions">
+          <%= link_to "Cancel" , @review,
+            class: "btn btn-danger btn-cancel-review" %>
+          <%= f.submit "Save", class: "btn btn-primary btn-submit-review" %>
+        </div>
+        <div class="clearfix"></div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    var editor = new MediumEditor('.editable', {
+      placeholder: {
+        text: ' Enter your review'
+      }});
+
+    $('.editable').mediumInsert({
+      editor: editor,
+      addons: {
+        images: {
+          preview: true,
+          fileUploadOptions: {
+            url: '/uploads',
+          },
+        },
+      }
+    });
+
+    $('.fa-star').on('mouseover', function() {
+      index = $(this).data('id');
+      for (var i = 1; i <= 5; i++) {
+        $('.fa-star.' + i).removeClass('active-star');
+      }
+      for (var i = 1; i <= index; i++) {
+        $('.fa-star.' + i).addClass('active-star');
+      }
+      $('.rate-point').val(index);
+    });
+  });
+</script>
