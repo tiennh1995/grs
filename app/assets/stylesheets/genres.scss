@@ -5,6 +5,41 @@
     background-color: white;
     padding: 10px;
 
+    .genre-left,
+    .genre-right {
+      padding: 5px;
+    }
+
+    .genre-right {
+      .top-5,
+      .recent {
+        cursor: pointer;
+        display: inline-block;
+        padding: 5px;
+      }
+
+      .top-5:hover,
+      .recent:hover {
+        background-color: #ccc;
+      }
+
+      .recent-list {
+        display: none;
+      }
+
+      .active {
+        background-color: #ccc;
+      }
+
+      ul {
+        -webkit-padding-start: 0px;
+
+        li {
+          list-style: none;
+        }
+      }
+    }
+
     .genres-list {
       .genre-check-box {
         -webkit-transform: scale(1.2);

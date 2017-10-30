@@ -1,0 +1,26 @@
+<div class="game">
+  <div class="container">
+    <div class="col-log-8 col-md-8 col-sm-12 col-xs-12 game-left">
+      <h2>All games</h2>
+      <div class="game-search">
+        <%= form_tag games_path, method: :get, remote: true do %>
+          <%= text_field_tag :game_name, nil, {placeholder: "Enter name of game",
+            class: "form-control game-name-field"} %>
+          <%= button_tag "Search", class: "btn btn-default btn-game-search" %>
+        <% end %>
+      </div>
+      <hr>
+      <div class="game-list-size">
+        Have <span class="games-size"><%= @games.size %></span> games
+      </div>
+      <div class="game-list-content">
+        <%= render "games", games: @games %>
+      </div>
+    </div>
+
+    <div class="col-log-4 col-md-4 col-sm-12 col-xs-12 game-right">
+      <%= render "pages/page_right", top_games: @top_games,
+        recent_games: @recent_games %>
+    </div>
+  </div>
+</div>

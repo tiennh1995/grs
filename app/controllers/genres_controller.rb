@@ -1,5 +1,6 @@
 class GenresController < ApplicationController
   before_action :load_genre, only: :show
+  before_action :load_popular_games, only: :index
 
   def index
     @genres = Genre.all
