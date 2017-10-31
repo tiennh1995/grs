@@ -10,7 +10,8 @@
       <div class="header-above-right">
         <% if user_signed_in? %>
           <h5 class="dropdown item-right header-dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+            <a href="#" class="dropdown-toggle user-dropdown"
+              data-toggle="dropdown"
               title="<%= current_user.nick_name %>">
               <%= image_tag current_user.avatar_url,
                 class: "img-responsive avatar-header" %>

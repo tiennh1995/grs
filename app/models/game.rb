@@ -19,6 +19,7 @@ class Game < ApplicationRecord
   end
 
   def avarage_rate
+    return 0 if (reviews.size + rates.size) == 0
     (total_rate.to_f / (reviews.size + rates.size).to_f).round 2
   end
 

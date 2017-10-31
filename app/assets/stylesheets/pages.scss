@@ -35,6 +35,11 @@
         .header-dropdown {
           list-style: none;
 
+          .user-dropdown {
+            display: block;
+            line-height: 50px;
+          }
+
           a,
           a:hover {
             text-decoration: inherit;
