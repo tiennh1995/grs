@@ -1,0 +1,69 @@
+<div class="search">
+  <div class="container">
+    <div class="searches-tab">
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab"
+          href="#game">Games</a>
+        </li>
+        <li><a data-toggle="tab" href="#genre">Genres</a></li>
+        <li><a data-toggle="tab" href="#review">Reviews</a></li>
+        <li><a data-toggle="tab" href="#user">Users</a></li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="game" class="tab-pane fade in active">
+          <% if !@result[:games].present? || @result[:games].empty? %>
+            <h2>No result</h2>
+          <% else %>
+            <p>Have <%= @result[:games].size %> games</p>
+            <hr>
+            <% @result[:games].each do |game| %>
+              <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
+                <%= render "game", game: game %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <div id="genre" class="tab-pane fade">
+          <% if !@result[:genres].present? || @result[:genres].empty? %>
+            <h2>No result</h2>
+          <% else %>
+            <p>Have <%= @result[:genres].size %> genres</p>
+            <hr>
+            <% @result[:genres].each do |genre| %>
+              <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
+                <%= render "genre", genre: genre %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+        <div id="review" class="tab-pane fade">
+          <% if !@result[:reviews].present? || @result[:reviews].empty? %>
+            <h2>No result</h2>
+          <% else %>
+            <p>Have <%= @result[:reviews].size %> reviews</p>
+            <hr>
+            <% @result[:reviews].each do |review| %>
+              <%= render "review", review: review %>
+              <hr>
+            <% end %>
+          <% end %>
+        </div>
+        <div id="user" class="tab-pane fade">
+          <% if !@result[:users].present? || @result[:users].empty? %>
+            <h2>No result</h2>
+          <% else %>
+            <p>Have <%= @result[:users].size %> users</p>
+            <hr>
+            <% @result[:users].each do |user| %>
+              <div class="col-lg-3 col-md-3 col-xs-6 col-sm-6">
+                <%= render "user", user: user %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="genre-search">
+  <div class="genre-name">
+    <%= link_to genre do %>
+      <b><%= genre.name %></b>
+    <% end %>
+  </div>
+
+  <div class="genre-game-size">
+    <p>Have <%= genre.games.size %> games in this genre</p>
+  </div>
+</div>
