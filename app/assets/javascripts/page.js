@@ -22,4 +22,31 @@ document.addEventListener('turbolinks:load', function() {
     $('.top-5-list').hide();
     $('.recent-list').show();
   });
+
+  //onclick to-top
+  $(document).on('click', '.fa-chevron-up', function() {
+    $('html,body').animate({
+      scrollTop: $('.body').scrollTop()
+    }, 1000);
+  });
+
+  //#to-top button appears after scrolling
+  var fixed = false;
+  $(document).scroll(function() {
+    if ($(this).scrollTop() > 250) {
+      if (!fixed) {
+        fixed = true;
+        $('#to-top').show("slow", function() {
+          $('#to-top').css({position: 'fixed', display: 'block'});
+        });
+      }
+    } else {
+      if (fixed) {
+        fixed = false;
+        $('#to-top').hide("slow", function() {
+          $('#to-top').css({display: 'none'});
+        });
+      }
+    }
+  });
 });

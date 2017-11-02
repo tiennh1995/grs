@@ -2,8 +2,17 @@
 @import "bootstrap";
 @import "font-awesome";
 
+
 .grs {
   background-color: #ededed;
+
+  #to-top {
+    background-color: grey;
+    bottom: 5px;
+    display: none;
+    position: fixed;
+    right: 5px;
+  }
 
   .header {
     margin-bottom: 20px;
