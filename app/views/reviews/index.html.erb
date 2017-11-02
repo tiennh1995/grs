@@ -1,7 +1,9 @@
 <div class="page">
   <div class="container">
     <div class="col-log-8 col-md-8 col-sm-12 col-xs-12 page-left">
-      <h3 class="new-reviews">Commented, liked Reviews</h3>
+      <h3 class="new-reviews">
+        Commented, liked Reviews. Reviews of followed games
+      </h3>
       <hr>
       <% @reviews.each do |review| %>
         <%= render "reviews/medium", review: review %>
