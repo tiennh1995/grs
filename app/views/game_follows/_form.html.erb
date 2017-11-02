@@ -1,0 +1,10 @@
+<div class="game-follow">
+  <% if current_user %>
+    <% if current_user.followed? game %>
+      <% game_follow = current_user.game_follows.find_by game: game %>
+      <%= render "game_follows/unfollow", game: game, game_follow: game_follow %>
+    <% else %>
+      <%= render "game_follows/follow", game: game %>
+    <% end %>
+  <% end %>
+</div>
