@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171014074332) do
+ActiveRecord::Schema.define(version: 20171102141404) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 20171014074332) do
     t.integer  "emotition_type", null: false
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "game_follows", force: :cascade do |t|
+    t.integer  "game_id",    null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "game_genres", force: :cascade do |t|
@@ -53,9 +60,9 @@ ActiveRecord::Schema.define(version: 20171014074332) do
   end
 
   create_table "rates", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "game_id"
-    t.integer  "point"
+    t.integer  "user_id",    null: false
+    t.integer  "game_id",    null: false
+    t.integer  "point",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -91,7 +98,7 @@ ActiveRecord::Schema.define(version: 20171014074332) do
     t.string   "avatar"
     t.integer  "sex",                    default: 0
     t.boolean  "admin",                  default: false
-    t.datetime "birthday",               default: '2017-10-19 06:58:57'
+    t.datetime "birthday",               default: '2017-11-02 15:25:56'
     t.datetime "created_at",                                             null: false
     t.datetime "updated_at",                                             null: false
     t.string   "email",                  default: "",                    null: false

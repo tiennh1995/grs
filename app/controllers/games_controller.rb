@@ -3,10 +3,12 @@ class GamesController < ApplicationController
   before_action :load_popular_games, only: [:index, :show]
 
   def index
-    @games = if params[:game_name]
-      Game.load_game_with_name params[:game_name]
-    else
-      Game.all
+    if current_user && params[:followed]
+      @games = current_user.send params[:followed]
+    end
+    @games ||= Game.all
+    if params[:game_name]
+      @games = @games.load_game_with_name params[:game_name]
     end
     @games = @games.includes(:genres).page(params[:page]).per 9
   end
