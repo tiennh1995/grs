@@ -15,4 +15,5 @@ Rails.application.routes.draw do
     resources :reply_comments, except: :show
   end
   resources :genres, only: [:index, :show]
+  resources :searches, only: :index
 end

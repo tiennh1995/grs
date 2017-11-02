@@ -1,0 +1,39 @@
+.search {
+  .container {
+    background-color: white;
+  }
+
+  .searches-tab {
+    padding: 10px;
+
+    .tab-pane {
+      padding: 10px 0;
+
+      a:hover {
+        text-decoration: none;
+      }
+    }
+
+    .user-search {
+      margin-bottom: 10px;
+
+      .user-avatar {
+        display: inline-block;
+
+        .avatar {
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          height: 40px;
+          width: 40px;
+        }
+      }
+
+      .user-nick-name {
+        display: inline-block;
+      }
+    }
+
+    .game-search {
+      margin-bottom: 15px;
+    }
+  }
+}

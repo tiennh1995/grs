@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_many :emotitions, dependent: :destroy
   has_many :rates, dependent: :destroy
 
+  scope :load_user_with_name, ->(user_name){where "nick_name LIKE ?",
+    "%#{user_name}%"}
+
   mount_uploader :avatar, AvatarUploader
 
   enum sex: [:male, :female]

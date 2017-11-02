@@ -1,0 +1,11 @@
+<div class="user-search">
+  <%= link_to user do %>
+    <div class="user-avatar">
+      <%= image_tag user.avatar_url, class: "img-responsive avatar" %>
+    </div>
+
+    <div class="user-nick-name">
+      <%= user.nick_name %>
+    </div>
+  <% end %>
+</div>
