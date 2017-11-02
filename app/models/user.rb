@@ -7,8 +7,6 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :emotitions, dependent: :destroy
   has_many :rates, dependent: :destroy
-  has_many :game_follows, dependent: :destroy
-  has_many :games, through: :game_follows, foreign_key: :user_id
 
   scope :load_user_with_name, ->(user_name){where "nick_name LIKE ?",
     "%#{user_name}%"}
@@ -24,7 +22,6 @@ class User < ApplicationRecord
     review_ids += Comment.where(user_id: self.id).pluck :review_id
     review_ids += Emotition.where(user_id: self.id, emotition_type: :like)
       .pluck :review_id
-    review_ids += game_follows.pluck :review_id
 
     review_ids = review_ids.uniq
     Review.where id: review_ids
@@ -40,21 +37,5 @@ class User < ApplicationRecord
 
   def rated? game
     rates.find_by game: game
-  end
-
-  def followed? game
-    game_follows.find_by game: game
-  end
-
-  def all_game
-    Game.all
-  end
-
-  def followed
-    games
-  end
-
-  def unfollow
-    Game.where.not id: game_follows.pluck(:game_id)
   end
 end

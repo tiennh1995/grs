@@ -4,8 +4,6 @@ class Game < ApplicationRecord
   has_many :screenshots, dependent: :destroy
   has_many :genres, through: :game_genres, source: :genre
   has_many :rates, dependent: :destroy
-  has_many :game_follows, dependent: :destroy
-  has_many :users, through: :game_follows, foreign_key: :game_id
 
   mount_uploader :cover, CoverUploader
 
