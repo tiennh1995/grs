@@ -1,0 +1,4 @@
+<div class="read-more <%= comment.id %>">
+  <%= link_to "Read more reply comments", comment_reply_comments_path(comment),
+    remote: true, class: "btn-xs btn-read-more" %>
+</div>

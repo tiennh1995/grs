@@ -32,13 +32,42 @@
       .reply,
       .reply-comment-icon {
         cursor: pointer;
-        float: left;
         padding: 2px;
 
         a,
         a:hover {
           color: #333333;
           text-decoration: none;
+        }
+      }
+
+      .read-more-reply-comment {
+        .read-more {
+          display: inline-block;
+
+          .btn-read-more {
+            background-color: #999999;
+            color: white;
+          }
+
+          .btn-read-more,
+          .btn-read-more:hover {
+            text-decoration: none;
+          }
+        }
+
+        .hide-comment {
+          display: none;
+
+          .btn-hide {
+            background-color: #999999;
+            color: white;
+          }
+
+          .btn-hide,
+          .btn-hide:hover {
+            text-decoration: none;
+          }
         }
       }
     }
