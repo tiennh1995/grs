@@ -62,7 +62,10 @@
           <% @comments.each do |comment| %>
             <%= render "comments/comment", comment: comment %>
           <% end %>
-          <%= paginate @comments %>
+        </div>
+        <div class="read-more-comment">
+          <%= render "comments/readmore", review: @review,
+            comment: @comments.last %>
         </div>
       </div>
     </div>

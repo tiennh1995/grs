@@ -1,6 +1,12 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, :load_review
+  before_action :authenticate_user!, except: :index
+  before_action :load_review
   before_action :load_comment, only: [:edit, :update, :destroy]
+
+  def index
+    @comments = @review.comments.where("id < ?",
+      params[:last_comment_id]).limit 5
+  end
 
   def new
     @comment = current_user.comments.build
