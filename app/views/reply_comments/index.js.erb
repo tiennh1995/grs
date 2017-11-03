@@ -4,3 +4,5 @@ $('.reply-comments-' + id).empty();
   $('.reply-comments-' + id)
     .append('<%= j render "reply_comment", reply_comment: reply_comment %>');
 <% end %>
+$('.read-more.' + id).hide();
+$('.hide-comment.' + id).css('display', 'inline-block');

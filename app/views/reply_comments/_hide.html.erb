@@ -1,0 +1,4 @@
+<div class="hide-comment <%= comment.id %>">
+  <%= link_to "Hide reply comments", "#", remote: true,
+    class: "btn-xs btn-hide", data: {id: comment.id} %>
+</div>

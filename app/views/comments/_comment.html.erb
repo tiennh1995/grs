@@ -29,11 +29,16 @@
         </span>
 
         <span class="reply-comment-icon" data-id="<%= comment.id %>">
-          <%= link_to comment_reply_comments_path(comment), remote: true do %>
-            <i class="fa fa-comments" aria-hidden="true"></i>
-            <%= comment.reply_comments.size %>
-          <% end %>
+          <i class="fa fa-comments" aria-hidden="true"></i>
+          <%= comment.reply_comments.size %>
         </span>
+
+        <div class="read-more-reply-comment <%= comment.id %>">
+          <% if !comment.reply_comments.empty? %>
+            <%= render "reply_comments/readmore", comment: comment %>
+            <%= render "reply_comments/hide", comment: comment %>
+          <% end %>
+        </div>
         <div class="clearfix"></div>
 
         <div class="comment-actions">
