@@ -1,0 +1,10 @@
+<% if @comments.empty? %>
+  $('.read-more-comment').remove();
+<% else %>
+  <% @comments.each do |comment| %>
+    $('.review-comments-list')
+      .append('<%= j render "comments/comment", comment: comment %>');
+  <% end %>
+  $('.read-more-comment').html('<%= j render "comments/readmore",
+    review: @review, comment: @comments.last %>');
+<% end %>

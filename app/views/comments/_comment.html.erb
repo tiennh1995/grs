@@ -19,19 +19,21 @@
       </div>
 
       <div class="comment-footer">
-        <span class="reply" title="Reply this comment">
-          <%= link_to new_comment_reply_comment_path(comment),
-            remote: true do %>
-            <i class="fa fa-reply comment-reply-btn" data-id=<%= comment.id %>
-              title="Reply this comment"
-              aria-hidden="true"></i>
-          <% end %>
-        </span>
+        <div class="comment-footer-body">
+          <span class="reply" title="Reply this comment">
+            <%= link_to new_comment_reply_comment_path(comment),
+              remote: true do %>
+              <i class="fa fa-reply comment-reply-btn" data-id=<%= comment.id %>
+                title="Reply this comment"
+                aria-hidden="true"></i>
+            <% end %>
+          </span>
 
-        <span class="reply-comment-icon" data-id="<%= comment.id %>">
-          <i class="fa fa-comments" aria-hidden="true"></i>
-          <%= comment.reply_comments.size %>
-        </span>
+          <span class="reply-comment-icon" data-id="<%= comment.id %>">
+            <i class="fa fa-comments" aria-hidden="true"></i>
+            <%= comment.reply_comments.size %>
+          </span>
+        </div>
 
         <div class="read-more-reply-comment <%= comment.id %>">
           <% if !comment.reply_comments.empty? %>

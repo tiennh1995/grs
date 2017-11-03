@@ -1,5 +1,6 @@
 class ReplyCommentsController < ApplicationController
-  before_action :authenticate_user!, :load_comment
+  before_action :authenticate_user!, except: :index
+  before_action :load_comment
   before_action :load_reply_user, only: [:new, :create]
   before_action :load_reply_comment, only: [:edit, :update, :destroy]
 

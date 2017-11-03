@@ -1,0 +1,5 @@
+<div class="read-more <%= comment.id %>">
+  <%= link_to "Read more comments", review_comments_path(review,
+    last_comment_id: comment.id), remote: true,
+    class: "btn-xs btn-read-more" %>
+</div>

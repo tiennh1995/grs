@@ -29,15 +29,20 @@
     }
 
     .comment-footer {
-      .reply,
-      .reply-comment-icon {
-        cursor: pointer;
-        padding: 2px;
+      .comment-footer-body {
+        padding: 5px 0;
 
-        a,
-        a:hover {
-          color: #333333;
-          text-decoration: none;
+        .reply,
+        .reply-comment-icon {
+          cursor: pointer;
+          margin-right: 10px;
+          padding: 2px;
+
+          a,
+          a:hover {
+            color: #333333;
+            text-decoration: none;
+          }
         }
       }
 
@@ -62,6 +67,8 @@
           .btn-hide {
             background-color: #999999;
             color: white;
+            cursor: pointer;
+            padding: 0 5px;
           }
 
           .btn-hide,
@@ -90,5 +97,23 @@
 .review-comments {
   .btn-comment {
     margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .comment-footer {
+    .comment-footer-body {
+      .reply,
+      .reply-comment-icon {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .read-more-reply-comment {
+    .read-more,
+    .hide {
+      height: 25px;
+    }
   }
 }

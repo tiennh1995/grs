@@ -88,6 +88,41 @@
       }
     }
   }
+
+  .review-comments {
+    .read-more-comment {
+      margin-bottom: 10px;
+      margin-top: 10px;
+
+      .read-more {
+        display: inline-block;
+
+        .btn-read-more {
+          background-color: #999999;
+          color: white;
+        }
+
+        .btn-read-more,
+        .btn-read-more:hover {
+          text-decoration: none;
+        }
+      }
+
+      .hide-comment {
+        display: none;
+
+        .btn-hide {
+          background-color: #999999;
+          color: white;
+        }
+
+        .btn-hide,
+        .btn-hide:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }
 
 .new-review,
@@ -160,7 +195,7 @@
 
     .review-left {
       border-right: 1px solid rgba(0, 0, 0, 0.1);
-      padding: 0 10px;
+      padding: 5px 10px;
     }
 
     .review-right {
