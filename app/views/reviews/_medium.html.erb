@@ -1,4 +1,4 @@
-<div class="review-mini">
+<div class="review-mini" data-id="<%= review.id %>">
   <div class="review-header">
     <div class="review-title">
       <h4 class="title"><%= review.title %></h4>
@@ -26,9 +26,10 @@
   <div class="review-body">
     <div class="game-cover">
       <%= image_tag review.game.cover, class: "img-responsive" %>
+      <hr>
     </div>
 
-    <div class="review-content">
+    <div class="review-content <%= review.id %>">
       <%= raw review.content %>
     </div>
     <div class="clearfix"></div>
@@ -54,4 +55,3 @@
     <div class="clearfix"></div>
   </div>
 </div>
-

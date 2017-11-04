@@ -38,4 +38,25 @@ document.addEventListener('turbolinks:load', function() {
       $(this).hide();
     });
   });
+
+  $('.medium-insert-images').html("Continue...");
+  $('.medium-insert-images').next().remove();
+  $('.review-mini').each(function() {
+    id = $(this).data('id');
+    p = $('.review-content.' + id).find('p');
+    size = 4;
+    if(p.length > size) {
+      for (i = 0; i < size ; i++) {
+        p[i].innerText = p[i].innerText.substring(0, 100) + " [Continue...]";
+      };
+
+      for (i = size; i < p.length; i++) {
+        p[i].remove();
+      };
+    } else {
+      for (i = 0; i < p.length ; i++) {
+        p[i].innerText = p[i].innerText.substring(0, 100) + " [Continue...]";
+      };
+    }
+  });
 });

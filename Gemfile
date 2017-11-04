@@ -22,6 +22,7 @@ gem "carrierwave", "~> 1.0"
 gem "mini_magick", "3.8.0"
 gem "kaminari"
 gem "config"
+gem "bootstrap-kaminari-views"
 
 group :development, :test do
   gem "byebug", platform: :mri
