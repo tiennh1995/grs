@@ -63,10 +63,13 @@
             <%= render "comments/comment", comment: comment %>
           <% end %>
         </div>
-        <div class="read-more-comment">
-          <%= render "comments/readmore", review: @review,
-            comment: @comments.last %>
-        </div>
+
+        <% if @comments.size >= 5 %>
+          <div class="read-more-comment">
+            <%= render "comments/readmore", review: @review,
+              comment: @comments.last %>
+          </div>
+        <% end %>
       </div>
     </div>
 

@@ -114,9 +114,9 @@
                 data: {no_turbolink: true},
                 class: "btn btn-default btn-review" %>
               <div class="clearfix"></div>
-              <hr>
             </div>
             <% @game.reviews.each do |review| %>
+              <hr>
               <%= render "reviews/mini", review: review %>
             <% end %>
           </div>
