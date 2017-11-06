@@ -46,7 +46,7 @@
 
     .game-list-content {
       border: 1px solid rgba(0, 0, 0, 0.1);
-      padding: 10px;
+      padding: 5px;
     }
   }
 
@@ -130,6 +130,10 @@
       .rate {
         margin-bottom: 20px;
 
+        .rate-create {
+          margin-bottom: 10px;
+        }
+
         .rate-form {
           display: none;
         }
@@ -139,7 +143,8 @@
 
           .fa-star {
             cursor: pointer;
-            font-size: 16px;
+            font-size: 18px;
+            padding: 3px;
           }
 
           .active-star {
@@ -224,6 +229,12 @@
 
     .game-list-content {
       padding: 5px 0 !important;
+    }
+  }
+
+  .game-name {
+    .name {
+      font-size: 13px !important;
     }
   }
 }
