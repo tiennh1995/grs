@@ -288,6 +288,11 @@
   .body {
     font-size: 12px !important;
 
+    .editable,
+    input {
+      font-size: 16px !important;
+    }
+
     h2 {
       font-size: 20px;
     }
