@@ -24,6 +24,10 @@ gem "kaminari"
 gem "config"
 gem "bootstrap-kaminari-views"
 
+source "https://rails-assets.org/" do
+  gem "rails-assets-adminlte"
+end
+
 group :development, :test do
   gem "byebug", platform: :mri
   gem "pry"

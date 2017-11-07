@@ -17,4 +17,8 @@ Rails.application.routes.draw do
   end
   resources :genres, only: [:index, :show]
   resources :searches, only: :index
+
+  namespace :admin do
+    root "games#index"
+  end
 end
