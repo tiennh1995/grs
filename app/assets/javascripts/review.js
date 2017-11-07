@@ -39,15 +39,15 @@ document.addEventListener('turbolinks:load', function() {
     });
   });
 
-  $('.medium-insert-images').html("Continue...");
   $('.medium-insert-images').next().remove();
+  $('.medium-insert-images').remove();
   $('.review-mini').each(function() {
     id = $(this).data('id');
     p = $('.review-content.' + id).find('p');
-    size = 4;
+    size = 1;
     if(p.length > size) {
       for (i = 0; i < size ; i++) {
-        p[i].innerText = p[i].innerText.substring(0, 100) + " [Continue...]";
+        p[i].innerText = p[i].innerText.substring(0, 1000) + " [Continue...]";
       };
 
       for (i = size; i < p.length; i++) {
@@ -55,7 +55,7 @@ document.addEventListener('turbolinks:load', function() {
       };
     } else {
       for (i = 0; i < p.length ; i++) {
-        p[i].innerText = p[i].innerText.substring(0, 100) + " [Continue...]";
+        p[i].innerText = p[i].innerText.substring(0, 1000) + " [Continue...]";
       };
     }
   });
