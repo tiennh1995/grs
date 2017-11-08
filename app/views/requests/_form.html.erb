@@ -1,0 +1,51 @@
+<div class="modal-dialog form-new-request">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">
+        &times;
+      </button>
+      <h4 class="modal-title text-center">Make request add new game</h4>
+    </div>
+    <div class="modal-body new-request-body">
+      <%= form_for [current_user, @request], remote: true do |f| %>
+        <div class="request-error">
+          <%= render "shared/error_messages", object: @request %>
+        </div>
+
+        <div class="field">
+          <%= f.label :game_name, "Name of game" %><br />
+          <%= f.text_field :game_name, autofocus: true,
+            placeholder: "Enter name of game", class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :genre_info, "Genre information" %><br />
+          <%= f.text_field :genre_info, autocomplete: "off",
+            placeholder: "Enter genre information", class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :required, "Require" %>
+          <%= f.text_field :required, autocomplete: "off",
+            placeholder: "Enter require of system", class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :info, "Information" %>
+          <%= f.text_area :info, autocomplete: "off",
+            placeholder: "Enter game of information", class: "form-control" %>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-default btn-new-request-cancel"
+            data-dismiss="modal">
+            Cancel
+          </button>
+          <%= f.button "Create", class: "btn btn-primary btn-new-request",
+            data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>
+            Create..."} %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
