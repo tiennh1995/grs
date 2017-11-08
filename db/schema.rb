@@ -77,13 +77,14 @@ ActiveRecord::Schema.define(version: 20171108084511) do
   end
 
   create_table "requests", force: :cascade do |t|
-    t.string   "game_name",  null: false
-    t.string   "genre_info", null: false
+    t.integer  "user_id",                null: false
+    t.string   "game_name",              null: false
+    t.string   "genre_info",             null: false
+    t.integer  "status",     default: 0
     t.string   "required"
     t.string   "info"
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -108,7 +109,7 @@ ActiveRecord::Schema.define(version: 20171108084511) do
     t.string   "avatar"
     t.integer  "sex",                    default: 0
     t.boolean  "admin",                  default: false
-    t.datetime "birthday",               default: '2017-11-08 08:51:01'
+    t.datetime "birthday",               default: '2017-11-08 13:54:12'
     t.datetime "created_at",                                             null: false
     t.datetime "updated_at",                                             null: false
     t.string   "email",                  default: "",                    null: false
