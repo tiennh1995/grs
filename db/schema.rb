@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171102141404) do
+ActiveRecord::Schema.define(version: 20171108084511) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id",    null: false
@@ -76,6 +76,16 @@ ActiveRecord::Schema.define(version: 20171102141404) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "requests", force: :cascade do |t|
+    t.string   "game_name",  null: false
+    t.string   "genre_info", null: false
+    t.string   "required"
+    t.string   "info"
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.integer  "user_id",                null: false
     t.integer  "game_id",                null: false
@@ -98,7 +108,7 @@ ActiveRecord::Schema.define(version: 20171102141404) do
     t.string   "avatar"
     t.integer  "sex",                    default: 0
     t.boolean  "admin",                  default: false
-    t.datetime "birthday",               default: '2017-11-07 14:17:07'
+    t.datetime "birthday",               default: '2017-11-08 08:51:01'
     t.datetime "created_at",                                             null: false
     t.datetime "updated_at",                                             null: false
     t.string   "email",                  default: "",                    null: false

@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :rates, dependent: :destroy
   has_many :game_follows, dependent: :destroy
   has_many :games, through: :game_follows, foreign_key: :user_id
+  has_many :requests, dependent: :destroy
 
   scope :load_user_with_name, ->(user_name){where "nick_name LIKE ?",
     "%#{user_name}%"}
