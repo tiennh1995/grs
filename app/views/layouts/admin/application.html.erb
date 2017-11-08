@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grs</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag "application", media: "all",
+      "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application",
+      "data-turbolinks-track": "reload" %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  </head>
+
+  <body class="hold-transition skin-blue sidebar-mini admin-body">
+    <div class="wrapper">
+      <%= render "layouts/admin/header" %>
+      <%= render "layouts/admin/sidebar" %>
+      <div class="content-wrapper dn-content admin-content-wrapper">
+        <div class="flash">
+          <% flash.each do |message_type, message| %>
+            <% if message_type == "notice" || message_type == "success" %>
+              <% message_type = "info" %>
+            <% elsif message_type == "alert" %>
+              <% message_type = "danger" %>
+            <% end %>
+            <div class="alert alert-<%= message_type %>"><%= message %></div>
+          <% end %>
+        </div>
+        <section class="content admin-content">
+          <%= yield %>
+        </section>
+      </div>
+      <div class="control-sidebar-bg"></div>
+    </div>
+  </body>
+</html>

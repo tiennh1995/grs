@@ -8,5 +8,8 @@ namespace :db do
       user = User.create! nick_name: name, email: email, password: password,
         password_confirmation: password
     end
+
+    User.create! nick_name: "Admin", email: "admin@gmail.com",
+      password: "123456", admin: true
   end
 end

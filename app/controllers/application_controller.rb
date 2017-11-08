@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :store_user_location!, if: :storable_location?
+  before_action :authorize_user
 
   protected
   def load_popular_games
@@ -28,5 +29,12 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for resource
     request.env["omniauth.origin"] ||
       stored_location_for(resource) || root_path
+  end
+
+  def authorize_user
+    if controller_path != "devise/sessions" && current_user &&
+      current_user.admin?
+      redirect_to admin_root_path unless controller_path.index "admin"
+    end
   end
 end

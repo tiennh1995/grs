@@ -1,0 +1,90 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
+.admin-header {
+  .admin-dropdown {
+    text-decoration: inherit;
+  }
+
+  .admin-dropdown:hover {
+    text-decoration: inherit;
+  }
+
+  .user-menu {
+    .user-image {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .admin-dropdown-menu {
+      width: auto;
+    }
+  }
+}
+
+.admin-body {
+  overflow-y: hidden;
+  position: relative;
+
+  .flash {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: auto;
+    word-wrap: break-word;
+    text-align: right;
+    z-index: 11;
+  }
+
+  .admin-content-wrapper {
+    min-height: calc(100vh - 50px);
+  }
+
+  .admin-sidebar {
+    left: 0;
+    padding: 0;
+    top: 50px;
+    width: auto;
+
+    a,
+    a:hover {
+      text-decoration: inherit;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .admin-body {
+    .admin-sidebar {
+      display: block !important;
+      top: 100px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .admin-body {
+    font-size: 12px !important;
+
+    .editable,
+    input {
+      font-size: 16px !important;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    h3 {
+      font-size: 18px;
+    }
+
+    h4 {
+      font-size: 16px;
+    }
+
+    h5 {
+      font-size: 14px;
+    }
+  }
+}
