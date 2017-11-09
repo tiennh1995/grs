@@ -1,0 +1,53 @@
+<div class="admin-request">
+  <div class="container">
+    <h2>All requests</h2>
+    <div class="filter">
+      <%= form_tag admin_requests_path, method: :get,
+        remote: true do %>
+        <label class="label-status">
+          <%= radio_button_tag :status, :all, true %>
+          <span>All</span>
+        </label>
+
+        <label class="label-status">
+          <%= radio_button_tag :status, :waiting, false %>
+          <span>Waiting</span>
+        </label>
+
+        <label class="label-status">
+          <%= radio_button_tag :status, :accepted, false %>
+          <span>Accepted</span>
+        </label>
+
+        <label class="label-status">
+          <%= radio_button_tag :status, :cancel, false %>
+          <span>Cancel</span>
+        </label>
+
+        <%= submit_tag "Filter", class: "btn btn-default" %>
+      <% end %>
+    </div>
+
+    <div class="table-responsive">
+      <table style="width:100%" class="table table-bordered">
+        <thead class="">
+          <tr>
+            <th>#</th>
+            <th>User</th>
+            <th>Game name</th>
+            <th>Genre information</th>
+            <th>Require</th>
+            <th>Information</th>
+            <th>Created at</th>
+            <th>Status</th>
+            <th>Control</th>
+          </tr>
+        </thead>
+
+        <tbody id="admin-requests-body">
+          <%= render "requests", requests: @requests %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -26,5 +26,6 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "games#index"
+    resources :requests
   end
 end

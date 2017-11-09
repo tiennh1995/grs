@@ -1,0 +1,17 @@
+<% if _request.waiting? %>
+  <button class="btn btn-success">
+    Accept?
+  </button>
+
+  <button class="btn cancel">
+    Cancel?
+  </button>
+<% elsif _request.accepted? %>
+  <button class="btn btn-success">
+    UnAccept?
+  </button>
+<% else %>
+  <button class="btn cancel">
+    UnCancel?
+  </button>
+<% end %>

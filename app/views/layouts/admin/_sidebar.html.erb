@@ -26,14 +26,14 @@
         </ul>
       </li>
 
-      <li>
-        <%= link_to admin_root_path, remote: true do %>
+      <li class="treeview">
+        <%= link_to admin_requests_path, remote: true do %>
           <i class="fa fa-envelope" aria-hidden="true"></i>
           <span>Requests</span>
         <% end %>
       </li>
 
-      <li>
+      <li class="treeview">
         <%= link_to admin_root_path, remote: true do %>
           <i class="glyphicon glyphicon-user"></i>
           <span>Users</span>
