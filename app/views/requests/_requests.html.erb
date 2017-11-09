@@ -1,0 +1,24 @@
+<% requests.each_with_index do |_request, index| %>
+  <tr>
+    <td><%= index + 1 %></td>
+    <td><%= _request.game_name %></td>
+    <td><%= _request.genre_info %></td>
+    <td><%= _request.required %></td>
+    <td><%= _request.info %></td>
+    <td><%= l _request.created_at, format: :default %></td>
+    <td>
+      <span class="status <%= _request.status %>"><%= _request.status %></span>
+    </td>
+    <td>
+      <button class="btn btn-default btn-request-edit">
+        Edit
+      </button>
+
+      <button class="btn btn-danger btn-request-delete">
+        Delete
+      </button>
+
+    </td>
+  </tr>
+<% end %>
+<%= paginate requests, theme: "twitter-bootstrap-3" %>
