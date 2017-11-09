@@ -10,9 +10,8 @@
       <span class="status <%= _request.status %>"><%= _request.status %></span>
     </td>
     <td>
-      <button class="btn btn-default btn-request-edit">
-        Edit
-      </button>
+      <%= link_to "Edit", edit_user_request_path(current_user, _request),
+        remote: true, class: "btn btn-default btn-request-edit" %>
 
       <%= link_to "Delete", user_request_path(current_user, _request),
         method: :delete, remote: true, data: {confirm: "Are you sure?"},

@@ -52,7 +52,7 @@ class CommentsController < ApplicationController
   end
 
   def load_comment
-    @comment= Comment.find_by id: params[:id]
+    @comment = Comment.find_by id: params[:id]
     unless @comment
       flash[:danger] = "Comment not exist!"
       redirect_to root_path

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, except: [:index, :new, :create] do
-    resources :requests
+    resources :requests, except: :show
   end
 
   resources :reviews do
