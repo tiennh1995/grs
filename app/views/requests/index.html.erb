@@ -28,6 +28,12 @@
       <% end %>
     </div>
 
+    <div class="add-new-request">
+      <%= link_to "Make request add new game",
+        new_user_request_path(current_user), remote: true,
+        class: "btn btn-primary" %>
+    </div>
+
     <div class="table-responsive">
       <table style="width:100%" class="table table-bordered">
         <thead class="">
