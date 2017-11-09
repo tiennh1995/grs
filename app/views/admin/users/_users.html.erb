@@ -1,0 +1,10 @@
+<% users.each_with_index do |user, index| %>
+  <tr class="admin-request-<%= user.id %>">
+    <td><%= index + 1 %></td>
+    <td><%= user.nick_name %></td>
+    <td><%= user.email %></td>
+    <td><%= user.sex %></td>
+    <td><%= l user.birthday, format: :default %></td>
+  </tr>
+<% end %>
+<%= paginate users, theme: "twitter-bootstrap-3", remote: true %>

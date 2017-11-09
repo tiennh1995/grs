@@ -13,6 +13,7 @@ class User < ApplicationRecord
 
   scope :load_user_with_name, ->(user_name){where "nick_name LIKE ?",
     "%#{user_name}%"}
+  scope :user_alls, ->{where admin: false}
 
   mount_uploader :avatar, AvatarUploader
 

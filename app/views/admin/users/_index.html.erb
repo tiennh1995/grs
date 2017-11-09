@@ -1,0 +1,23 @@
+<div class="admin-user">
+  <div class="container">
+    <h2>All users</h2>
+
+    <div class="table-responsive">
+      <table style="width:100%" class="table table-bordered">
+        <thead class="">
+          <tr>
+            <th>#</th>
+            <th>Nick name</th>
+            <th>Email</th>
+            <th>Sex</th>
+            <th>Birthday</th>
+          </tr>
+        </thead>
+
+        <tbody id="admin-users-body">
+          <%= render "users", users: @users %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
