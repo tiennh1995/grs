@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_request, only: :destroy
+  before_action :load_request, only: [:edit, :update, :destroy]
 
   def index
     status = params[:status]
@@ -16,6 +16,16 @@ class RequestsController < ApplicationController
     @request = current_user.requests.new request_params
     if @request.save
       flash[:success] = "Make request success"
+      redirect_to user_requests_path(current_user)
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @request.update_attributes request_params
+      flash[:success] = "Update request success"
       redirect_to user_requests_path(current_user)
     end
   end
