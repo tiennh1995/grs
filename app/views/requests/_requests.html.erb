@@ -1,5 +1,5 @@
 <% requests.each_with_index do |_request, index| %>
-  <tr>
+  <tr class="request-<%= _request.id %>">
     <td><%= index + 1 %></td>
     <td><%= _request.game_name %></td>
     <td><%= _request.genre_info %></td>
@@ -14,10 +14,9 @@
         Edit
       </button>
 
-      <button class="btn btn-danger btn-request-delete">
-        Delete
-      </button>
-
+      <%= link_to "Delete", user_request_path(current_user, _request),
+        method: :delete, remote: true, data: {confirm: "Are you sure?"},
+        class: "btn btn-danger btn-request-delete" %>
     </td>
   </tr>
 <% end %>
