@@ -1,0 +1,6 @@
+<% if params[:status] %>
+  $('#admin-requests-body')
+    .html('<%= j render "requests", requests: @requests %>');
+<% else %>
+  $('.admin-content').html('<%= j render "index" %>');
+<% end %>

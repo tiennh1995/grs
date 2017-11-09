@@ -1,0 +1,45 @@
+.admin-request {
+  .container {
+    background-color: white;
+
+    .filter {
+      margin-bottom: 10px;
+
+      .label-status {
+        margin-right: 10px;
+      }
+    }
+
+    .status {
+      border: 1px solid transparent;
+      border-radius: 4px;
+      display: inline-block;
+      font-size: 12px;
+      font-weight: bold;
+      line-height: 1.428571429;
+      padding: 2px;
+      text-align: center;
+      vertical-align: middle;
+      white-space: nowrap;
+      width: 60px;
+    }
+
+    .waiting {
+      color: #fff;
+      background-color: #f0ad4e;
+      border-color: #eea236;
+    }
+
+    .accepted {
+      color: #fff;
+      background-color: #5cb85c;
+      border-color: #4cae4c;
+    }
+
+    .cancel {
+      color: #fff;
+      background-color: #999999;
+      border-color: #999999;
+    }
+  }
+}

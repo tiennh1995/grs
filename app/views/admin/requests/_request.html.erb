@@ -1,0 +1,12 @@
+<td><%= _request.user.nick_name %></td>
+<td><%= _request.game_name %></td>
+<td><%= _request.genre_info %></td>
+<td><%= _request.required %></td>
+<td><%= _request.info %></td>
+<td><%= l _request.created_at, format: :default %></td>
+<td>
+  <span class="status <%= _request.status %>"><%= _request.status %></span>
+</td>
+<td>
+  <%= render "request_action", _request: _request %>
+</td>

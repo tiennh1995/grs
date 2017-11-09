@@ -1,0 +1,7 @@
+<% requests.each_with_index do |_request, index| %>
+  <tr class="admin-request-<%= _request.id %>">
+    <td><%= index + 1 %></td>
+    <%= render "request", _request: _request %>
+  </tr>
+<% end %>
+<%= paginate requests, theme: "twitter-bootstrap-3" %>
