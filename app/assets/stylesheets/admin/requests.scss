@@ -43,3 +43,13 @@
     }
   }
 }
+
+@media screen and (max-width: 600px) {
+  .admin-request {
+    .container {
+      .btn {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

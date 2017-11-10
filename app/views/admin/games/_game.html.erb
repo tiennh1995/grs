@@ -1,0 +1,10 @@
+<td><%= link_to game.name, [:admin, game] %></td>
+<td>
+  <% game.genres.each do |genre| %>
+    <%= view_genre game.genres, genre %>
+  <% end %>
+</td>
+<td><%= game.reviews.size %></td>
+<td><%= game.rates.size %></td>
+<td><%= game.point %></td>
+<td><%= l game.created_at, format: :default %></td>

@@ -28,5 +28,6 @@ Rails.application.routes.draw do
     root "games#index"
     resources :requests
     resources :users, only: :index
+    resources :games
   end
 end

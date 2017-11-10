@@ -57,10 +57,16 @@
       background-color: #999999;
       border-color: #999999;
     }
+  }
+}
 
-    .btn-request-edit,
-    .btn-request-delete {
-      margin-bottom: 10px;
+@media screen and (max-width: 600px) {
+  .request {
+    .container {
+      .btn-request-edit,
+      .btn-request-delete {
+        margin-bottom: 10px;
+      }
     }
   }
 }

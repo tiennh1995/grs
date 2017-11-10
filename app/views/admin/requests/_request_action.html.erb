@@ -1,17 +1,19 @@
 <% if _request.waiting? %>
-  <button class="btn btn-success">
+  <button class="col-lg-5 col-md-5 col-sm-12 col-xs-12 btn btn-success">
     Accept?
   </button>
 
-  <button class="btn cancel">
+  <div class="col-lg-1 col-md-1"></div>
+
+  <button class="col-lg-5 col-md-5 col-sm-12 col-xs-12 btn cancel">
     Cancel?
   </button>
 <% elsif _request.accepted? %>
-  <button class="btn btn-success">
+  <button class="col-lg-5 col-md-5 col-sm-12 col-xs-12 btn btn-success">
     UnAccept?
   </button>
 <% else %>
-  <button class="btn cancel">
+  <button class="col-lg-5 col-md-5 col-sm-12 col-xs-12 btn cancel">
     UnCancel?
   </button>
 <% end %>

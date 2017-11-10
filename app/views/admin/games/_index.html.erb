@@ -1,0 +1,25 @@
+<div class="admin-game">
+  <div class="container">
+    <h2>All games</h2>
+
+    <div class="table-responsive">
+      <table style="width:100%" class="table table-bordered">
+        <thead class="">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Genres</th>
+            <th>Reviews</th>
+            <th>Rates</th>
+            <th>Point</th>
+            <th>Created at</th>
+          </tr>
+        </thead>
+
+        <tbody id="admin-games-body">
+          <%= render "games", games: @games %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
