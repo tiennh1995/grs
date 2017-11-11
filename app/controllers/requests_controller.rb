@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_request, only: [:edit, :update, :destroy]
+  before_action :load_request, :valid_request, only: [:edit, :update, :destroy]
 
   def index
     status = params[:status]
@@ -44,6 +44,14 @@ class RequestsController < ApplicationController
     unless @request
       flash[:danger] = "Request not exist!"
       redirect_to root_path
+    end
+  end
+
+  def valid_request
+    respond_to do |format|
+      flash[:danger] = "Request invalid!"
+      format.js {render js: "window.location.href =
+        '#{user_requests_path(current_user)}'"}
     end
   end
 end

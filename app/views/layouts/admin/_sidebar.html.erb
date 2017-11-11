@@ -26,6 +26,31 @@
         </ul>
       </li>
 
+      <li class="treeview menu-open">
+        <%= link_to admin_root_path, remote: true do %>
+          <i class="fa fa-th-large" aria-hidden="true"></i>
+          <span>Genres</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        <% end %>
+
+        <ul class="treeview-menu">
+          <li class="active">
+            <%= link_to "#", remote: true do %>
+              <i class="fa fa-list" aria-hidden="true"></i>
+             <span>All genres</span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to "#", remote: true do %>
+              <i class="fa fa-plus-circle" aria-hidden="true"></i>
+              <span>Add new genre</span>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+
       <li class="treeview">
         <%= link_to admin_requests_path, remote: true do %>
           <i class="fa fa-envelope" aria-hidden="true"></i>
