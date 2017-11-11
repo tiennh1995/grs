@@ -2,13 +2,13 @@
   <section class="sidebar admin-sidebar">
     <ul class="sidebar-menu tree" data-widget="tree">
       <li class="treeview menu-open active">
-        <%= link_to admin_root_path, remote: true do %>
+        <a href="#">
           <i class="fa fa-gamepad" aria-hidden="true"></i>
           <span>Games</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
-        <% end %>
+        </a>
 
         <ul class="treeview-menu">
           <li class="active">
@@ -17,6 +17,7 @@
              <span>All games</span>
             <% end %>
           </li>
+
           <li>
             <%= link_to "#", remote: true do %>
               <i class="fa fa-plus-circle" aria-hidden="true"></i>
@@ -27,21 +28,22 @@
       </li>
 
       <li class="treeview menu-open">
-        <%= link_to admin_root_path, remote: true do %>
+        <a href="#">
           <i class="fa fa-th-large" aria-hidden="true"></i>
           <span>Genres</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
-        <% end %>
+        </a>
 
         <ul class="treeview-menu">
           <li class="active">
-            <%= link_to "#", remote: true do %>
+            <%= link_to admin_genres_path, remote: true do %>
               <i class="fa fa-list" aria-hidden="true"></i>
              <span>All genres</span>
             <% end %>
           </li>
+
           <li>
             <%= link_to "#", remote: true do %>
               <i class="fa fa-plus-circle" aria-hidden="true"></i>

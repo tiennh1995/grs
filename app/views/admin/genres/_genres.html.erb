@@ -1,0 +1,7 @@
+<% genres.each_with_index do |genre, index| %>
+  <tr class="admin-genre-<%= genre.id %>">
+    <td><%= index + 1 %></td>
+    <%= render "genre", genre: genre %>
+  </tr>
+<% end %>
+<%= paginate genres, theme: "twitter-bootstrap-3", remote: true %>

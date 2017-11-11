@@ -29,5 +29,6 @@ Rails.application.routes.draw do
     resources :requests
     resources :users, only: :index
     resources :games
+    resources :genres
   end
 end

@@ -1,0 +1,23 @@
+<div class="admin-genre">
+  <div class="container">
+    <h2>All genres</h2>
+
+    <div class="table-responsive">
+      <table style="width:100%" class="table table-bordered">
+        <thead class="">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Code</th>
+            <th>Games</th>
+            <th>Created at</th>
+          </tr>
+        </thead>
+
+        <tbody id="admin-genres-body">
+          <%= render "genres", genres: @genres %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
