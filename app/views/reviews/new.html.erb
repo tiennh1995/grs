@@ -38,8 +38,8 @@
           <label class="rate-label">Rate:</label>
           <% (1..5).each do |i| %>
             <span>
-              <i class="fa fa-star <%= i %> active-star"
-                aria-hidden="true"></i>
+              <i class="fa fa-star <%= i %> active-star" aria-hidden="true"
+                data-id="<%= i %>"></i>
             </span>
           <% end %>
           <%= f.hidden_field :point, value: 5, class: "rate-point" %>
@@ -81,12 +81,12 @@
     });
 
     $('.fa-star').on('mouseover', function() {
-      var index = this.classList[this.classList.length - 1];
-      for (var  i = 1; i <= 5; i++) {
-        $('.fa-star.' + i).css('color', 'black');
+      index = $(this).data('id');
+      for (var i = 1; i <= 5; i++) {
+        $('.fa-star.' + i).removeClass('active-star');
       }
       for (var i = 1; i <= index; i++) {
-        $('.fa-star.' + i).css('color', '#f7db12');
+        $('.fa-star.' + i).addClass('active-star');
       }
       $('.rate-point').val(index);
     });
