@@ -15,7 +15,7 @@ class RequestsController < ApplicationController
   def create
     @request = current_user.requests.new request_params
     if @request.save
-      flash[:success] = "Make request success"
+      flash[:success] = "Make request success."
       redirect_to user_requests_path(current_user)
     end
   end
@@ -25,7 +25,7 @@ class RequestsController < ApplicationController
 
   def update
     if @request.update_attributes request_params
-      flash[:success] = "Update request success"
+      flash[:success] = "Update request success."
       redirect_to user_requests_path(current_user)
     end
   end

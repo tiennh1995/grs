@@ -1,33 +1,33 @@
-<div class="game">
+<div class="admin-game">
   <div class="container">
-    <div class="col-log-8 col-md-8 col-sm-12 col-xs-12 game-show-left">
-      <div class="game-name">
+    <div class="col-log-12 col-md-12 col-sm-12 col-xs-12 admin-game-show">
+      <div class="admin-game-name">
         <h3><%= @game.name %></h3>
         <hr>
       </div>
 
-      <div class="game-cover">
+      <div class="admin-game-cover">
         <%= image_tag @game.cover, class: "img-responsive" %>
       </div>
 
-      <div class="game-genre">
+      <div class="admin-game-genre">
         <p class="genre-title">Genres: </p>
         <% @game.genres.each do |genre| %>
           <%= view_genre @game.genres, genre %>
         <% end %>
       </div>
 
-      <div class="game-rate">
+      <div class="admin-game-rate">
         <p class="rate-title">Rate: </p>
-        <div class="col-md-3 col-lg-3 col-sm-4 col-xs-12 game-rate-left">
+        <div class="col-md-3 col-lg-3 col-sm-4 col-xs-12 admin-game-rate-left">
           <h1><%= @game.avarage_rate %></h1>
-          <div class="game-sum-review">
+          <div class="admin-game-sum-review">
             <i class="fa fa-user" aria-hidden="true"></i>
             Sum: <span><%= @game.reviews.size + @game.rates.size %></span>
           </div>
         </div>
 
-        <div class="col-md-9 col-lg-9 col-sm-8 col-xs-12 game-rate-right">
+        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 admin-game-rate-right">
           <ul>
             <li>
               <i class="fa fa-star" aria-hidden="true">5</i>
@@ -66,26 +66,16 @@
             </li>
           </ul>
         </div>
-        <div class="rate">
-          <%= render "rates/rate_form", game: @game, rate: @rate %>
-        </div>
-
-        <div class="follow">
-          <span><b>Follow:</b><span>
-          <span class="follow-action">
-            <%= render "game_follows/form", game: @game %>
-          </span>
-        </div>
+        <div class="clearfix"></div>
       </div>
 
-      <div class="game-info-tab">
+      <div class="admin-game-info-tab">
         <ul class="nav nav-tabs">
           <li class="active"><a data-toggle="tab"
             href="#information">Information</a>
           </li>
           <li><a data-toggle="tab" href="#require">Require</a></li>
           <li><a data-toggle="tab" href="#screenshot">Screen shots</a></li>
-          <li><a data-toggle="tab" href="#review">Reviews</a></li>
         </ul>
 
         <div class="tab-content">
@@ -109,25 +99,18 @@
               <div class="clearfix"></div>
             </div>
           </div>
-          <div id="review" class="tab-pane fade">
-            <div class="write-review">
-              <%= link_to "Write review", new_game_review_path(@game),
-                data: {no_turbolink: true},
-                class: "btn btn-default btn-review" %>
-              <div class="clearfix"></div>
-            </div>
-            <% @game.reviews.each do |review| %>
-              <hr>
-              <%= render "reviews/mini", review: review %>
-            <% end %>
-          </div>
         </div>
       </div>
       <hr>
-    </div>
-    <div class="col-log-4 col-md-4 col-sm-12 col-xs-12 game-show-right">
-      <%= render "pages/page_right", top_games: @top_games,
-        recent_games: @recent_games %>
+
+      <div class="admin-game-action">
+        <%= link_to "Edit this game", "#", remote: true,
+          class: "btn btn-default" %>
+        <%= link_to "Delete this game", admin_game_path(@game), remote: true,
+          method: :delete, class: "btn btn-danger",
+          data: {confirm: "Are you sure? Delete game: '#{@game.name}'"} %>
+      </div>
+      <hr>
     </div>
   </div>
 </div>

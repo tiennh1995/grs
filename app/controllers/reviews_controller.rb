@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
     @review = current_user.reviews.build review_params
     @review.game = @game
     if @review.save
-      flash[:success] = "Create review success"
+      flash[:success] = "Create review success."
       redirect_to @review
     else
       respond_to do |format|
@@ -41,12 +41,12 @@ class ReviewsController < ApplicationController
 
   def update
     @review.update_attributes(review_params) ? flash[:success] = "Update
-      review success" : flash[:danger] = "Update review fail!"
+      review success." : flash[:danger] = "Update review fail!"
     redirect_to @review
   end
 
   def destroy
-    @review.destroy ? flash[:success] = "Delete review success" :
+    @review.destroy ? flash[:success] = "Delete review success." :
       flash[:danger] = "Delete review fail!"
     redirect_to root_path
   end

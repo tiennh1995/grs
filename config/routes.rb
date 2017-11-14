@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "games#index"
-    resources :requests
+    resources :requests, only: [:index, :update]
     resources :users, only: :index
     resources :games
     resources :genres

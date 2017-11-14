@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes user_params
-      flash[:success] = "Change information success"
+      flash[:success] = "Change information success."
       redirect_to @user
     else
       render :edit
