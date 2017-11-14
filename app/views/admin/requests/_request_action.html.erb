@@ -1,19 +1,4 @@
-<% if _request.waiting? %>
-  <button class="col-lg-5 col-md-5 col-sm-12 col-xs-12 btn btn-success">
-    Accept?
-  </button>
-
-  <div class="col-lg-1 col-md-1"></div>
-
-  <button class="col-lg-5 col-md-5 col-sm-12 col-xs-12 btn cancel">
-    Cancel?
-  </button>
-<% elsif _request.accepted? %>
-  <button class="col-lg-5 col-md-5 col-sm-12 col-xs-12 btn btn-success">
-    UnAccept?
-  </button>
-<% else %>
-  <button class="col-lg-5 col-md-5 col-sm-12 col-xs-12 btn cancel">
-    UnCancel?
-  </button>
-<% end %>
+<div class="request-action request-action-<%= _request.id %>">
+  <%= render "#{_request.status}", _request: _request %>
+  <div class="clearfix"></div>
+</div>
