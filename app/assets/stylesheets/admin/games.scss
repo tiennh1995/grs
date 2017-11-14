@@ -1,5 +1,149 @@
 .admin-game {
   .container {
     background-color: white;
+    padding: 10px 70px;
+
+    .admin-game-list-size {
+      margin-bottom: 10px;
+    }
+
+    .admin-game-list-content {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 5px;
+    }
+  }
+
+  .admin-game-show {
+    padding: 0 10px;
+
+    .admin-game-cover {
+      margin-bottom: 20px;
+    }
+
+    .admin-game-genre {
+      .genre-title {
+        display: inline-block;
+        font-weight: bolder;
+      }
+    }
+
+    .admin-game-rate {
+      .rate-title {
+        font-weight: bolder;
+      }
+
+      .admin-game-rate-left {
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      .admin-game-rate-right {
+        ul {
+          -webkit-padding-start: 10px;
+
+          li {
+            list-style: none;
+            margin-bottom: 5px;
+
+            .fa-star {
+              float: left;
+              line-height: 20px;
+            }
+
+            .fa-star::before {
+              margin-right: 5px;
+            }
+
+            .bar {
+              float: left;
+              line-height: 20px;
+              margin-left: 10px;
+              padding-left: 5px;
+              width: 80%;
+            }
+
+            .bar-5 {
+              background-color: #88b131;
+            }
+
+            .bar-4 {
+              background-color: #99cc00;
+            }
+
+            .bar-3 {
+              background-color: #ffcf02;
+            }
+
+            .bar-2 {
+              background-color: #ff9f02;
+            }
+
+            .bar-1 {
+              background-color: #ff6f31;
+            }
+          }
+        }
+      }
+
+      .rate {
+        margin-bottom: 20px;
+
+        .rate-create {
+          margin-bottom: 10px;
+        }
+
+        .rate-form {
+          display: none;
+        }
+
+        .rate-star {
+          margin-right: 10px;
+
+          .fa-star {
+            cursor: pointer;
+            font-size: 18px;
+            padding: 3px;
+          }
+
+          .active-star {
+            color: #f7db12;
+          }
+        }
+      }
+    }
+
+    .admin-game-info-tab {
+      .tab-content {
+        padding: 5px;
+
+        .tab-pane {
+          .mySlides {
+            margin-bottom: 0px;
+          }
+
+          hr {
+            margin: 10px 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .admin-game {
+    .container {
+      padding: 5px 0px;
+
+      .admin-game-list-content {
+        padding: 5px 0 !important;
+      }
+    }
+  }
+
+  .admin-game-name {
+    .name {
+      font-size: 13px !important;
+    }
   }
 }

@@ -8,7 +8,7 @@ class RatesController < ApplicationController
       @rate.user = current_user
       @rate.game = @game
       if @rate.save
-        flash[:success] = "Rate success"
+        flash[:success] = "Rate success."
         redirect_to @game
       end
     end
@@ -16,7 +16,7 @@ class RatesController < ApplicationController
 
   def update
     if @rate.update_attributes rate_params
-      flash[:success] = "Update rate success"
+      flash[:success] = "Update rate success."
       redirect_to @game
     end
   end
