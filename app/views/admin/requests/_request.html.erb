@@ -5,7 +5,9 @@
 <td><%= _request.info %></td>
 <td><%= l _request.created_at, format: :default %></td>
 <td>
-  <span class="status <%= _request.status %>"><%= _request.status %></span>
+  <span class="status status-<%= _request.id %> <%= _request.status %>">
+    <%= _request.status %>
+  </span>
 </td>
 <td>
   <%= render "request_action", _request: _request %>

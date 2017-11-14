@@ -1,0 +1,13 @@
+<%= form_tag [:admin, _request], method: :patch, remote: true,
+  class: "form-status" do %>
+  <%= hidden_field_tag "request[status]", :accepted, {} %>
+  <%= submit_tag "Accept?",
+    class: "btn btn-success" %>
+<% end %>
+
+<%= form_tag [:admin, _request], method: :patch, remote: true,
+  class: "form-status" do %>
+  <%= hidden_field_tag "request[status]", :cancel, {} %>
+  <%= submit_tag "Cancel?",
+    class: "btn cancel" %>
+<% end %>

@@ -1,0 +1,6 @@
+var id = '<%= @request.id %>';
+var status = '<%= @request.status %>'
+$('.request-action-' + id)
+  .html('<%= j render "#{@request.status}", _request: @request %>');
+$('.status-' + id).attr('class', 'status status-' + id + ' ' + status);
+$('.status-' + id).html('<%= @request.status %>');

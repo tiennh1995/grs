@@ -10,6 +10,14 @@
       }
     }
 
+    .request-action {
+      display: inline-block;
+
+      .form-status {
+        display: inline-block;
+      }
+    }
+
     .status {
       border: 1px solid transparent;
       border-radius: 4px;
