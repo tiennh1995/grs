@@ -1,0 +1,4 @@
+<% unless @genre.errors.any? %>
+  $('.admin-content').html('<%= j render "index" %>');
+  $('.flash').show();
+<% end %>

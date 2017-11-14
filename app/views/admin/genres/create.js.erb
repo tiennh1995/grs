@@ -1,0 +1,4 @@
+<% if @genre.errors.any? %>
+  $('.genre-error').
+    html('<%= j render "shared/error_messages", object: @genre %>');
+<% end %>

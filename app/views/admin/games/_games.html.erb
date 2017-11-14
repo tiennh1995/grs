@@ -1,7 +1,7 @@
 <% games.each_with_index do |game, index| %>
   <tr class="admin-game-<%= game.id %>">
     <td><%= index + 1 %></td>
-    <%= render "game", game: game %>
+    <%= render "admin/games/game", game: game %>
   </tr>
 <% end %>
 <%= paginate games, theme: "twitter-bootstrap-3", remote: true %>

@@ -6,4 +6,5 @@ class Genre < ApplicationRecord
     "%#{genre_name}%"}
 
   validates :name, presence: true
+  validates :code, presence: true
 end
