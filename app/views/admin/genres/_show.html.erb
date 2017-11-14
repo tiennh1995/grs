@@ -1,0 +1,32 @@
+<div class="admin-genre">
+  <div class="container">
+    <h2>Genre: <%= @genre.name %></h2>
+    <h4>Code: <%= @genre.code %></h4>
+    <%= link_to "Edit", edit_admin_genre_path(@genre), remote: true,
+      class: "btn btn-default" %>
+    <%= link_to "Delete", admin_genre_path(@genre), method: :delete,
+      remote: true, data: {confirm: "Are you sure?"},
+      class: "btn btn-danger" %>
+    <hr>
+
+    <div class="table-responsive">
+      <table style="width:100%" class="table table-bordered">
+        <thead class="">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Genres</th>
+            <th>Reviews</th>
+            <th>Rates</th>
+            <th>Point</th>
+            <th>Created at</th>
+          </tr>
+        </thead>
+
+        <tbody id="admin-games-body">
+          <%= render "admin/games/games", games: @games %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

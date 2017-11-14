@@ -1,4 +1,4 @@
-<td><%= link_to genre.name, [:admin, genre] %></td>
+<td><%= link_to genre.name, [:admin, genre], remote: true %></td>
 <td><%= genre.code %></td>
 <td><%= genre.games.size %></td>
 <td><%= l genre.created_at, format: :default %></td>

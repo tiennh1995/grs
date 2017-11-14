@@ -1,8 +1,10 @@
 module ApplicationHelper
   def view_genre genres, genre
     return link_to(genre.code, genre) if genre == genres.last
-    link = link_to genre do
-      genre.code
+    link = if current_user && current_user.admin?
+      link_to genre.code, [:admin, genre]
+    else
+      link_to genre.code, genre
     end
     link += ","
   end
