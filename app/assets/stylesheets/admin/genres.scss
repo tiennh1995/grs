@@ -2,10 +2,23 @@
   .container {
     background-color: white;
   }
+
+  .admin-genre-form {
+    padding: 0 200px;
+  }
 }
 
 .form-genre-modal {
   .field {
     margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .admin-genre {
+    .admin-genre-form {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
   }
 }

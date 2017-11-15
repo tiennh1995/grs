@@ -104,7 +104,7 @@
       <hr>
 
       <div class="admin-game-action">
-        <%= link_to "Edit this game", "#", remote: true,
+        <%= link_to "Edit this game", edit_admin_game_path,
           class: "btn btn-default" %>
         <%= link_to "Delete this game", admin_game_path(@game), remote: true,
           method: :delete, class: "btn btn-danger",

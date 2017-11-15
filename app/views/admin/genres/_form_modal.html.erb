@@ -1,12 +1,15 @@
-<div class="admin-genre form-genre-modal">
-  <div class="container admin-genre-form">
+<div class="modal-dialog form-genre-modal">
+  <div class="modal-content">
     <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">
+        &times;
+      </button>
       <h4 class="modal-title text-center">
         <%= @genre.id? ? "Edit genre" : "New genre" %>
       </h4>
     </div>
     <div class="modal-body">
-      <%= form_for [:admin, @genre] do |f| %>
+      <%= form_for [:admin, @genre], remote: true do |f| %>
         <div class="genre-error">
           <%= render "shared/error_messages", object: @genre %>
         </div>
@@ -24,7 +27,9 @@
         </div>
 
         <div class="actions">
-          <%= link_to "Cancel", [:admin, @genre], class: "btn btn-danger" %>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">
+            Cancel
+          </button>
           <%= f.button "Save", class: "btn btn-primary",
             data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>
             Saving..."} %>

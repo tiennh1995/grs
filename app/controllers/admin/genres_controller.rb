@@ -14,6 +14,11 @@ class Admin::GenresController < Admin::AdminController
     if @genre.save
       flash[:success] = "Create genre success."
       redirect_to [:admin, @genre]
+    else
+      respond_to do |format|
+        format.html {render :new}
+        format.js
+      end
     end
   end
 
@@ -28,12 +33,18 @@ class Admin::GenresController < Admin::AdminController
     if @genre.update_attributes genre_params
       flash[:success] = "Update genre success."
       redirect_to [:admin, @genre]
+    else
+      respond_to do |format|
+        format.html {render :edit}
+        format.js
+      end
     end
   end
 
   def destroy
     if @genre.destroy
       @genres = Genre.all.page(params[:page]).per 2
+      flash[:success] = "Delete game success."
       redirect_to admin_genres_path
     else
       flash[:danger] = "Delete genre fail!"

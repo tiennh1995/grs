@@ -130,6 +130,43 @@
   }
 }
 
+.form-game-modal {
+  min-width: 800px;
+
+  .field {
+    margin-bottom: 10px;
+  }
+
+  .game-cover,
+  .game-cover-field {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .editable-info,
+  .editable-require {
+    height: auto;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .medium-editor-hidden {
+    display: none;
+  }
+
+  .genres-list {
+    .genre-check-box {
+      -webkit-transform: scale(1.2);
+    }
+
+    .genre-name {
+      margin-right: 10px;
+      font-size: 16px;
+      padding: 0 5px;
+    }
+  }
+}
+
 @media screen and (max-width: 600px) {
   .admin-game {
     .container {
@@ -145,5 +182,10 @@
     .name {
       font-size: 13px !important;
     }
+  }
+
+  .form-game-modal {
+    min-width: 0;
+    width: auto !important;
   }
 }
