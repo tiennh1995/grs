@@ -1,0 +1,94 @@
+<div class="admin-game form-game-modal">
+  <div class="container">
+    <div class="modal-header">
+      <h4 class="modal-title text-center">
+        <%= @game.id? ? "Edit game" : "New game" %>
+      </h4>
+    </div>
+    <div class="modal-body">
+      <%= form_for [:admin, @game], multipart: true,
+        authenticity_token: true do |f| %>
+        <div class="game-error">
+          <%= render "shared/error_messages", object: @game %>
+        </div>
+        <div class="field genres-list">
+          <%= f.label :genres, "Genres" %><br />
+          <% @genres.each do |genre| %>
+            <label title="<%= genre.name %>">
+              <%= check_box_tag "genre_ids[]", genre.id,
+                check_genre_list(@game.genres, params[:genre_ids], genre),
+                {class: "genre-check-box"} %>
+              <span class="genre-name"><%= genre.code %></span>
+            </label>
+          <% end %>
+        </div>
+
+        <div class="field">
+          <%= f.label :name, "Name" %><br />
+          <%= f.text_field :name, autofocus: true,
+            placeholder: "Enter name of game", class: "form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :info, "Information" %><br />
+          <%= f.text_area :info, autofocus: true,
+            placeholder: "Enter information of game",
+            class: "editable-info form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :required, "Required" %><br />
+          <%= f.text_area :required, autofocus: true,
+            placeholder: "Enter required of game",
+            class: "editable-require form-control" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :cover, "Cover" %><br />
+          <div class="game-cover-form">
+            <%= image_tag @game.cover_url, class: "img-responsive
+              game-cover" %>
+            <%= f.file_field :cover, class: "game-cover-field" %>
+          </div>
+        </div>
+
+        <div class="actions">
+          <%= link_to "Cancel", [:admin, @game], class: "btn btn-danger" %>
+          <%= f.button "Save", class: "btn btn-primary",
+            data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>
+            Saving..."} %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  var editorInfo = new MediumEditor('.editable-info', {
+    placeholder: {
+      text: 'Enter information of game'
+    }
+  });
+  var editorRequire = new MediumEditor('.editable-require', {
+    placeholder: {
+      text: 'Enter require of game'
+    }
+  });
+  $('.editable-info').mediumInsert({editor: editorInfo,});
+  $('.editable-require').mediumInsert({editor: editorRequire,});
+
+  $('.game-cover-field').change(function(){
+    readURL(this);
+  });
+
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('.game-cover').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>

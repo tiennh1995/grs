@@ -12,14 +12,14 @@
 
         <ul class="treeview-menu">
           <li class="active">
-            <%= link_to "#", remote: true do %>
+            <%= link_to admin_root_path do %>
               <i class="fa fa-list" aria-hidden="true"></i>
              <span>All games</span>
             <% end %>
           </li>
 
           <li>
-            <%= link_to "#", remote: true do %>
+            <%= link_to new_admin_game_path do %>
               <i class="fa fa-plus-circle" aria-hidden="true"></i>
               <span>Add new game</span>
             <% end %>
@@ -38,7 +38,7 @@
 
         <ul class="treeview-menu">
           <li class="active">
-            <%= link_to admin_genres_path, remote: true do %>
+            <%= link_to admin_genres_path do %>
               <i class="fa fa-list" aria-hidden="true"></i>
              <span>All genres</span>
             <% end %>
@@ -54,14 +54,14 @@
       </li>
 
       <li class="treeview">
-        <%= link_to admin_requests_path, remote: true do %>
+        <%= link_to admin_requests_path do %>
           <i class="fa fa-envelope" aria-hidden="true"></i>
           <span>Requests</span>
         <% end %>
       </li>
 
       <li class="treeview">
-        <%= link_to admin_users_path, remote: true do %>
+        <%= link_to admin_users_path do %>
           <i class="glyphicon glyphicon-user"></i>
           <span>Users</span>
         <% end %>

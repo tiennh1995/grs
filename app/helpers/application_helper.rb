@@ -22,4 +22,13 @@ module ApplicationHelper
       reply_comment.content
     end
   end
+
+  def check_genre_list genres, genre_ids, genre
+    if genres.include?(genre) ||
+      (genre_ids && genre_ids.include?(genre.id.to_s))
+      true
+    else
+      false
+    end
+  end
 end

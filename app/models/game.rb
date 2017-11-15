@@ -43,6 +43,22 @@ class Game < ApplicationRecord
     def load_game_with_name game_name
       where "name LIKE ?", "%#{game_name}%"
     end
+
+    def create_game_with_genres game_params, genre_params
+      game = Game.new game_params
+      ActiveRecord::Base.transaction do
+        if game.save
+          genre_params.each do |genre_id|
+            game_genre = game.game_genres.new genre_id: genre_id
+            unless game_genre.save
+              game.errors.add :genre, "invalid!"
+              break
+            end
+          end
+        end
+      end
+      return game
+    end
   end
 
   private
