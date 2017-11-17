@@ -1,7 +1,8 @@
-.admin-game {
+.admin-game,
+.admin-game-index {
   .container {
     background-color: white;
-    padding: 10px 70px;
+    padding: 10px 15%;
 
     .admin-game-list-size {
       margin-bottom: 10px;
@@ -130,6 +131,12 @@
   }
 }
 
+.admin-game-index {
+  .container {
+    padding: 10px 70px;
+  }
+}
+
 .form-game-modal {
   min-width: 800px;
 
@@ -170,7 +177,7 @@
 @media screen and (max-width: 600px) {
   .admin-game {
     .container {
-      padding: 5px 0px;
+      padding: 5px 10px;
 
       .admin-game-list-content {
         padding: 5px 0 !important;
