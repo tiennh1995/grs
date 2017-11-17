@@ -1,0 +1,9 @@
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 screenshot-field">
+  <div class="screenshot-field-content">
+    <%= image_tag f.object.image_url,
+      class: "img-responsive screenshot-image" %>
+    <%= f.file_field :image, class: "screenshot-image-field" %>
+    <%= link_to_remove_fields "<span class='glyphicon glyphicon-minus small'>
+      </span> <small>Remove image</small>", f %>
+  </div>
+</div>

@@ -7,6 +7,12 @@ class Game < ApplicationRecord
   has_many :game_follows, dependent: :destroy
   has_many :users, through: :game_follows, foreign_key: :game_id
 
+  accepts_nested_attributes_for :screenshots, allow_destroy: true,
+    reject_if: ->(attrs) {attrs[:image].blank?}
+
+  accepts_nested_attributes_for :genres, allow_destroy: true,
+    reject_if: ->(attrs) {attrs[:name].blank? || attrs[:code].blank?}
+
   mount_uploader :cover, CoverUploader
 
   validates :name, presence: true

@@ -5,6 +5,6 @@ class Genre < ApplicationRecord
   scope :load_genre_with_name, ->(genre_name){where "name LIKE ?",
     "%#{genre_name}%"}
 
-  validates :name, presence: true
-  validates :code, presence: true
+  validates :name, presence: true, uniqueness: true
+  validates :code, presence: true, uniqueness: true
 end
