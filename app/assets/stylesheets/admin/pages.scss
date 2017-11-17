@@ -42,8 +42,16 @@
     z-index: 11;
   }
 
+  .medium-editor-insert-plugin.medium-editor-placeholder:after {
+    padding: 1em 10px;
+  }
+
   .admin-content-wrapper {
     min-height: calc(100vh - 50px);
+  }
+
+  .admin-content {
+    padding: 5px;
   }
 
   .admin-sidebar {
