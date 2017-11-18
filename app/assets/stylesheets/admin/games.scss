@@ -146,7 +146,7 @@
 
   .game-cover,
   .game-cover-field {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     width: 100%;
   }
 
@@ -172,6 +172,36 @@
       padding: 0 5px;
     }
   }
+
+  .screenshot-field {
+    margin-bottom: 10px;
+    height: 300px;
+
+    .screenshot-field-content {
+      border: 1px solid #ccc;
+      padding: 5px;
+
+      .screenshot-image {
+        margin-bottom: 5px;
+      }
+    }
+
+    .screenshot-image {
+      height: 220px;
+      width: 100%;
+    }
+  }
+
+  .genre-attribute {
+    hr {
+      margin-bottom: 5px;
+      margin-top: 5px;
+    }
+
+    .genre-field {
+      margin-bottom: 5px;
+    }
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -194,5 +224,10 @@
   .form-game-modal {
     min-width: 0;
     width: auto !important;
+
+
+    .genre-field {
+      width: 100%;
+    }
   }
 }

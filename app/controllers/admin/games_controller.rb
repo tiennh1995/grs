@@ -11,14 +11,15 @@ class Admin::GamesController < Admin::AdminController
   end
 
   def create
-    @game = Game.create_game_with_genres game_params, params[:genre_ids]
-    if @game.errors.any?
-      @genres = Genre.all
-      @game.cover = nil
-      render :new
-    else
+    @game = Game.new game_params
+    if @game.save
       flash[:success] = "Create game success."
       redirect_to [:admin, @game]
+    else
+      @genres = Genre.all
+      @game.cover = nil
+      @game.screenshots = []
+      render :new
     end
   end
 
@@ -30,6 +31,13 @@ class Admin::GamesController < Admin::AdminController
   end
 
   def update
+    if @game.update_attributes game_params
+      flash[:success] = "Update game success."
+      redirect_to [:admin, @game]
+    else
+      @genres = Genre.all
+      render :edit
+    end
   end
 
   def destroy
@@ -41,7 +49,9 @@ class Admin::GamesController < Admin::AdminController
 
   private
   def game_params
-    params.require(:game).permit :name, :required, :info, :cover
+    params.require(:game).permit :name, :required, :info, :cover,
+      screenshots_attributes: [:id, :game_id, :image, :_destroy],
+      genres_attributes: [:id, :name, :code, :_destroy]
   end
 
   def load_game

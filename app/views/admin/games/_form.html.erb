@@ -13,14 +13,11 @@
         </div>
         <div class="field genres-list">
           <%= f.label :genres, "Genres" %><br />
-          <% @genres.each do |genre| %>
-            <label title="<%= genre.name %>">
-              <%= check_box_tag "genre_ids[]", genre.id,
-                check_genre_list(@game.genres, params[:genre_ids], genre),
-                {class: "genre-check-box"} %>
-              <span class="genre-name"><%= genre.code %></span>
-            </label>
+          <%= f.fields_for :genres do |builder| %>
+            <%= render "genre_fields", f: builder %>
           <% end %>
+          <%= link_to_add_fields "<span class='glyphicon glyphicon-plus small'>
+            </span> <small>Add more genre</small>", f, :genres %>
         </div>
 
         <div class="field">
@@ -52,6 +49,16 @@
           </div>
         </div>
 
+        <div class="field">
+          <%= f.label :screenshots, "Screen shots" %><br />
+          <%= f.fields_for :screenshots do |builder| %>
+            <%= render "screenshot_fields", f: builder %>
+          <% end %>
+          <%= link_to_add_fields "<span class='glyphicon glyphicon-plus small'>
+            </span> <small>Add more image</small>", f, :screenshots %>
+          <div class="clearfix"></div>
+        </div>
+
         <div class="actions">
           <%= link_to "Cancel", [:admin, @game], class: "btn btn-danger" %>
           <%= f.button "Save", class: "btn btn-primary",
@@ -62,33 +69,3 @@
     </div>
   </div>
 </div>
-
-
-<script>
-  var editorInfo = new MediumEditor('.editable-info', {
-    placeholder: {
-      text: 'Enter information of game'
-    }
-  });
-  var editorRequire = new MediumEditor('.editable-require', {
-    placeholder: {
-      text: 'Enter require of game'
-    }
-  });
-  $('.editable-info').mediumInsert({editor: editorInfo,});
-  $('.editable-require').mediumInsert({editor: editorRequire,});
-
-  $('.game-cover-field').change(function(){
-    readURL(this);
-  });
-
-  function readURL(input) {
-    if (input.files && input.files[0]) {
-      var reader = new FileReader();
-      reader.onload = function (e) {
-        $('.game-cover').attr('src', e.target.result);
-      }
-      reader.readAsDataURL(input.files[0]);
-    }
-  }
-</script>

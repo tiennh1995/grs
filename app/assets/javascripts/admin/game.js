@@ -14,4 +14,76 @@ document.addEventListener('turbolinks:load', function() {
   $('.bar-3').css('width', rateThree + '%');
   $('.bar-2').css('width', rateTwo + '%');
   $('.bar-1').css('width', rateOne + '%');
+
+  var slideIndex = 1;
+  showDivs(slideIndex);
+
+  function plusDivs(n) {
+    showDivs(slideIndex += n);
+  }
+
+  function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    if(x.length) {
+      if (n > x.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = x.length}
+      for (i = 0; i < x.length; i++) {
+         x[i].style.display = "none";
+      }
+      x[slideIndex-1].style.display = "block";
+    }
+  }
+
+  $(document).on('click', '.w3-display-left', function() {
+    plusDivs(-1);
+  });
+
+  $(document).on('click', '.w3-display-right', function() {
+    plusDivs(1);
+  });
+
+  var editorInfo = new MediumEditor('.editable-info', {
+    placeholder: {
+      text: 'Enter information of game'
+    }
+  });
+  var editorRequire = new MediumEditor('.editable-require', {
+    placeholder: {
+      text: 'Enter require of game'
+    }
+  });
+  $('.editable-info').mediumInsert({editor: editorInfo,});
+  $('.editable-require').mediumInsert({editor: editorRequire,});
+
+  $('.game-cover-field').change(function(){
+    readURL(this, $('.game-cover'));
+  });
+
+  $(document).on('change', '.screenshot-image-field', function() {
+    readURL(this, $(this).prev());
+  });
+
+  function readURL(input, image) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        image.attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  $(document).on('click', '.remove_fields', function(event) {
+    $(this).prev('input[type=hidden]').val('1');
+    $(this).parent().parent().hide();
+    event.preventDefault();
+  });
+
+  $('.add_fields').on('click', function(event) {
+    time = new Date().getTime();
+    regexp = new RegExp($(this).data('id'), 'g');
+    $(this).before($(this).data('fields').replace(regexp, time));
+    event.preventDefault();
+  })
 });
