@@ -8,10 +8,34 @@
 
   #to-top {
     background-color: grey;
+    border: 1px solid transparent;
+    border-radius: 4px;
     bottom: 5px;
+    cursor: pointer;
     display: none;
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 0;
+    padding: 6px;
     position: fixed;
     right: 5px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  ::placeholder {
+    color: #999;
+    font-style: italic;
+    font-weight: normal;
+    opacity: 1;
+  }
+
+  .medium-editor-insert-plugin.medium-editor-placeholder:after {
+    color: #999;
+    font-style: italic;
+    font-weight: normal;
+    opacity: 1;
+    padding: 1em 10px;
   }
 
   .pagination {

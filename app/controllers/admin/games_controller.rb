@@ -11,8 +11,7 @@ class Admin::GamesController < Admin::AdminController
   end
 
   def create
-    @game = Game.new game_params
-    if @game.save
+    if @game = Game.create_game_with_genres(game_params, params[:genre_ids])
       flash[:success] = "Create game success."
       redirect_to [:admin, @game]
     else

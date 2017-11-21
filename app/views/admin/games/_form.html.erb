@@ -13,11 +13,22 @@
         </div>
         <div class="field genres-list">
           <%= f.label :genres, "Genres" %><br />
-          <%= f.fields_for :genres do |builder| %>
-            <%= render "genre_fields", f: builder %>
+
+          <% @genres.each do |genre| %>
+            <label title="<%= genre.name %>">
+              <%= check_box_tag "genre_ids[]", genre.id, false,
+                {class: "genre-check-box"} %>
+              <span class="genre-name"><%= genre.code %></span>
+            </label>
           <% end %>
-          <%= link_to_add_fields "<span class='glyphicon glyphicon-plus small'>
-            </span> <small>Add more genre</small>", f, :genres %>
+
+          <div class="">
+            <%= f.fields_for :genres do |builder| %>
+              <%= render "genre_fields", f: builder %>
+            <% end %>
+            <%= link_to_add_fields "<span class='glyphicon glyphicon-plus small'>
+              </span> <small>Add more genre</small>", f, :genres %>
+          </div>
         </div>
 
         <div class="field">

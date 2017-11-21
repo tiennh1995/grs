@@ -1,7 +1,9 @@
 <label class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
   <span class="genre-attribute">
-    <%= f.text_field :code, class: "genre-field" %>
-    <%= f.text_field :name, class: "genre-field" %>
+    <%= f.text_field :code, class: "genre-field form-control",
+      placeholder: "Enter code of genre" %>
+    <%= f.text_field :name, class: "genre-field form-control",
+      placeholder: "Enter name of genre" %>
     <%= link_to_remove_fields "<span class='glyphicon glyphicon-minus small'>
       </span> <small>Remove genre</small>", f %>
     <hr>

@@ -2,7 +2,7 @@ class Admin::GenresController < Admin::AdminController
   before_action :load_genre, except: [:index, :new, :create]
 
   def index
-    @genres = Genre.all.page(params[:page]).per 2
+    @genres = Genre.all.page(params[:page]).per 9
   end
 
   def new

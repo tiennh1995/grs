@@ -3,7 +3,7 @@ document.addEventListener('turbolinks:load', function() {
   for (var i = 0; i < gameCovers.length; i++) {
     var game = gameCovers[i];
     if (game.clientWidth >= 500) {
-      game.className += " exten-cover";
+      game.className += 'exten-cover';
     }
   }
 
@@ -12,13 +12,13 @@ document.addEventListener('turbolinks:load', function() {
   }, 1500);
 
   $(document).on('click', '.top-5', function() {
-    $(this).addClass("active");
-    $('.recent').removeClass("active");
+    $(this).addClass('active');
+    $('.recent').removeClass('active');
     $('.top-5-list').show();
     $('.recent-list').hide();
   }).on('click', '.recent', function() {
-    $(this).addClass(" active");
-    $('.top-5').removeClass("active");
+    $(this).addClass('active');
+    $('.top-5').removeClass('active');
     $('.top-5-list').hide();
     $('.recent-list').show();
   });
@@ -31,22 +31,15 @@ document.addEventListener('turbolinks:load', function() {
   });
 
   //#to-top button appears after scrolling
-  var fixed = false;
   $(document).scroll(function() {
     if ($(this).scrollTop() > 250) {
-      if (!fixed) {
-        fixed = true;
-        $('#to-top').show("slow", function() {
-          $('#to-top').css({position: 'fixed', display: 'block'});
-        });
-      }
+      $('#to-top').show('slow', function() {
+        $('#to-top').css({position: 'fixed', display: 'block'});
+      });
     } else {
-      if (fixed) {
-        fixed = false;
-        $('#to-top').hide("slow", function() {
-          $('#to-top').css({display: 'none'});
-        });
-      }
+      $('#to-top').hide('slow', function() {
+        $('#to-top').css({display: 'none'});
+      });
     }
   });
 });
