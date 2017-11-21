@@ -52,6 +52,15 @@ class Game < ApplicationRecord
 
     def create_game_with_genres game_params, genre_params
       game = Game.new game_params
+      if genre_params.empty? && !game_params[:genres_attributes]
+        game.errors.add :genre, "invalid!"
+        return game
+      end
+
+      info = game_params[:info].gsub /\n/, '<br/>'
+      game_params = game_params.merge! info: info
+      required = game_params[:required].gsub /\n/, '<br/>'
+      game_params = game_params.merge! required: required
       ActiveRecord::Base.transaction do
         if game.save
           genre_params.each do |genre_id|
