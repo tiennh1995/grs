@@ -6,19 +6,25 @@ class Admin::GamesController < Admin::AdminController
   end
 
   def new
-    @game = Game.new
+    @game = if params[:game]
+      @game = Game.new game_params
+    else
+      Game.new
+    end
     @genres = Genre.all
   end
 
   def create
-    if @game = Game.create_game_with_genres(game_params, params[:genre_ids])
-      flash[:success] = "Create game success."
-      redirect_to [:admin, @game]
-    else
+    @game = Game.create_game_with_genres game_params,
+      params[:genre_ids] || []
+    if @game.errors.any?
       @genres = Genre.all
       @game.cover = nil
       @game.screenshots = []
       render :new
+    else
+      flash[:success] = "Create game success."
+      redirect_to [:admin, @game]
     end
   end
 

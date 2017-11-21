@@ -14,6 +14,12 @@ class Admin::RequestsController < Admin::AdminController
         @request.save
       end
       @request.update_attributes request_params
+
+      if @request.accepted?
+        @genres = Genre.all
+        redirect_to new_admin_game_path(game: {name: @request.game_name,
+          required: @request.required, info: @request.info})
+      end
     end
   end
 

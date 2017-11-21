@@ -15,6 +15,8 @@ namespace :db do
     Rake::Task["db:emotitions"].invoke
     puts "**********Create Comment**********"
     Rake::Task["db:comments"].invoke
+    puts "**********Create Request**********"
+    Rake::Task["db:requests"].invoke
   end
 end
 

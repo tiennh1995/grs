@@ -1,8 +1,8 @@
 <td><%= _request.user.nick_name %></td>
 <td><%= _request.game_name %></td>
-<td><%= _request.genre_info %></td>
-<td><%= _request.required %></td>
-<td><%= _request.info %></td>
+<td><%= raw _request.genre_info %></td>
+<td><%= raw _request.required %></td>
+<td><%= raw _request.info %></td>
 <td><%= l _request.created_at, format: :default %></td>
 <td>
   <span class="status status-<%= _request.id %> <%= _request.status %>">

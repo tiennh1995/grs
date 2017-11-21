@@ -12,22 +12,27 @@
           <%= render "shared/error_messages", object: @game %>
         </div>
         <div class="field genres-list">
+          <% genre_ids = (params[:genre_ids]
+            .map(&:to_i) if params[:genre_ids]) || (@game
+            .genres.ids if @game.genres) %>
           <%= f.label :genres, "Genres" %><br />
-
           <% @genres.each do |genre| %>
             <label title="<%= genre.name %>">
-              <%= check_box_tag "genre_ids[]", genre.id, false,
+              <%= check_box_tag "genre_ids[]", genre.id,
+                check_genre_list(genre_ids, genre.id),
                 {class: "genre-check-box"} %>
               <span class="genre-name"><%= genre.code %></span>
             </label>
           <% end %>
 
-          <div class="">
-            <%= f.fields_for :genres do |builder| %>
-              <%= render "genre_fields", f: builder %>
+          <div class="field">
+            <% unless @game.id? %>
+              <%= f.fields_for :genres do |builder| %>
+                <%= render "genre_fields", f: builder %>
+              <% end %>
+              <%= link_to_add_fields "<span class='glyphicon glyphicon-plus
+                small'></span> <small>Add more genre</small>", f, :genres %>
             <% end %>
-            <%= link_to_add_fields "<span class='glyphicon glyphicon-plus small'>
-              </span> <small>Add more genre</small>", f, :genres %>
           </div>
         </div>
 
@@ -41,14 +46,14 @@
           <%= f.label :info, "Information" %><br />
           <%= f.text_area :info, autofocus: true,
             placeholder: "Enter information of game",
-            class: "editable-info form-control" %>
+            class: "form-control game-info" %>
         </div>
 
         <div class="field">
           <%= f.label :required, "Required" %><br />
           <%= f.text_area :required, autofocus: true,
             placeholder: "Enter required of game",
-            class: "editable-require form-control" %>
+            class: "form-control game-require" %>
         </div>
 
         <div class="field">

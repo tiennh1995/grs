@@ -30,13 +30,8 @@ module ApplicationHelper
     end
   end
 
-  def check_genre_list genres, genre_ids, genre
-    if genres.include?(genre) ||
-      (genre_ids && genre_ids.include?(genre.id.to_s))
-      true
-    else
-      false
-    end
+  def check_genre_list genre_ids, genre_id
+    (genre_ids && genre_ids.include?(genre_id)) ? true : false
   end
 
   def link_to_add_fields name, f, association

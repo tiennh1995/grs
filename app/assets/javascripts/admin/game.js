@@ -43,19 +43,6 @@ document.addEventListener('turbolinks:load', function() {
     plusDivs(1);
   });
 
-  var editorInfo = new MediumEditor('.editable-info', {
-    placeholder: {
-      text: 'Enter information of game'
-    }
-  });
-  var editorRequire = new MediumEditor('.editable-require', {
-    placeholder: {
-      text: 'Enter require of game'
-    }
-  });
-  $('.editable-info').mediumInsert({editor: editorInfo,});
-  $('.editable-require').mediumInsert({editor: editorRequire,});
-
   $('.game-cover-field').change(function(){
     readURL(this, $('.game-cover'));
   });
