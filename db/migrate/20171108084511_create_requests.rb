@@ -7,6 +7,7 @@ class CreateRequests < ActiveRecord::Migration[5.0]
       t.integer :status, default: 0
       t.string :required
       t.string :info
+      t.string :reason
 
       t.timestamps
     end

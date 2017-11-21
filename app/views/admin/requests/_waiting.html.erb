@@ -1,13 +1,41 @@
-<%= form_tag [:admin, _request], method: :patch, remote: true,
-  class: "form-status" do %>
-  <%= hidden_field_tag "request[status]", :accepted, {} %>
-  <%= submit_tag "Accept?",
-    class: "btn btn-success" %>
-<% end %>
+<div class="form-status">
+  <%= form_for [:admin, _request], method: :patch, remote: true do |f| %>
+    <%= f.hidden_field :status, value: :accepted %>
+    <%= f.submit "Accept?", class: "btn btn-success" %>
+  <% end %>
+</div>
+<div class="form-status">
+  <div data-toggle="modal" data-target="#form-request-cancel" class="btn cancel">
+    Cancel?
+  </div>
+</div>
 
-<%= form_tag [:admin, _request], method: :patch, remote: true,
-  class: "form-status" do %>
-  <%= hidden_field_tag "request[status]", :cancel, {} %>
-  <%= submit_tag "Cancel?",
-    class: "btn cancel" %>
-<% end %>
+<div id="form-request-cancel" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+        <h4 class="modal-title">Write reason to cancel this request</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for [:admin, _request], method: :patch, remote: true,
+          class: "form-status" do |f| %>
+          <div class="field">
+            <%= f.hidden_field :status, value: :cancel %>
+            <%= f.text_area :reason, placeholder: "Enter your reason",
+              class: "form-control request-reason" %>
+          </div>
+
+          <div class="actions">
+            <button class="btn btn-default" data-dismiss="modal">
+              Cancel
+            </button>
+            <%= f.submit "Submit", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
