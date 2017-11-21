@@ -42,7 +42,18 @@
     z-index: 11;
   }
 
+  ::placeholder {
+    color: #999;
+    font-style: italic;
+    font-weight: normal;
+    opacity: 1;
+  }
+
   .medium-editor-insert-plugin.medium-editor-placeholder:after {
+    color: #999;
+    font-style: italic;
+    font-weight: normal;
+    opacity: 1;
     padding: 1em 10px;
   }
 
