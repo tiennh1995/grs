@@ -9,13 +9,17 @@ class Admin::RequestsController < Admin::AdminController
 
   def update
     if Request.statuses.include? request_params[:status]
+      if @request.cancel? && request_params[:status] != "cancel"
+        @request.reason = ""
+        @request.save
+      end
       @request.update_attributes request_params
     end
   end
 
   private
   def request_params
-    params.require(:request).permit :status
+    params.require(:request).permit :status, :reason
   end
 
   def load_request

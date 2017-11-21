@@ -9,6 +9,7 @@
     <td>
       <span class="status <%= _request.status %>"><%= _request.status %></span>
     </td>
+    <td><%= _request.reason %></td>
     <td>
       <% if _request.waiting? %>
         <%= link_to "Edit", edit_user_request_path(current_user, _request),

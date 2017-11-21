@@ -1,7 +1,5 @@
-<%= form_tag [:admin, _request], method: :patch, remote: true,
-  class: "form-status" do %>
-  <%= hidden_field_tag "request[status]", :waiting, {} %>
-  <%= submit_tag "UnCancel?",
-    class: "btn cancel" %>
+<%= form_for [:admin, _request], method: :patch, remote: true,
+  class: "form-status" do |f| %>
+  <%= f.hidden_field :status, value: :waiting %>
+  <%= f.submit "UnCancel?", class: "btn cancel" %>
 <% end %>
-
