@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
   before_action :load_game, only: [:new, :create]
   before_action :load_review, except: [:index, :new, :create]
   before_action :load_popular_games, only: [:index, :show]
+  before_action :check_reviewed?, only: [:new, :create]
 
   def index
     @reviews = current_user.invole_reviews.includes(:comments, :game)
@@ -69,6 +70,13 @@ class ReviewsController < ApplicationController
     unless @review
       flash[:danger] = "Review not exist!"
       redirect_to root_path
+    end
+  end
+
+  def check_reviewed?
+    if current_user.reviewed?(@game)
+      flash[:danger] = "The game is reviewed!"
+      redirect_to @game
     end
   end
 end

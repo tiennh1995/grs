@@ -48,6 +48,10 @@ class User < ApplicationRecord
     game_follows.find_by game: game
   end
 
+  def reviewed? game
+    reviews.find_by game: game
+  end
+
   def all_game
     Game.all
   end
