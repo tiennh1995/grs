@@ -110,14 +110,16 @@
             </div>
           </div>
           <div id="review" class="tab-pane fade">
-            <div class="write-review">
-              <%= link_to "Write review", new_game_review_path(@game),
-                data: {no_turbolink: true},
-                class: "btn btn-default btn-review" %>
-              <div class="clearfix"></div>
-            </div>
-            <% @game.reviews.each do |review| %>
+            <% unless current_user && current_user.reviewed?(@game) %>
+              <div class="write-review">
+                <%= link_to "Write review", new_game_review_path(@game),
+                  data: {no_turbolink: true},
+                  class: "btn btn-default btn-review" %>
+                <div class="clearfix"></div>
+              </div>
               <hr>
+            <% end %>
+            <% @game.reviews.each do |review| %>
               <%= render "reviews/mini", review: review %>
             <% end %>
           </div>
