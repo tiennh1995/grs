@@ -3,7 +3,7 @@ document.addEventListener('turbolinks:load', function() {
   for (var i = 0; i < gameCovers.length; i++) {
     var game = gameCovers[i];
     if (game.clientWidth >= 500) {
-      game.className += 'exten-cover';
+      game.className += ' exten-cover';
     }
   }
 

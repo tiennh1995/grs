@@ -9,7 +9,7 @@
     <%= _request.status %>
   </span>
 </td>
-<td><%= _request.reason %></td>
+<td class="request-reason-<%= _request.id %>"><%= _request.reason %></td>
 <td>
   <%= render "request_action", _request: _request %>
 </td>

@@ -5,3 +5,4 @@ $('.request-action-' + id)
   .html('<%= j render "#{@request.status}", _request: @request %>');
 $('.status-' + id).attr('class', 'status status-' + id + ' ' + status);
 $('.status-' + id).html('<%= @request.status %>');
+$('.request-reason-' + id).html('<%= @request.reason %>');
