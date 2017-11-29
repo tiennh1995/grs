@@ -11,6 +11,6 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    "#{model.sex}.png"
+    model.provider.present? ? model.avatar_cloud : "#{model.sex}.png"
   end
 end

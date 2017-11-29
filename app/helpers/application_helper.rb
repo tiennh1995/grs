@@ -48,4 +48,9 @@ module ApplicationHelper
     f.hidden_field(:_destroy) + link_to(name.html_safe, "#",
       class: "remove_fields")
   end
+
+  def set_btn_provider provider
+    provider = "google" if provider == :google_oauth2
+    provider
+  end
 end

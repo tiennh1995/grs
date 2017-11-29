@@ -23,6 +23,9 @@ gem "mini_magick", "3.8.0"
 gem "kaminari"
 gem "config"
 gem "bootstrap-kaminari-views"
+gem "omniauth"
+gem "omniauth-google-oauth2"
+gem "omniauth-facebook"
 
 source "https://rails-assets.org/" do
   gem "rails-assets-adminlte"

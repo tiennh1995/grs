@@ -26,9 +26,21 @@
           <% end -%>
 
           <div class="actions">
-            <%= f.button "Log in", class: "btn btn-block btn-primary",
-              data: {disable_with: "<i class='fa fa-spinner fa-spin'></i>
-              Log in..."} %>
+            <%= f.button "Log in", class: "btn btn-block btn-primary
+              btn-login", data: {disable_with:
+              "<i class='fa fa-spinner fa-spin'></i>Log in..."} %>
+
+            <div class="form-group">
+              <% if devise_mapping.omniauthable? %>
+                <% resource_class.omniauth_providers.each do |provider| %>
+                  <%= link_to omniauth_authorize_path(resource_name, provider),
+                    class: "btn btn-#{set_btn_provider provider}" do %>
+                    <i class="fa fa-<%= set_btn_provider provider %>"></i>
+                    <%= set_btn_provider(provider).capitalize %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
           </div>
         <% end %>
         <hr>
