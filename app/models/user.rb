@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable,
+    :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook,
+    :google_oauth2]
 
   has_many :comments, dependent: :destroy
   has_many :reply_comments, dependent: :destroy
@@ -62,5 +63,19 @@ class User < ApplicationRecord
 
   def unfollow
     Game.where.not id: game_follows.pluck(:game_id)
+  end
+
+  class << self
+    def from_omniauth auth
+      email = auth.provider + "_" + auth.info.email
+      user = where(email: email, provider: auth.provider).first
+      unless user
+        user = User.new provider: auth.provider, email: email,
+          password: Devise.friendly_token[0,20], nick_name: auth.info.name,
+          avatar_cloud: auth.info.image
+        user.save
+      end
+      user
+    end
   end
 end
