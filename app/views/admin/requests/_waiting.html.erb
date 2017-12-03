@@ -5,12 +5,13 @@
   <% end %>
 </div>
 <div class="form-status">
-  <div data-toggle="modal" data-target="#form-request-cancel" class="btn cancel">
+  <div data-toggle="modal"
+    data-target="#form-request-cancel-<%= _request.id %>" class="btn cancel">
     Cancel?
   </div>
 </div>
 
-<div id="form-request-cancel" class="modal fade" role="dialog">
+<div id="form-request-cancel-<%= _request.id %>" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
