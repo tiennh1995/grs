@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = current_user.invole_reviews.includes(:comments, :game)
-      .page(params[:page]).per 5
+      .order(created_at: :desc).page(params[:page]).per 5
   end
 
   def new

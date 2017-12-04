@@ -13,14 +13,14 @@
     <td>
       <% if _request.waiting? %>
         <%= link_to "Edit", edit_user_request_path(current_user, _request),
-          remote: true, class: "btn btn-default col-lg-5 col-md-5 col-sm-12
+          remote: true, class: "btn btn-default col-lg-12 col-md-12 col-sm-12
           col-xs-12 btn-request-edit" %>
 
-        <div class="col-lg-1 col-md-1"></div>
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
 
         <%= link_to "Delete", user_request_path(current_user, _request),
           method: :delete, remote: true, data: {confirm: "Are you sure?"},
-          class: "btn btn-danger col-md-5 col-sm-12 col-xs-12
+          class: "btn btn-danger col-lg-12 col-md-12 col-sm-12 col-xs-12
           btn-request-delete" %>
       <% end %>
     </td>
