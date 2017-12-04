@@ -3,6 +3,6 @@ class PagesController < ApplicationController
 
   def show
     @reviews = Review.top_reviews.includes(:comments, :game)
-      .page(params[:page]).per 5
+      .order(created_at: :desc).page(params[:page]).per 5
   end
 end
